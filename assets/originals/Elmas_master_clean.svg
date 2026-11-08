@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="430" viewBox="270 160 1580 430" role="img" aria-labelledby="title desc">
+<title id="title">Elma's</title><desc id="desc">Clean geometric green Elma's wordmark with a three-line E</desc>
+<g fill="none" stroke="#087C0B" stroke-width="25" stroke-linecap="butt" stroke-linejoin="miter">
+<!-- Three balanced bars forming E -->
+<path d="M323 246 H531 M323 343 H531 M323 486 H531"/>
+<!-- L -->
+<path d="M608 246 V486 H786"/>
+<!-- M -->
+<path d="M843 486 V246 L983 438 L1122 246 V486"/>
+<!-- A, deliberately open at the baseline -->
+<path d="M1190 486 L1329 246 L1467 486"/>
+<!-- Apostrophe -->
+<path d="M1497 246 V313"/>
+<!-- S as two continuous, smooth cubic arcs -->
+<path d="M1777 265 C1725 231 1639 230 1597 263 C1548 302 1583 340 1664 363 L1717 379 C1810 406 1793 470 1734 488 C1674 508 1612 486 1560 448"/>
+</g></svg>

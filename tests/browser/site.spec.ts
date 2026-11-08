@@ -1,0 +1,21 @@
+import {test,expect} from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+const paths=['/','/products','/products/bsfl-protein','/products/bsfl-frass','/products/vermicompost','/about','/sustainability','/contact','/request-quote','/privacy'];
+for(const width of [390,1440]){
+ test(`pages, navigation, overflow and accessibility at ${width}px`,async({page})=>{await page.setViewportSize({width,height:900});for(const path of paths){const res=await page.goto(path);expect(res?.status()).toBe(200);await expect(page.locator('h1')).toHaveCount(1);await expect(page.getByText('Image file awaiting import')).toHaveCount(0);await page.locator('img').evaluateAll(async images=>{await Promise.all(images.map(async img=>{if(!(img instanceof HTMLImageElement))throw new Error('Expected image element');img.loading='eager';await img.decode();}));});if(path==='/')await page.screenshot({path:`test-results/home-${width}.png`,fullPage:true});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(result.violations).toEqual([]);}await page.goto('/');if(width===390){await page.getByRole('button',{name:'Menu'}).click();await expect(page.getByRole('navigation')).toBeVisible();}await page.getByRole('navigation').getByRole('link',{name:'Our products'}).click();await expect(page).toHaveURL('/products');});
+}
+test('product-specific quote and honest disabled delivery state',async({page})=>{await page.goto('/products/bsfl-frass');await page.getByRole('main').getByRole('link',{name:'Request a Quote'}).first().click();await expect(page.locator('#product')).toHaveValue('bsfl-frass');await expect(page.getByRole('button',{name:'Send quote request'})).toBeDisabled();await expect(page.getByText('Online messages are not available yet.')).toBeVisible();});
+test('server validates, protects origins and never fakes email delivery',async({request})=>{const headers={origin:'https://elmasbio.com'};const valid={kind:'contact',name:'Test Person',email:'person@example.com',message:'Please share information.',consent:true};const invalid=await request.post('/api/inquiries',{headers,data:{...valid,consent:false}});expect(invalid.status()).toBe(400);const cross=await request.post('/api/inquiries',{headers:{origin:'https://other.example'},data:valid});expect(cross.status()).toBe(403);const unavailable=await request.post('/api/inquiries',{headers,data:valid});expect(unavailable.status()).toBe(503);expect((await unavailable.json()).message).toContain('has not been sent');const bot=await request.post('/api/inquiries',{headers,data:{...valid,website:'bot'}});expect(bot.status()).toBe(400);const huge=await request.post('/api/inquiries',{headers,data:{...valid,message:'x'.repeat(21000)}});expect(huge.status()).toBe(413);});
+test('unknown product returns 404 and confirmed domain appears in SEO',async({page,request})=>{expect((await page.goto('/products/unknown'))?.status()).toBe(404);const robots=await request.get('/robots.txt');expect(await robots.text()).toContain('Sitemap: https://elmasbio.com/sitemap.xml');await page.goto('/products/bsfl-frass');await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href','https://elmasbio.com/products/bsfl-frass');const sitemap=await request.get('/sitemap.xml');expect(await sitemap.text()).toContain('https://elmasbio.com/products/bsfl-frass');});
+
+test('confirmed business contacts and product-specific WhatsApp links',async({page})=>{
+ await page.goto('/contact');
+ await expect(page.getByRole('main').getByRole('link',{name:'ferasmonther@elmasbio.com'})).toHaveAttribute('href','mailto:ferasmonther@elmasbio.com');
+ const general=page.getByRole('main').getByRole('link',{name:'Chat on WhatsApp'});
+ expect(new URL((await general.getAttribute('href'))!).pathname).toBe('/96170988141');
+ await page.goto('/products/bsfl-frass');
+ const specific=page.getByRole('main').getByRole('link',{name:'Ask on WhatsApp'});
+ const url=new URL((await specific.getAttribute('href'))!);
+ expect(url.hostname).toBe('wa.me');expect(url.pathname).toBe('/96170988141');expect(url.searchParams.get('text')).toContain('BSFL Frass');
+ await expect(page.getByRole('link',{name:'WhatsApp',exact:false}).last()).toHaveAttribute('target','_blank');
+});
