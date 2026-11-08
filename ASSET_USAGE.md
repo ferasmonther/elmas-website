@@ -11,7 +11,7 @@ All ten photographs in `websitepix.zip` were inspected visually. All originals r
 | picture (9).png | trays.webp | Optimized reserve: production tray overview. |
 | picture (10).png | handling.webp | Optimized reserve: gloved worker tending larvae trays. |
 | picture (11).png | larvae.webp | BSFL protein card/detail. Gloved hand handling larvae. |
-| picture (12).png | facility.webp | Home about section and About main image. Worker tending facility trays. |
+| picture (12).png | facility.webp | About main image. Worker tending facility trays. |
 | picture (13).png | tray-work.webp | Optimized reserve: worker carrying a production tray. |
 | picture (14).png | substrate.webp | Optimized reserve: overhead larvae/substrate handling; exact substrate not verified. |
 | picture (15).png | enclosure.webp | Optimized reserve: adult fly enclosure overview. |

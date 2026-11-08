@@ -23,3 +23,7 @@ Configured SITE_URL=https://elmasbio.com in .env.local and .env.example. Lint, T
 ## GitHub handoff verification
 
 Before uploading the review branch, lint, production build, six unit tests and all six browser tests passed. Browser tests ran against a fresh production server. The typecheck command now generates Next.js route types before checking TypeScript so it also works before the first build in a new checkout. Private .env.local settings, installed dependencies, generated builds and screenshots are excluded from Git.
+
+## Shorter homepage
+
+Replaced the long homepage with a shorter hero, compact product cards and a brief company introduction with About, Our Approach and quotation links. Full product and company detail pages remain available. At a 900px viewport height, measured document height decreased from 4520px to 1938px at 1440px width (57% less scrolling), and from 6458px to 2258px at 390px width (65% less). The page also fits 320px width without horizontal overflow. Lint, route type generation, TypeScript, production build and all six existing browser checks passed.
