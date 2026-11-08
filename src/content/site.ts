@@ -2,6 +2,7 @@ export type Product = {
   slug: string;
   name: string;
   category: string;
+  primary?: boolean;
   summary: string;
   description: string;
   buyers: string[];
@@ -16,31 +17,36 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: 'bsfl-protein',
-    name: 'BSFL Protein',
-    category: 'Insect protein',
-    summary: 'Larvae-based protein for feed formulation and animal nutrition discussions.',
+    name: 'BSFL Larvae',
+    primary: true,
+    category: 'Chicken & fish feed',
+    summary: 'Black Soldier Fly larvae for chicken and fish feeding applications.',
     description:
-      'Black Soldier Fly larvae turn suitable organic resources into insect biomass. Elma’s develops larvae-based protein products for potential inclusion in formulated animal feeds. Harvesting and processing depend on the intended product and application; contact us to discuss current availability and specifications.',
-    buyers: ['Feed manufacturers', 'Poultry businesses', 'Aquaculture and livestock businesses'],
+      'Black Soldier Fly larvae are Elma’s primary product, produced in Lebanon for poultry and aquaculture feed applications. Our focus is on chicken farms, fish farms and feed manufacturers. Discuss your animals, feeding approach and required quantities with us so we can confirm a suitable product format and current specifications.',
+    buyers: [
+      'Chicken and poultry farms',
+      'Fish farms and aquaculture businesses',
+      'Feed manufacturers and distributors',
+    ],
     applications: [
-      'Explore insect-derived ingredients for feed formulation.',
-      'Discuss suitability with your nutritionist and our team.',
-      'Request current formats, availability and technical documentation.',
+      'Discuss BSFL larvae for chicken and poultry feeding.',
+      'Explore fish feeding and aquaculture feed applications.',
+      'Confirm the product format and feeding approach with your nutritionist and our team.',
     ],
     note: 'Suitability depends on the species, formulation and applicable requirements. No universal inclusion rate or performance outcome is implied.',
     image: 'larvae',
     seoDescription:
-      'Explore Black Soldier Fly larvae protein from Elma’s in Lebanon for feed formulation. Ask about current formats, suitability, availability and specifications.',
+      'Black Soldier Fly larvae from Elma’s in Lebanon for chicken and fish feed applications. Request current formats, suitability, availability and specifications.',
     inquiryDetails: [
-      'Animal species, production stage and intended feed application',
+      'Chicken or fish species, life stage and intended feeding approach',
       'Required quantity, preferred format and order frequency',
       'Delivery location and any technical documentation you need',
     ],
     faq: [
       {
-        question: 'Can BSFL protein be used in any animal feed?',
+        question: 'Can BSFL larvae be used for chickens and fish?',
         answer:
-          'Suitability depends on the animal species, processing, formulation and applicable requirements. Discuss the intended application with a qualified nutritionist and request current specifications before use.',
+          'BSFL larvae are used in poultry and aquaculture feeding applications. The suitable format and feeding approach depend on the species, life stage, overall diet and applicable requirements. Discuss your animals with our team and a qualified nutritionist; no universal feeding rate or performance result is promised.',
       },
       {
         question: 'What product formats and quantities are available?',

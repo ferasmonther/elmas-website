@@ -4,8 +4,8 @@ import { ProductCards } from '@/components/Shared';
 import { seo } from '@/lib/seo';
 
 export const metadata = seo(
-  'BSFL Protein & Organic Fertilizers in Lebanon',
-  'Sustainable insect protein and organic fertilizers made in Lebanon. Discover BSFL protein, frass and vermicompost from Elma’s.',
+  'BSFL Larvae for Chicken & Fish Feed in Lebanon',
+  'Elma’s produces Black Soldier Fly larvae in Lebanon for chicken and fish feed applications, with BSFL frass and vermicompost as complementary soil inputs.',
   '/',
 );
 
@@ -13,25 +13,24 @@ export default function Home() {
   return (
     <div className="homepage">
       <section className="hero">
-        <Media image="application" priority className="hero-media" sizes="100vw" fit="cover" />
+        <Media image="larvae" priority className="hero-media" sizes="100vw" fit="cover" />
         <div className="hero-shade" />
         <div className="wrap hero-content">
-          <div className="eyebrow">ROOTED IN LEBANON. MADE FOR AGRICULTURE.</div>
+          <div className="eyebrow">TURNING WASTE INTO VALUE · LEBANON</div>
           <h1>
-            Turning Waste
+            BSFL larvae
             <br />
-            Into <em>Value.</em>
+            for <em>chickens &amp; fish.</em>
           </h1>
           <p>
-            BSFL protein, frass and vermicompost, made in Lebanon.
-            <br />
-            Practical inputs for feed formulation and soil management.
+            Black Soldier Fly larvae, produced in Lebanon for poultry and aquaculture feed
+            applications.
           </p>
           <div className="actions">
-            <Link className="button light" href="/products">
-              Explore Products <span aria-hidden>→</span>
+            <Link className="button light" href="/products/bsfl-protein">
+              Explore BSFL Larvae <span aria-hidden>→</span>
             </Link>
-            <Link className="button outline" href="/request-quote">
+            <Link className="button outline" href="/request-quote?product=bsfl-protein">
               Request a Quote
             </Link>
           </div>
@@ -42,13 +41,13 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <div className="eyebrow">OUR PRODUCTS</div>
-            <h2>Three products. One purpose.</h2>
+            <h2>Larvae at the heart of what we do.</h2>
           </div>
           <Link className="text-link" href="/products">
             View all products <span aria-hidden>→</span>
           </Link>
         </div>
-        <ProductCards compact />
+        <ProductCards compact focusPrimary />
       </section>
 
       <section className="home-about">
@@ -57,8 +56,8 @@ export default function Home() {
             <div className="eyebrow">MEET ELMA’S</div>
             <h2>Rooted in Lebanon.</h2>
             <p>
-              We turn suitable organic resources into insect protein and organic soil inputs, with a
-              hands-on focus on agriculture.
+              Our focus is BSFL larvae for chicken and fish feed. Frass and vermicompost are
+              complementary soil inputs within our circular approach.
             </p>
             <div className="home-about-links">
               <Link className="text-link" href="/about">

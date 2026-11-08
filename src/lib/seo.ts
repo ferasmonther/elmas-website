@@ -1,15 +1,21 @@
 import type { Metadata } from 'next';
 import { siteUrl } from './config';
+import { images, type ImageKey } from '@/content/site';
 
-export function seo(title: string, description: string, path: string): Metadata {
+export function seo(
+  title: string,
+  description: string,
+  path: string,
+  image: ImageKey = 'larvae',
+): Metadata {
   const origin = siteUrl();
   const socialImage = origin
     ? [
         {
-          url: `${origin}/assets/photos/application.webp`,
+          url: `${origin}/assets/photos/${images[image].file}`,
           width: 1920,
           height: 1080,
-          alt: 'Organic material being applied among green plants at Elma’s',
+          alt: images[image].alt,
         },
       ]
     : undefined;

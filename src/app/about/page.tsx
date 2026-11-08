@@ -10,8 +10,8 @@ export default function About() {
   return (
     <>
       <Intro tag="ABOUT ELMA’S" title="Rooted here. Looking ahead.">
-        We’re a Lebanon-based agritech company turning suitable organic resources into insect
-        protein and organic soil inputs for agricultural businesses.
+        We’re a Lebanon-based agritech company focused on Black Soldier Fly larvae for chicken and
+        fish feed applications, alongside complementary organic soil inputs.
       </Intro>
       <section className="wrap about-split section">
         <Media image="facility" priority caption />
@@ -27,8 +27,8 @@ export default function About() {
             practical protein source for animal feed, while supporting organic resource recovery.
           </p>
           <p>
-            Alongside BSFL protein, we offer distinct soil input product lines: BSFL frass and
-            vermicompost. Each has its own production process and potential applications.
+            Alongside our core BSFL larvae product, we offer distinct soil input product lines: BSFL
+            frass and vermicompost. Each has its own production process and potential applications.
           </p>
         </div>
       </section>

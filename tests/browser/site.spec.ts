@@ -121,3 +121,26 @@ test('confirmed business contacts and product-specific WhatsApp links', async ({
     '_blank',
   );
 });
+
+test('homepage prioritizes larvae and routes feed inquiries to the main product', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('BSFL larvae');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('chickens & fish');
+  await expect(page.locator('.hero img')).toHaveAttribute('alt', /larvae/);
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /larvae.webp/);
+  await expect(
+    page.locator('.product-card--primary').getByRole('heading', { name: 'BSFL Larvae' }),
+  ).toBeVisible();
+  await page
+    .locator('.hero')
+    .getByRole('link', { name: 'Explore BSFL Larvae', exact: false })
+    .click();
+  await expect(page).toHaveURL('/products/bsfl-protein');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('BSFL Larvae');
+  await page.goto('/');
+  await page.locator('.hero').getByRole('link', { name: 'Request a Quote' }).click();
+  await expect(page.locator('#product')).toHaveValue('bsfl-protein');
+  await expect(page.locator('#product option:checked')).toHaveText('BSFL Larvae');
+});

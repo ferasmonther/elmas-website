@@ -8,7 +8,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: { default: 'Elma’s | Turning Waste Into Value', template: '%s | Elma’s' },
   description:
-    'Locally produced insect protein and organic soil inputs. Explore BSFL protein, BSFL frass and vermicompost from Elma’s in Lebanon.',
+    'Black Soldier Fly larvae for chicken and fish feed applications, produced in Lebanon. Discover Elma’s core larvae offering and complementary soil inputs.',
   ...(siteUrl() ? { metadataBase: new URL(siteUrl()!) } : {}),
   robots: siteUrl() ? { index: true, follow: true } : { index: false, follow: false },
 };
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Image src="/assets/logo/elmas-logo.svg" alt="Elma’s" width={168} height={46} />
               <p>Turning Waste Into Value</p>
               <small>
-                Insect protein. Organic soil inputs.
+                BSFL larvae. Poultry & aquaculture.
                 <br />
                 Rooted in Lebanon.
               </small>

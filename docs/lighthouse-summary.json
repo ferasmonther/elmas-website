@@ -1,6 +1,6 @@
 {
   "tool": "Lighthouse 13.6.0",
-  "scope": "Single local production-server mobile lab run; not live field Core Web Vitals or a ranking guarantee",
+  "scope": "Historical local lab run from the preceding SEO/layout review (5daf34b), before the subsequent BSFL larvae priority changes; not current field Core Web Vitals or a ranking guarantee",
   "formFactor": "mobile",
   "scores": {
     "performance": 95,
@@ -12,7 +12,7 @@
     "largest-contentful-paint": {
       "value": 2528.601125,
       "unit": "millisecond",
-      "display": "2.5 s"
+      "display": "2.5\u00a0s"
     },
     "cumulative-layout-shift": {
       "value": 0,
@@ -22,7 +22,7 @@
     "total-blocking-time": {
       "value": 178.50000000000023,
       "unit": "millisecond",
-      "display": "180 ms"
+      "display": "180\u00a0ms"
     }
   },
   "browserConsoleErrors": []

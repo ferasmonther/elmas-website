@@ -1,39 +1,47 @@
 import Link from 'next/link';
 import { products } from '@/content/site';
 import { Media } from './Media';
-export function ProductCards({ compact = false }: { compact?: boolean } = {}) {
+export function ProductCards({
+  compact = false,
+  focusPrimary = false,
+}: { compact?: boolean; focusPrimary?: boolean } = {}) {
   return (
-    <div className="product-grid">
+    <div className={`product-grid${focusPrimary ? ' product-grid--primary' : ''}`}>
       {products.map((p, i) => (
-        <article className="product-card" key={p.slug}>
-          <Link href={`/products/${p.slug}`} aria-label={`Explore ${p.name}`}>
-            <Media
-              image={p.image}
-              fit="contain"
-              caption={!compact}
-              sizes={
-                compact
-                  ? '(max-width: 760px) 124px, (max-width: 1440px) 30vw, 416px'
-                  : '(max-width: 760px) calc(100vw - 40px), (max-width: 1440px) 30vw, 416px'
-              }
-            />
-          </Link>
+        <article
+          className={`product-card${p.primary ? ' product-card--primary' : ''}`}
+          key={p.slug}
+        >
+          {(!compact || p.primary) && (
+            <Link href={`/products/${p.slug}`} aria-label={`Explore ${p.name}`}>
+              <Media
+                image={p.image}
+                fit="contain"
+                caption={!compact}
+                sizes={
+                  compact
+                    ? '(max-width: 760px) 124px, (max-width: 1440px) 30vw, 416px'
+                    : '(max-width: 760px) calc(100vw - 40px), (max-width: 1440px) 30vw, 416px'
+                }
+              />
+            </Link>
+          )}
           <div className="card-copy">
             <div className="eyebrow">
-              0{i + 1} / {p.category}
+              {p.primary ? 'OUR MAIN PRODUCT' : `0${i + 1} / ${p.category}`}
             </div>
             <h3>
               <Link href={`/products/${p.slug}`}>{p.name}</Link>
             </h3>
             <p>{p.summary}</p>
-            {compact && p.slug !== 'bsfl-protein' && (
+            {compact && !focusPrimary && p.slug !== 'bsfl-protein' && (
               <small className="photo-context">Agricultural context photo</small>
             )}
             <div className="card-actions">
               <Link className="text-link" href={`/products/${p.slug}`}>
                 Explore product <span aria-hidden>→</span>
               </Link>
-              {!compact && (
+              {(!compact || (focusPrimary && p.primary)) && (
                 <Link className="quote-link" href={`/request-quote?product=${p.slug}`}>
                   Request a Quote
                 </Link>

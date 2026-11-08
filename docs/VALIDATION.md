@@ -33,3 +33,9 @@ Replaced the long homepage with a shorter hero, compact product cards and a brie
 See [SEO_AND_PHOTO_REVIEW.md](SEO_AND_PHOTO_REVIEW.md) for the current screenshots, remaining product-photo needs and local Lighthouse results (95 performance, 100 accessibility, 100 best practices, 100 SEO). Production dependency audit found zero known vulnerabilities. The existing Next.js lint stack retains ESLint 9 because installed plugin peer constraints do not yet fully support ESLint 10; the development dependency audit reported eight moderate lint-tool advisories. No forced major dependency overrides or disabled verification were used.
 
 Live hosting performance, Google Search Console, real email delivery and privacy approval remain unverified. No website deployment, DNS change or external message was performed.
+
+## BSFL larvae as the core product
+
+The homepage now leads with actual larvae production imagery and a chicken/fish feed headline. Larvae are marked as the main product in a highlighted homepage/catalogue feature. The homepage’s primary explore link opens the larvae page and its hero quotation link preselects larvae. Product names, buyer audiences, About copy, footer and default social imagery follow this priority. Frass and vermicompost remain complementary product lines; no unconfirmed formats, feeding rates or performance guarantees are introduced.
+
+Lint, TypeScript and production build passed. The eight existing browser checks passed, including all ten pages at 320/390/768/1440px; an additional focused test passed for the larvae headline, hero photo, social image, product navigation and quotation preselection. Current screenshots are committed in docs/screenshots. At a 900px-high viewport the homepage measured 2170px tall at 1440px wide and 2454px at 390px wide, retaining a much shorter layout than the original homepage. The previous Lighthouse score is retained as a dated code-revision baseline, not claimed as a new measurement.

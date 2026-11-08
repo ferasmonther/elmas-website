@@ -42,3 +42,7 @@ The server validates field lengths, email, consent, product and positive quantit
 ## Deployment preparation
 
 Use a Node-capable Next.js host (not a static export; forms require a server). No deployment has been performed. The confirmed HTTPS origin is `https://elmasbio.com` (`SITE_URL` in `.env.example`). Set it in the hosting environment and rebuild to enable canonical URLs, sitemap entries and indexing; without it the site intentionally uses noindex and robots disallow. Public content and asset presence are evaluated during build, so rebuild after changing content or adding photographs. SMTP/contact pages evaluate runtime configuration on each request. Configure outbound SMTP access and credentials at the chosen host, validate the real mailbox, and complete `LAUNCH_CHECKLIST.md` before publishing. Do not change live DNS without approval.
+
+## Product priority
+
+BSFL larvae for chicken and fish feed are the core offering. The first product has `primary: true` in `src/content/site.ts`; the homepage and catalogue emphasize it. Frass and vermicompost are complementary soil inputs. The larvae URL stays `/products/bsfl-protein` for compatibility with existing links. Live/dried/processed formats remain unpublished until confirmed.

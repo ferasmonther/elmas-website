@@ -6,11 +6,11 @@ All ten photographs in `websitepix.zip` were inspected visually. All originals r
 
 | Original | Web variant | Placement / status |
 |---|---|---|
-| picture (4).png | application.webp | Home hero, frass card/detail. Outdoor material application; exact composition is unverified. |
+| picture (4).png | application.webp | Frass card/detail. Outdoor material application; exact composition is unverified. |
 | picture (5).png | field.webp | Vermicompost card/detail, About wide image, Sustainability wide image. A scoop above vegetation, used as agricultural context, not a confirmed vermicompost product image. |
 | picture (9).png | trays.webp | Optimized reserve: production tray overview. |
 | picture (10).png | handling.webp | Optimized reserve: gloved worker tending larvae trays. |
-| picture (11).png | larvae.webp | BSFL protein card/detail. Gloved hand handling larvae. |
+| picture (11).png | larvae.webp | Home hero, featured BSFL larvae card and larvae detail page. Gloved hand handling larvae. |
 | picture (12).png | facility.webp | About main image. Worker tending facility trays. |
 | picture (13).png | tray-work.webp | Optimized reserve: worker carrying a production tray. |
 | picture (14).png | substrate.webp | Optimized reserve: overhead larvae/substrate handling; exact substrate not verified. |
@@ -23,4 +23,4 @@ To update a selected image, preserve its original and run `node scripts/optimize
 
 ## Framing review
 
-Product images and small mobile thumbnails now preserve landscape proportions instead of portrait crops. Captions are placed below the image, outside the photographic content. The hero retains a deliberate responsive crop with a scoop/hand focal point. Full fit notes, missing product close-ups and current screenshots are in [SEO_AND_PHOTO_REVIEW.md](docs/SEO_AND_PHOTO_REVIEW.md). Browser icons use a padded square rendering of the full official logo; its shape and color are unchanged.
+Product images and small mobile thumbnails now preserve landscape proportions instead of portrait crops. Captions are placed below the image, outside the photographic content. The hero retains a deliberate responsive crop focused on larvae production. Full fit notes, missing product close-ups and current screenshots are in [SEO_AND_PHOTO_REVIEW.md](docs/SEO_AND_PHOTO_REVIEW.md). Browser icons use a padded square rendering of the full official logo; its shape and color are unchanged.

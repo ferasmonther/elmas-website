@@ -1365,3 +1365,80 @@ footer img {
 .catalog .product-card figcaption {
   min-height: 46px;
 }
+
+/* BSFL larvae lead the catalogue; soil inputs remain complementary. */
+.product-grid--primary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.product-grid--primary .product-card--primary {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  padding: 24px;
+  background: #e9ecdf;
+  border: 1px solid var(--line);
+}
+.product-grid--primary .product-card--primary .card-copy {
+  padding-top: 0;
+}
+.product-grid--primary .product-card--primary h3 {
+  font-size: 38px;
+}
+.product-card--primary .eyebrow {
+  color: var(--green);
+}
+.product-grid--primary .product-card--primary .card-actions {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+.home-products .product-grid--primary > .product-card:not(.product-card--primary) {
+  display: flex;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.home-products .product-grid--primary > .product-card:not(.product-card--primary) .card-copy {
+  padding-top: 0;
+}
+.homepage .hero h1 {
+  font-size: clamp(48px, 5.3vw, 76px);
+  max-width: 800px;
+}
+.homepage .hero p {
+  max-width: 560px;
+}
+@media (max-width: 760px) {
+  .product-grid--primary {
+    grid-template-columns: 1fr;
+  }
+  .product-grid--primary .product-card--primary {
+    grid-template-columns: 1fr;
+    padding: 18px;
+    gap: 18px;
+  }
+  .home-products .product-grid--primary .product-card--primary {
+    grid-template-columns: 110px minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+  }
+  .product-grid--primary .product-card--primary h3 {
+    font-size: 32px;
+  }
+  .home-products .product-grid--primary .product-card--primary h3 {
+    font-size: 27px;
+  }
+  .home-products .product-grid--primary .product-card--primary .card-actions {
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+  }
+  .homepage .hero h1 {
+    font-size: clamp(38px, 10vw, 48px);
+  }
+  .homepage .hero-media img {
+    object-position: 55% 50% !important;
+  }
+}
