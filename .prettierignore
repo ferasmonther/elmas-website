@@ -1,0 +1,9 @@
+node_modules/
+.next/
+assets/
+public/
+review/
+test-results/
+playwright-report/
+package-lock.json
+next-env.d.ts

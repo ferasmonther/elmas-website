@@ -27,3 +27,9 @@ Before uploading the review branch, lint, production build, six unit tests and a
 ## Shorter homepage
 
 Replaced the long homepage with a shorter hero, compact product cards and a brief company introduction with About, Our Approach and quotation links. Full product and company detail pages remain available. At a 900px viewport height, measured document height decreased from 4520px to 1938px at 1440px width (57% less scrolling), and from 6458px to 2258px at 390px width (65% less). The page also fits 320px width without horizontal overflow. Lint, route type generation, TypeScript, production build and all six existing browser checks passed.
+
+## Search, layout and photo-fit improvements
+
+See [SEO_AND_PHOTO_REVIEW.md](SEO_AND_PHOTO_REVIEW.md) for the current screenshots, remaining product-photo needs and local Lighthouse results (95 performance, 100 accessibility, 100 best practices, 100 SEO). Production dependency audit found zero known vulnerabilities. The existing Next.js lint stack retains ESLint 9 because installed plugin peer constraints do not yet fully support ESLint 10; the development dependency audit reported eight moderate lint-tool advisories. No forced major dependency overrides or disabled verification were used.
+
+Live hosting performance, Google Search Console, real email delivery and privacy approval remain unverified. No website deployment, DNS change or external message was performed.

@@ -1,5 +1,70 @@
-import {Intro,Process,CTA} from '@/components/Shared';
-import {Media} from '@/components/Media';
-import {seo} from '@/lib/seo';
-export const metadata=seo('Our circular approach','Discover how Elma’s approaches organic resource recovery, biological conversion and local agricultural inputs in Lebanon.','/sustainability');
-export default function Sustainability(){return <><Intro tag="OUR APPROACH" title="A resource, reconsidered.">Organic materials can have a useful next chapter. We work with biological processes to explore how resources can return to agriculture.</Intro><section className="wrap"><Media image="field" priority className="wide-image" caption/></section><section className="wrap section"><div className="eyebrow">THE RESOURCE CYCLE</div><h2>From organic resources<br/>to practical applications.</h2><Process/><p className="note">A simplified view of our approach. BSFL production and vermicomposting are distinct processes; not every input follows the same pathway.</p></section><section className="wrap about-split section"><Media image="breeding" caption/><div><div className="eyebrow">BIOLOGICAL PROCESSES</div><h2>Working with living systems.</h2><p>Black Soldier Fly production follows a lifecycle, from adult breeding to larvae growth. Larvae production and vermicomposting each require their own practices and suitable inputs.</p></div></section><section className="section why"><div className="wrap values">{[['Recover thoughtfully','Suitable organic materials are resources worth considering. Input selection and responsible handling matter.'],['Produce locally','Agricultural inputs made in Lebanon connect production with the needs of local farms and businesses.'],['Keep learning','Responsible resource use requires care and evidence. We do not publish quantified impact claims without verification.']].map(([t,d])=><article key={t}><h3>{t}</h3><p>{d}</p></article>)}</div></section><CTA/></>}
+import { Intro, Process, CTA } from '@/components/Shared';
+import { Media } from '@/components/Media';
+import { seo } from '@/lib/seo';
+export const metadata = seo(
+  'Our circular approach',
+  'Discover how Elma’s approaches organic resource recovery, biological conversion and local agricultural inputs in Lebanon.',
+  '/sustainability',
+);
+export default function Sustainability() {
+  return (
+    <>
+      <Intro tag="OUR APPROACH" title="A resource, reconsidered.">
+        Organic materials can have a useful next chapter. We work with biological processes to
+        explore how resources can return to agriculture.
+      </Intro>
+      <section className="wrap">
+        <Media image="field" priority className="wide-image" caption />
+      </section>
+      <section className="wrap section">
+        <div className="eyebrow">THE RESOURCE CYCLE</div>
+        <h2>
+          From organic resources
+          <br />
+          to practical applications.
+        </h2>
+        <Process />
+        <p className="note">
+          A simplified view of our approach. BSFL production and vermicomposting are distinct
+          processes; not every input follows the same pathway.
+        </p>
+      </section>
+      <section className="wrap about-split section">
+        <Media image="breeding" caption />
+        <div>
+          <div className="eyebrow">BIOLOGICAL PROCESSES</div>
+          <h2>Working with living systems.</h2>
+          <p>
+            Black Soldier Fly production follows a lifecycle, from adult breeding to larvae growth.
+            Larvae production and vermicomposting each require their own practices and suitable
+            inputs.
+          </p>
+        </div>
+      </section>
+      <section className="section why">
+        <div className="wrap values">
+          {[
+            [
+              'Recover thoughtfully',
+              'Suitable organic materials are resources worth considering. Input selection and responsible handling matter.',
+            ],
+            [
+              'Produce locally',
+              'Agricultural inputs made in Lebanon connect production with the needs of local farms and businesses.',
+            ],
+            [
+              'Keep learning',
+              'Responsible resource use requires care and evidence. We do not publish quantified impact claims without verification.',
+            ],
+          ].map(([t, d]) => (
+            <article key={t}>
+              <h3>{t}</h3>
+              <p>{d}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <CTA />
+    </>
+  );
+}

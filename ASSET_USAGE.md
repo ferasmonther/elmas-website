@@ -20,3 +20,7 @@ All ten photographs in `websitepix.zip` were inspected visually. All originals r
 No composition, efficacy, certification or trial outcome is inferred from these photos. Outdoor images show agricultural context; they are not evidence that a particular material is frass or vermicompost. Descriptive alt text and cautious captions are in `src/content/site.ts`. Used images retain factual content; only web resizing, compression and CSS framing are applied.
 
 To update a selected image, preserve its original and run `node scripts/optimize-images.mjs INPUT KEY`. The helper refuses overwrites; intentionally remove a previous optimized variant before replacement. Rebuild after photo changes and check desktop/mobile crops. Add new image keys and verified alt text in the content file for other reserved images. Do not modify logo geometry or color.
+
+## Framing review
+
+Product images and small mobile thumbnails now preserve landscape proportions instead of portrait crops. Captions are placed below the image, outside the photographic content. The hero retains a deliberate responsive crop with a scoop/hand focal point. Full fit notes, missing product close-ups and current screenshots are in [SEO_AND_PHOTO_REVIEW.md](docs/SEO_AND_PHOTO_REVIEW.md). Browser icons use a padded square rendering of the full official logo; its shape and color are unchanged.

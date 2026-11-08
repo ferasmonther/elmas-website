@@ -1,0 +1,29 @@
+{
+  "tool": "Lighthouse 13.6.0",
+  "scope": "Single local production-server mobile lab run; not live field Core Web Vitals or a ranking guarantee",
+  "formFactor": "mobile",
+  "scores": {
+    "performance": 95,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "metrics": {
+    "largest-contentful-paint": {
+      "value": 2528.601125,
+      "unit": "millisecond",
+      "display": "2.5 s"
+    },
+    "cumulative-layout-shift": {
+      "value": 0,
+      "unit": "unitless",
+      "display": "0"
+    },
+    "total-blocking-time": {
+      "value": 178.50000000000023,
+      "unit": "millisecond",
+      "display": "180 ms"
+    }
+  },
+  "browserConsoleErrors": []
+}

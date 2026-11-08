@@ -8,10 +8,12 @@ The website has not been deployed. These are release prerequisites, not complete
 - [ ] Configure SMTP server, TLS port, credentials, verified sender and recipient using hosting secrets. Verify sender authorization/SPF/DKIM as appropriate with the chosen provider.
 - [ ] Test real contact and quote delivery and replies in the business mailbox. Test a delivery failure and ensure no false success is shown.
 - [ ] Business/legal review of privacy policy; confirm privacy contact, providers, retention/deletion and access arrangements. Approve consent text. Do not enable forms before this review.
-- [ ] Confirm product availability, technical documentation, permitted applications and any product-specific photos. No composition percentages, certifications, efficacy or regulatory approvals are currently claimed.
+- [ ] Confirm formats, packaging, availability, technical documentation and permitted applications. Supply or positively identify close-ups of BSFL frass and finished vermicompost; current outdoor photos are agricultural context. No composition percentages, certifications, efficacy or regulatory approvals are currently claimed.
 - [ ] Choose Node-capable hosting and confirm allowed outbound SMTP. Configure trusted client IP handling and edge/shared rate limits for the hosting topology.
 - [x] Confirm production domain https://elmasbio.com; configure SITE_URL locally and in .env.example.
 - [ ] Configure SITE_URL in the eventual hosting environment and verify HTTPS and www/apex redirects before publishing.
 - [ ] Perform final mobile/desktop and keyboard review with the actual photos and production contact details.
 - [ ] Confirm content and business ownership of the supplied assets and permission to use identifiable people in photographs.
 - [ ] Obtain explicit authorization before deployment, purchase or live DNS changes.
+
+- [ ] After deployment, verify Search Console ownership, submit the sitemap and review real mobile Core Web Vitals. Local Lighthouse scores are not field results.

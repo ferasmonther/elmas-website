@@ -2,7 +2,7 @@
 
 English product and inquiry website for Elma’s, Lebanon. Next.js App Router, TypeScript, React and plain responsive CSS. No database, account system, payments or paid-service requirement. SMTP delivery supports an existing business email provider.
 
-To review this website on your computer before hosting, follow [LOCAL_PREVIEW.md](LOCAL_PREVIEW.md). No email credentials are needed.
+To review this website on your computer before hosting, follow [LOCAL_PREVIEW.md](LOCAL_PREVIEW.md). No email credentials are needed. See [the search and photo review](docs/SEO_AND_PHOTO_REVIEW.md) for the latest layout screenshots and remaining photo requirements.
 
 ## Development
 
@@ -22,9 +22,11 @@ The official supplied SVG is preserved byte-for-byte in `assets/originals` and `
 
 ## Owner editing
 
-- Product names, descriptions, audiences, uses and cautious application notes: `src/content/site.ts`. Add products using its typed model; detail routes and product selects derive from this list. Never add unverified performance, composition, formats or approvals.
+- Product names, descriptions, audiences, uses, buyer questions, FAQ answers and cautious application notes: `src/content/site.ts`. Add products using its typed model; detail routes and product selects derive from this list. Never add unverified performance, composition, formats or approvals.
 - Page-specific company copy: `src/app/page.tsx`, `about/page.tsx`, `sustainability/page.tsx`. English content is separated from reusable components, ready to extract into locale files later.
 - Photo mapping, factual alt text and captions: `images` in `src/content/site.ts`. Preserve originals in `assets/originals` and generate web variants using `node scripts/optimize-images.mjs original.png field` (or another documented image key). Review every photo before assigning a product identity. Material photographs are not proof of composition or results.
+- Verified specifications: edit each product’s `specifications` in `src/content/site.ts`; `null` and empty values are intentionally hidden. Never enter estimates as confirmed specifications.
+- Formatting: use `npm run format` to apply consistent indentation, or `npm run format:check` to check it.
 - Logo: supplied SVG, do not modify its geometry or color. Light backgrounds preserve contrast.
 - Contact details: confirmed business email and WhatsApp defaults are in `src/content/contact.ts`; override them with `CONTACT_EMAIL` and `WHATSAPP_NUMBER` (an explicit empty value hides that option). Rebuild after changes to update static pages. Social links are omitted until verified links are available; add verified links to the footer when supplied.
 - Future commerce: products have stable slugs and typed data; no speculative inventory, pricing or checkout is implemented.

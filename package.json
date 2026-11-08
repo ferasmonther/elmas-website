@@ -8,7 +8,9 @@
     "start": "next start --hostname 0.0.0.0",
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint .",
-    "test": "tsx --test tests/*.test.ts"
+    "test": "tsx --test tests/*.test.ts",
+    "format": "prettier --write src tests scripts next.config.ts playwright.config.ts eslint.config.mjs package.json tsconfig.json .prettierrc.json",
+    "format:check": "prettier --check src tests scripts next.config.ts playwright.config.ts eslint.config.mjs package.json tsconfig.json .prettierrc.json"
   },
   "dependencies": {
     "next": "^16.0.0",
@@ -24,8 +26,9 @@
     "@types/nodemailer": "^7.0.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "eslint": "^9.0.0",
+    "eslint": "^9.39.5",
     "eslint-config-next": "^16.0.0",
+    "prettier": "^3.9.10",
     "tsx": "^4.0.0",
     "typescript": "^5.9.0"
   }

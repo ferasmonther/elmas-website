@@ -1,11 +1,76 @@
-import {test} from 'node:test';
+import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import {inquirySchema,RateLimiter} from '../src/lib/inquiries';
-import {whatsappUrl,siteUrl} from '../src/lib/config';
-const valid={kind:'quote',name:'Test Farmer',company:'Test Farm',email:'farmer@example.com',phone:'+961000000',product:'bsfl-frass',quantity:'250',unit:'kg',location:'Lebanon',message:'Please discuss suitability for my crops.',consent:true};
-test('valid quote preserves product and customer requirements',()=>{const r=inquirySchema.parse(valid);assert.equal(r.product,'bsfl-frass');assert.equal(r.quantity,'250');});
-test('rejects missing consent, malformed email, unknown product and invalid quantity',()=>{for(const change of [{consent:false},{email:'bad'},{product:'invented'},{quantity:'-1'},{quantity:'Infinity'},{location:''}])assert.equal(inquirySchema.safeParse({...valid,...change}).success,false);});
-test('contact does not require quote-only fields',()=>assert.equal(inquirySchema.safeParse({kind:'contact',name:'Test Person',email:'person@example.com',message:'Please share more information.',consent:true}).success,true));
-test('bounds message size and rejects missing required message',()=>{assert.equal(inquirySchema.safeParse({...valid,message:'x'.repeat(4001)}).success,false);assert.equal(inquirySchema.safeParse({...valid,message:''}).success,false);});
-test('rate limiter blocks excess attempts and expires',()=>{const limiter=new RateLimiter(2,100);assert.equal(limiter.take('a',0),true);assert.equal(limiter.take('a',1),true);assert.equal(limiter.take('a',2),false);assert.equal(limiter.take('b',2),true);assert.equal(limiter.take('a',100),true);});
-test('contact and canonical URLs require valid configuration',()=>{const original={...process.env};try{process.env.WHATSAPP_NUMBER='';delete process.env.SITE_URL;assert.equal(whatsappUrl(),undefined);assert.equal(siteUrl(),undefined);process.env.WHATSAPP_NUMBER='96112345678';assert.match(whatsappUrl('BSFL Frass')!,/BSFL%20Frass/);process.env.SITE_URL='javascript:bad';assert.equal(siteUrl(),undefined);process.env.SITE_URL='https://example.com/test';assert.equal(siteUrl(),'https://example.com');}finally{for(const k of ['WHATSAPP_NUMBER','SITE_URL']){if(original[k]===undefined)delete process.env[k];else process.env[k]=original[k];}}});
+import { inquirySchema, RateLimiter } from '../src/lib/inquiries';
+import { whatsappUrl, siteUrl } from '../src/lib/config';
+const valid = {
+  kind: 'quote',
+  name: 'Test Farmer',
+  company: 'Test Farm',
+  email: 'farmer@example.com',
+  phone: '+961000000',
+  product: 'bsfl-frass',
+  quantity: '250',
+  unit: 'kg',
+  location: 'Lebanon',
+  message: 'Please discuss suitability for my crops.',
+  consent: true,
+};
+test('valid quote preserves product and customer requirements', () => {
+  const r = inquirySchema.parse(valid);
+  assert.equal(r.product, 'bsfl-frass');
+  assert.equal(r.quantity, '250');
+});
+test('rejects missing consent, malformed email, unknown product and invalid quantity', () => {
+  for (const change of [
+    { consent: false },
+    { email: 'bad' },
+    { product: 'invented' },
+    { quantity: '-1' },
+    { quantity: 'Infinity' },
+    { location: '' },
+  ])
+    assert.equal(inquirySchema.safeParse({ ...valid, ...change }).success, false);
+});
+test('contact does not require quote-only fields', () =>
+  assert.equal(
+    inquirySchema.safeParse({
+      kind: 'contact',
+      name: 'Test Person',
+      email: 'person@example.com',
+      message: 'Please share more information.',
+      consent: true,
+    }).success,
+    true,
+  ));
+test('bounds message size and rejects missing required message', () => {
+  assert.equal(inquirySchema.safeParse({ ...valid, message: 'x'.repeat(4001) }).success, false);
+  assert.equal(inquirySchema.safeParse({ ...valid, message: '' }).success, false);
+});
+test('rate limiter blocks excess attempts and expires', () => {
+  const limiter = new RateLimiter(2, 100);
+  assert.equal(limiter.take('a', 0), true);
+  assert.equal(limiter.take('a', 1), true);
+  assert.equal(limiter.take('a', 2), false);
+  assert.equal(limiter.take('b', 2), true);
+  assert.equal(limiter.take('a', 100), true);
+});
+test('contact and canonical URLs require valid configuration', () => {
+  const original = { ...process.env };
+  try {
+    process.env.WHATSAPP_NUMBER = '';
+    delete process.env.SITE_URL;
+    assert.equal(whatsappUrl(), undefined);
+    assert.equal(siteUrl(), undefined);
+    process.env.WHATSAPP_NUMBER = '96112345678';
+    assert.match(whatsappUrl('BSFL Frass')!, /BSFL%20Frass/);
+    process.env.SITE_URL = 'javascript:bad';
+    assert.equal(siteUrl(), undefined);
+    process.env.SITE_URL = 'https://example.com/test';
+    assert.equal(siteUrl(), 'https://example.com');
+  } finally {
+    for (const k of ['WHATSAPP_NUMBER', 'SITE_URL']) {
+      if (original[k] === undefined) delete process.env[k];
+      else process.env[k] = original[k];
+    }
+  }
+});
