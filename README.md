@@ -22,6 +22,7 @@ The official supplied SVG is preserved byte-for-byte in `assets/originals` and `
 
 ## Owner editing
 
+- Confirmed pack IDs, weights, USD prices and live format: each product’s `packs` in `src/content/site.ts`. Pack cards, quote options, WhatsApp messages and Product/Offer JSON-LD derive from these fields. If changing an offer, also update descriptive copy, FAQ answers and SEO descriptions in the same file and page metadata where prices are mentioned.
 - Product names, descriptions, audiences, uses, buyer questions, FAQ answers and cautious application notes: `src/content/site.ts`. Add products using its typed model; detail routes and product selects derive from this list. Never add unverified performance, composition, formats or approvals.
 - Page-specific company copy: `src/app/page.tsx`, `about/page.tsx`, `sustainability/page.tsx`. English content is separated from reusable components, ready to extract into locale files later.
 - Photo mapping, factual alt text and captions: `images` in `src/content/site.ts`. Preserve originals in `assets/originals` and generate web variants using `node scripts/optimize-images.mjs original.png field` (or another documented image key). Review every photo before assigning a product identity. Material photographs are not proof of composition or results.
@@ -29,7 +30,7 @@ The official supplied SVG is preserved byte-for-byte in `assets/originals` and `
 - Formatting: use `npm run format` to apply consistent indentation, or `npm run format:check` to check it.
 - Logo: supplied SVG, do not modify its geometry or color. Light backgrounds preserve contrast.
 - Contact details: confirmed business email and WhatsApp defaults are in `src/content/contact.ts`; override them with `CONTACT_EMAIL` and `WHATSAPP_NUMBER` (an explicit empty value hides that option). Rebuild after changes to update static pages. Social links are omitted until verified links are available; add verified links to the footer when supplied.
-- Future commerce: products have stable slugs and typed data; no speculative inventory, pricing or checkout is implemented.
+- Future commerce: products have stable slugs and typed data; confirmed pack offers drive the WhatsApp inquiry path; no inventory or checkout is implemented.
 
 ## Email and WhatsApp
 
@@ -45,4 +46,4 @@ Use a Node-capable Next.js host (not a static export; forms require a server). N
 
 ## Product priority
 
-BSFL larvae for chicken and fish feed are the core offering. The first product has `primary: true` in `src/content/site.ts`; the homepage and catalogue emphasize it. Frass and vermicompost are complementary soil inputs. The larvae URL stays `/products/bsfl-protein` for compatibility with existing links. Live/dried/processed formats remain unpublished until confirmed.
+BSFL larvae for chicken and fish feed are the core offering. The first product has `primary: true` in `src/content/site.ts`; the homepage and catalogue emphasize it. Frass and vermicompost are complementary soil inputs. The larvae URL stays `/products/bsfl-protein` for compatibility with existing links. Live larvae are confirmed: 10 kg for US$10. Frass packs are 5 kg for US$5 and 10 kg for US$9. Vermicompost remains inquiry-only; other formats and specifications remain unpublished.

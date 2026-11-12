@@ -3,7 +3,7 @@ import { Media } from '@/components/Media';
 import { seo } from '@/lib/seo';
 export const metadata = seo(
   'About Elma’s',
-  'Meet Elma’s, a Lebanon-based agritech company developing insect protein and organic soil inputs with a focus on circular agriculture.',
+  'Meet Elma’s, a Lebanon-based agritech company producing BSFL larvae for chickens and fish alongside complementary soil inputs with a focus on circular agriculture.',
   '/about',
 );
 export default function About() {

@@ -38,7 +38,7 @@ For the complementary soil-input pages, the missing product assets are clearly i
 
 ## What still needs business input or a live site
 
-- Verified formats, packaging, availability, technical analyses and application guidance. Nothing is invented to fill these gaps.
+- Availability, other formats, technical analyses and application guidance. Live larvae format and the three published pack offers are owner-confirmed. Nothing is invented to fill these gaps.
 - SMTP configuration and authorized mailbox delivery verification, intentionally deferred by the owner.
 - Business/legal review of privacy arrangements, actual service providers and retention. A code change cannot establish legal adequacy.
 - Hosting, HTTPS and redirects, followed by Google Search Console ownership verification, sitemap submission and indexing checks. No website publication or DNS changes have been performed.
@@ -52,4 +52,12 @@ The existing automated suite passed six unit tests and eight browser checks, cov
 
 ## Product priority
 
-BSFL larvae for chicken and fish feed applications are the primary product. The homepage hero and default social-sharing image use actual larvae production imagery. The headline, primary explore link and preselected quotation link lead to larvae. The homepage and catalogue feature the larvae product first and more prominently; frass and vermicompost remain complementary soil-input lines. The existing /products/bsfl-protein URL is retained so prior links continue working. No feeding rates, formats, performance outcomes or universal feed approvals are inferred.
+BSFL larvae for chicken and fish feed applications are the primary product. The homepage hero and default social-sharing image use actual larvae production imagery. The headline, primary explore link and preselected quotation link lead to larvae. The homepage and catalogue feature the larvae product first and more prominently; frass and vermicompost remain complementary soil-input lines. The existing /products/bsfl-protein URL is retained so prior links continue working. No feeding rates, unconfirmed formats, performance outcomes or universal feed approvals are inferred.
+
+## Confirmed offers — 12 November 2026
+
+Live larvae remain the main product: 10 kg for US$10. Frass has separate 5 kg / US$5 and 10 kg / US$9 options; vermicompost is inquiry-only. Detail and catalogue pack cards, pack-specific WhatsApp inquiries, quotation selections and Product/Offer JSON-LD agree. No stock status, delivery fees, tax assumptions or payment terms are published. The homepage remains concise with the complementary frass pack summary linking to its detail page.
+
+All ten pages have refreshed 1440px desktop and 390px mobile screenshots. Additional screenshots: [vermicompost](screenshots/vermicompost-desktop.png), [approach](screenshots/sustainability-desktop.png), [selected-pack quote](screenshots/quote-mobile.png), [privacy](screenshots/privacy-desktop.png). Run `node scripts/review-offers.mjs` against a running local production server to refresh them (system Chromium, or `CHROMIUM_PATH`). No new Lighthouse measurement was taken; prior scores above are historical only.
+
+On phones the persistent WhatsApp shortcut is placed after the footer in normal page flow so it cannot obscure form text or photos. Product-specific WhatsApp actions remain next to the offers.

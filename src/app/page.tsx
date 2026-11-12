@@ -5,7 +5,7 @@ import { seo } from '@/lib/seo';
 
 export const metadata = seo(
   'BSFL Larvae for Chicken & Fish Feed in Lebanon',
-  'Elma’s produces Black Soldier Fly larvae in Lebanon for chicken and fish feed applications, with BSFL frass and vermicompost as complementary soil inputs.',
+  'Live BSFL larvae for chicken and fish feed applications in Lebanon: 10 kg for US$10. Also explore priced BSFL frass packs and inquiry-only vermicompost.',
   '/',
 );
 
@@ -23,14 +23,17 @@ export default function Home() {
             for <em>chickens &amp; fish.</em>
           </h1>
           <p>
-            Black Soldier Fly larvae, produced in Lebanon for poultry and aquaculture feed
-            applications.
+            Live Black Soldier Fly larvae, produced in Lebanon for poultry and aquaculture feed
+            applications. 10 kg pack · US$10.
           </p>
           <div className="actions">
             <Link className="button light" href="/products/bsfl-protein">
               Explore BSFL Larvae <span aria-hidden>→</span>
             </Link>
-            <Link className="button outline" href="/request-quote?product=bsfl-protein">
+            <Link
+              className="button outline"
+              href="/request-quote?product=bsfl-protein&pack=live-10kg"
+            >
               Request a Quote
             </Link>
           </div>

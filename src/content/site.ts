@@ -1,8 +1,18 @@
+export type Pack = { id: string; weightKg: number; priceUsd: number; format?: 'Live' };
+export const deliveryNote =
+  'Confirm delivery arrangements and any additional charges with Elma’s before committing to an order. Opening WhatsApp prepares an inquiry; it does not place or pay for an order.';
+export function packLabel(product: Pick<Product, 'name'>, pack: Pack) {
+  return `${pack.format ? pack.format + ' ' : ''}${product.name} — ${pack.weightKg} kg — US$${pack.priceUsd}`;
+}
+export function quoteHref(product: Product, pack?: Pack) {
+  return `/request-quote?product=${product.slug}${pack ? `&pack=${pack.id}` : ''}`;
+}
 export type Product = {
   slug: string;
   name: string;
   category: string;
   primary?: boolean;
+  packs: Pack[];
   summary: string;
   description: string;
   buyers: string[];
@@ -19,10 +29,11 @@ export const products: Product[] = [
     slug: 'bsfl-protein',
     name: 'BSFL Larvae',
     primary: true,
+    packs: [{ id: 'live-10kg', format: 'Live', weightKg: 10, priceUsd: 10 }],
     category: 'Chicken & fish feed',
-    summary: 'Black Soldier Fly larvae for chicken and fish feeding applications.',
+    summary: 'Live Black Soldier Fly larvae for chicken and fish feeding applications.',
     description:
-      'Black Soldier Fly larvae are Elma’s primary product, produced in Lebanon for poultry and aquaculture feed applications. Our focus is on chicken farms, fish farms and feed manufacturers. Discuss your animals, feeding approach and required quantities with us so we can confirm a suitable product format and current specifications.',
+      'Black Soldier Fly larvae are Elma’s primary product, produced in Lebanon for poultry and aquaculture feed applications. Our focus is on chicken farms, fish farms and feed manufacturers. Tell us about your animals, feeding approach and required quantities so we can discuss suitability and current specifications.',
     buyers: [
       'Chicken and poultry farms',
       'Fish farms and aquaculture businesses',
@@ -31,15 +42,15 @@ export const products: Product[] = [
     applications: [
       'Discuss BSFL larvae for chicken and poultry feeding.',
       'Explore fish feeding and aquaculture feed applications.',
-      'Confirm the product format and feeding approach with your nutritionist and our team.',
+      'Confirm the feeding approach with your nutritionist and our team.',
     ],
-    note: 'Suitability depends on the species, formulation and applicable requirements. No universal inclusion rate or performance outcome is implied.',
+    note: 'Larvae are not a complete feed. Suitability depends on the species, life stage, overall diet and applicable requirements. No universal inclusion rate or performance outcome is implied.',
     image: 'larvae',
     seoDescription:
-      'Black Soldier Fly larvae from Elma’s in Lebanon for chicken and fish feed applications. Request current formats, suitability, availability and specifications.',
+      'Black Soldier Fly larvae from Elma’s in Lebanon for chicken and fish feed applications. Live 10 kg packs at US$10. Discuss suitability, availability and specifications.',
     inquiryDetails: [
       'Chicken or fish species, life stage and intended feeding approach',
-      'Required quantity, preferred format and order frequency',
+      'Number of live 10 kg packs and order frequency',
       'Delivery location and any technical documentation you need',
     ],
     faq: [
@@ -49,13 +60,13 @@ export const products: Product[] = [
           'BSFL larvae are used in poultry and aquaculture feeding applications. The suitable format and feeding approach depend on the species, life stage, overall diet and applicable requirements. Discuss your animals with our team and a qualified nutritionist; no universal feeding rate or performance result is promised.',
       },
       {
-        question: 'What product formats and quantities are available?',
+        question: 'What live larvae pack is offered?',
         answer:
-          'Contact Elma’s to confirm current formats, packaging, quantities and supply timing. These details are quoted for your requirements rather than assumed from a photograph.',
+          'Live BSFL larvae are offered in 10 kg packs at US$10 per pack. Confirm availability, delivery arrangements and any additional charges before committing to an order. Other formats are not confirmed.',
       },
     ],
     specifications: [
-      { label: 'Product format', value: null },
+      { label: 'Product format', value: 'Live' },
       { label: 'Protein content', value: null },
       { label: 'Packaging', value: null },
     ],
@@ -63,8 +74,12 @@ export const products: Product[] = [
   {
     slug: 'bsfl-frass',
     name: 'BSFL Frass',
+    packs: [
+      { id: 'frass-5kg', weightKg: 5, priceUsd: 5 },
+      { id: 'frass-10kg', weightKg: 10, priceUsd: 9 },
+    ],
     category: 'Organic soil input',
-    summary: 'A BSFL production byproduct for agricultural soil management.',
+    summary: 'A BSFL production byproduct for soil management. 5 kg: US$5; 10 kg: US$9.',
     description:
       'Frass is a byproduct of Black Soldier Fly larvae production. It can include insect excreta, shed material and residual substrate. It is a distinct agricultural soil input, with properties that depend on the production and treatment process.',
     buyers: ['Crop farmers', 'Greenhouses and nurseries', 'Agricultural distributors'],
@@ -76,7 +91,7 @@ export const products: Product[] = [
     note: 'Composition, treatment, application rates and suitability must be confirmed for your crop and soil. Frass and vermicompost are different products.',
     image: 'application',
     seoDescription:
-      'Discuss BSFL frass from Elma’s in Lebanon for agricultural soil management. Request verified composition, treatment details and application guidance.',
+      'BSFL frass from Elma’s in Lebanon: 5 kg packs at US$5 and 10 kg packs at US$9. Request verified composition, treatment details and application guidance.',
     inquiryDetails: [
       'Crop, growing environment and soil information if available',
       'Area to be treated and approximate quantity required',
@@ -103,6 +118,7 @@ export const products: Product[] = [
   {
     slug: 'vermicompost',
     name: 'Vermicompost',
+    packs: [],
     category: 'Organic soil amendment',
     summary: 'An earthworm-processed organic amendment for horticulture and soil management.',
     description:

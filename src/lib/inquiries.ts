@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { products } from '../content/site';
 const text = (min: number, max: number) => z.string().trim().min(min).max(max);
 export const inquirySchema = z
   .object({
@@ -8,6 +9,7 @@ export const inquirySchema = z
     email: z.email().max(254),
     phone: text(0, 50).default(''),
     product: z.enum(['', 'bsfl-protein', 'bsfl-frass', 'vermicompost']).default(''),
+    pack: text(0, 60).default(''),
     quantity: text(0, 30).default(''),
     unit: z.enum(['', 'kg', 'tonnes', 'other']).default(''),
     location: text(0, 200).default(''),
@@ -16,6 +18,12 @@ export const inquirySchema = z
     website: z.string().max(200).default(''),
   })
   .superRefine((v, c) => {
+    if (v.pack && !products.find((p) => p.slug === v.product)?.packs.some((p) => p.id === v.pack))
+      c.addIssue({
+        code: 'custom',
+        path: ['pack'],
+        message: 'Choose a pack belonging to this product.',
+      });
     if (v.kind === 'quote') {
       for (const key of ['company', 'phone', 'product', 'quantity', 'unit', 'location'] as const) {
         if (!v[key])

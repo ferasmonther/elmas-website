@@ -21,8 +21,8 @@ export default function Privacy() {
         <h2>Information you provide</h2>
         <p>
           Forms collect your name, email, company or farm, phone number, message and consent. Quote
-          requests also collect the product, quantity, unit and delivery location. Please avoid
-          including sensitive personal information.
+          requests also collect the product, selected pack when provided, quantity, unit and
+          delivery location. Please avoid including sensitive personal information.
         </p>
         <h2>Why we use it</h2>
         <p>

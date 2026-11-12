@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { createHash } from 'node:crypto';
+import { packLabel, products } from '@/content/site';
 import { inquirySchema, limiter } from '@/lib/inquiries';
 import { emailReady, siteUrl } from '@/lib/config';
 export const runtime = 'nodejs';
@@ -74,7 +75,14 @@ export async function POST(req: NextRequest) {
       to: process.env.MAIL_TO,
       replyTo: data.email,
       subject: `Elma’s ${data.kind === 'quote' ? 'quotation request' : 'contact inquiry'}${data.product ? ` — ${data.product}` : ''}`,
-      text: Object.entries(data)
+      text: Object.entries({
+        ...data,
+        pack: (() => {
+          const p = products.find((p) => p.slug === data.product);
+          const pack = p?.packs.find((pack) => pack.id === data.pack);
+          return p && pack ? packLabel(p, pack) : '';
+        })(),
+      })
         .filter(([k]) => k !== 'website')
         .map(([k, v]) => `${k}: ${v}`)
         .join('\n\n'),

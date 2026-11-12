@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { products } from '@/content/site';
+import { PackOffers } from '@/components/PackOffers';
 import { Media } from '@/components/Media';
 import { CTA } from '@/components/Shared';
 import { StructuredData } from '@/components/StructuredData';
@@ -56,6 +57,32 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
           }}
         />
       )}
+      {origin && (
+        <StructuredData
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name: p.primary ? 'Live BSFL Larvae' : p.name,
+            description: p.seoDescription,
+            image: `${origin}/assets/photos/${p.image === 'larvae' ? 'larvae' : p.image}.webp`,
+            url: `${origin}/products/${p.slug}`,
+            brand: { '@type': 'Brand', name: 'Elma’s' },
+            ...(p.packs.length
+              ? {
+                  offers: p.packs.map((pack) => ({
+                    '@type': 'Offer',
+                    name: `${pack.format ? pack.format + ' ' : ''}${p.name} — ${pack.weightKg} kg`,
+                    price: pack.priceUsd,
+                    priceCurrency: 'USD',
+                    url: `${origin}/request-quote?product=${p.slug}&pack=${pack.id}`,
+                    description:
+                      'Confirm availability, delivery arrangements and any additional charges before committing to an order.',
+                  })),
+                }
+              : {}),
+          }}
+        />
+      )}
       <section className="wrap product-detail section">
         <div>
           <nav className="breadcrumbs" aria-label="Breadcrumb">
@@ -69,6 +96,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
           <h1>{p.name}</h1>
           <p className="lead">{p.summary}</p>
           <p>{p.description}</p>
+          <PackOffers product={p} />
           <div className="actions">
             <Link className="button" href={`/request-quote?product=${p.slug}`}>
               Request a Quote →
@@ -88,7 +116,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
             <div className="eyebrow">POTENTIAL APPLICATIONS</div>
             <h2>
               {p.slug === 'bsfl-protein'
-                ? 'For your next formulation.'
+                ? 'For your feeding plan.'
                 : 'For your soil management plan.'}
             </h2>
             <ul className="checks">
@@ -117,8 +145,8 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
               </dl>
             )}
             <p>
-              Technical specifications available on request. Ask about current formats, packaging,
-              availability and guidance for your intended use.
+              Technical specifications available on request. Ask about availability, verified
+              technical details and guidance for your intended use.
             </p>
             <p className="note">{p.note}</p>
           </div>

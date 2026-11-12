@@ -24,3 +24,7 @@ To update a selected image, preserve its original and run `node scripts/optimize
 ## Framing review
 
 Product images and small mobile thumbnails now preserve landscape proportions instead of portrait crops. Captions are placed below the image, outside the photographic content. The hero retains a deliberate responsive crop focused on larvae production. Full fit notes, missing product close-ups and current screenshots are in [SEO_AND_PHOTO_REVIEW.md](docs/SEO_AND_PHOTO_REVIEW.md). Browser icons use a padded square rendering of the full official logo; its shape and color are unchanged.
+
+## Confirmed-offer review — 12 November 2026
+
+All ten optimized photographs were visually inspected again. Existing images and original files are unchanged. The larvae photograph still leads the homepage; the primary mobile card now uses one column to keep the photo and offer readable. Outdoor frass/vermicompost images remain explicitly captioned as agricultural context. The soft, dark adult-fly photograph remains supporting imagery only. Updated desktop/mobile screenshots cover all ten public pages in `docs/screenshots`; no generated product photographs were added.

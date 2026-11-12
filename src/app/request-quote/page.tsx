@@ -1,26 +1,28 @@
 import { Intro } from '@/components/Shared';
 import { InquiryForm } from '@/components/InquiryForm';
-import { products } from '@/content/site';
+import { deliveryNote, packLabel, products } from '@/content/site';
 import { emailReady, whatsappUrl, publicEmail } from '@/lib/config';
 import { seo } from '@/lib/seo';
 export const dynamic = 'force-dynamic';
 export const metadata = seo(
   'Request a Quote',
-  'Request a tailored quotation for BSFL protein, BSFL frass or vermicompost. Tell Elma’s about your requirements.',
+  'Request a tailored quotation for live BSFL larvae for chickens and fish, priced BSFL frass packs or inquiry-only vermicompost. Tell Elma’s about your requirements.',
   '/request-quote',
 );
 export default async function Quote({
   searchParams,
 }: {
-  searchParams: Promise<{ product?: string }>;
+  searchParams: Promise<{ product?: string; pack?: string }>;
 }) {
   const query = await searchParams;
   const p = products.find((p) => p.slug === query.product);
-  const wa = whatsappUrl(p?.name);
+  const pack = p?.packs.find((pack) => pack.id === query.pack);
+  const selection = p && pack ? packLabel(p, pack) : p?.name;
+  const wa = whatsappUrl(selection);
   const email = publicEmail();
   return (
     <>
-      <Intro tag="REQUEST A QUOTE" title="What does your next season need?">
+      <Intro tag="REQUEST A QUOTE" title="What do your animals or crops need?">
         Share your requirements. We’ll discuss availability, specifications and a quotation for your
         application.
       </Intro>
@@ -38,19 +40,16 @@ export default async function Quote({
             This is an inquiry, not an order. Availability and product suitability will be discussed
             with you.
           </p>
-          {wa && (
-            <a className="text-link" href={wa} target="_blank" rel="noopener noreferrer">
-              Prefer WhatsApp? →
-            </a>
-          )}
+          <p className="note">{deliveryNote}</p>
         </aside>
         <InquiryForm
           kind="quote"
           product={p?.slug}
+          pack={pack?.id}
           ready={emailReady()}
           emailHref={
             email
-              ? `mailto:${email}?subject=${encodeURIComponent(`Quote request: ${p?.name || 'Elma’s products'}`)}`
+              ? `mailto:${email}?subject=${encodeURIComponent(`Quote request: ${selection || 'Elma’s products'}`)}`
               : undefined
           }
           whatsappHref={wa}

@@ -6,7 +6,7 @@ import { seo } from '@/lib/seo';
 export const dynamic = 'force-dynamic';
 export const metadata = seo(
   'Contact',
-  'Contact Elma’s in Lebanon to discuss insect protein, organic fertilizers and agricultural product inquiries.',
+  'Contact Elma’s in Lebanon to discuss live BSFL larvae for chickens and fish, BSFL frass and vermicompost and agricultural product inquiries.',
   '/contact',
 );
 export default function Contact() {

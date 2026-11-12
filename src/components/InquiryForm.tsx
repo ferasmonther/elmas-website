@@ -1,20 +1,38 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { products } from '@/content/site';
+import { packLabel, products } from '@/content/site';
 export function InquiryForm({
   kind,
   product = '',
+  pack = '',
   ready,
   emailHref,
   whatsappHref,
 }: {
   kind: 'contact' | 'quote';
   product?: string;
+  pack?: string;
   ready: boolean;
   emailHref?: string;
   whatsappHref?: string;
 }) {
+  const [selectedProduct, setSelectedProduct] = useState(product);
+  const [selectedPack, setSelectedPack] = useState(pack);
+  const currentProduct = products.find((p) => p.slug === selectedProduct);
+  const currentPack = currentProduct?.packs.find((p) => p.id === selectedPack);
+  const selection =
+    currentProduct && currentPack ? packLabel(currentProduct, currentPack) : currentProduct?.name;
+  const directWa = whatsappHref ? new URL(whatsappHref) : undefined;
+  if (directWa && kind === 'quote')
+    directWa.searchParams.set(
+      'text',
+      `Hello Elma’s, I would like to inquire about ${selection || 'your products'}.`,
+    );
+  const directEmail = emailHref
+    ? emailHref.split('?')[0] +
+      `?subject=${encodeURIComponent(`Quote request: ${selection || 'Elma’s products'}`)}`
+    : undefined;
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
@@ -86,9 +104,11 @@ export function InquiryForm({
           Online form submission is not available yet. Please send your inquiry directly by email or
           WhatsApp.
           <div className="direct-contact">
-            {emailHref && <a href={emailHref}>Email your inquiry →</a>}
+            {emailHref && (
+              <a href={kind === 'quote' ? directEmail : emailHref}>Email your inquiry →</a>
+            )}
             {whatsappHref && (
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+              <a href={directWa?.toString()} target="_blank" rel="noopener noreferrer">
                 WhatsApp your inquiry →
               </a>
             )}
@@ -104,7 +124,16 @@ export function InquiryForm({
           <>
             <div className="field">
               <label htmlFor="product">Product</label>
-              <select id="product" name="product" defaultValue={product} required>
+              <select
+                id="product"
+                name="product"
+                value={selectedProduct}
+                onChange={(e) => {
+                  setSelectedProduct(e.target.value);
+                  setSelectedPack('');
+                }}
+                required
+              >
                 <option value="">Select a product</option>
                 {products.map((p) => (
                   <option key={p.slug} value={p.slug}>
@@ -113,6 +142,29 @@ export function InquiryForm({
                 ))}
               </select>
               {errors.product && <small className="error">Choose a product.</small>}
+            </div>
+            <div className="field">
+              <label htmlFor="pack">Pack option (optional)</label>
+              <select
+                id="pack"
+                name="pack"
+                value={selectedPack}
+                onChange={(e) => setSelectedPack(e.target.value)}
+              >
+                <option value="">
+                  {currentProduct?.packs.length
+                    ? 'Select a pack or discuss requirements'
+                    : 'Inquiry-only / discuss requirements'}
+                </option>
+                {currentProduct?.packs.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {packLabel(currentProduct, p)}
+                  </option>
+                ))}
+              </select>
+              {errors.pack && (
+                <small className="error">Choose a pack belonging to this product.</small>
+              )}
             </div>
             <div className="quantity">
               <div className="field">

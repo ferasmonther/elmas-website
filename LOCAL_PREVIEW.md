@@ -19,3 +19,9 @@ npm run dev
 The first `npm ci` needs internet to install dependencies. After installation, the website pages and local photos can be reviewed without internet. Email and WhatsApp links require the appropriate external app/service and connectivity. This is a Next.js app: double-clicking an HTML file will not run it. The source ZIP intentionally excludes machine-specific node_modules, generated build output and private environment files.
 
 For a production-style local check, run `npm run build` followed by `npm start` instead of `npm run dev`. Leave SITE_URL empty for an isolated preview; production hosting will use the confirmed https://elmasbio.com domain. No email credentials are required for visual review.
+
+## Updated offers review
+
+Download `elmas-website-review` through GitHub → Code → Download ZIP, then extract it. Runtime dependencies are unchanged. For an existing installed copy, replacing `src` and restarting `npm run dev` applies the website changes; download the full branch to receive updated tests, documentation and screenshots too.
+
+Check live larvae (10 kg / US$10), both frass packs (5 kg / US$5 and 10 kg / US$9), and inquiry-only vermicompost. Pack-specific quote links preserve the selected product and pack; the form’s direct-contact links update when either selection changes. Inspect WhatsApp’s prepared message without sending it. Delivery arrangements and additional charges must be confirmed before committing to an order.

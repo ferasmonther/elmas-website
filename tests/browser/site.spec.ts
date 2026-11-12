@@ -111,7 +111,9 @@ test('confirmed business contacts and product-specific WhatsApp links', async ({
   const general = page.getByRole('main').getByRole('link', { name: 'Chat on WhatsApp' });
   expect(new URL((await general.getAttribute('href'))!).pathname).toBe('/96170988141');
   await page.goto('/products/bsfl-frass');
-  const specific = page.getByRole('main').getByRole('link', { name: 'Ask on WhatsApp' });
+  const specific = page
+    .getByRole('main')
+    .getByRole('link', { name: 'Ask on WhatsApp →', exact: true });
   const url = new URL((await specific.getAttribute('href'))!);
   expect(url.hostname).toBe('wa.me');
   expect(url.pathname).toBe('/96170988141');
@@ -143,4 +145,87 @@ test('homepage prioritizes larvae and routes feed inquiries to the main product'
   await page.locator('.hero').getByRole('link', { name: 'Request a Quote' }).click();
   await expect(page.locator('#product')).toHaveValue('bsfl-protein');
   await expect(page.locator('#product option:checked')).toHaveText('BSFL Larvae');
+});
+
+test('confirmed packs prepare accurate inquiries and preserve selection', async ({ page }) => {
+  for (const [slug, packs] of [
+    ['bsfl-protein', [['live-10kg', 10, 10, 'Live BSFL Larvae']]],
+    [
+      'bsfl-frass',
+      [
+        ['frass-5kg', 5, 5, 'BSFL Frass'],
+        ['frass-10kg', 10, 9, 'BSFL Frass'],
+      ],
+    ],
+  ] as const) {
+    await page.goto(`/products/${slug}`);
+    const offers = page.locator('.product-detail .pack-option');
+    await expect(offers).toHaveCount(packs.length);
+    for (let i = 0; i < packs.length; i++) {
+      const [id, weight, price, name] = packs[i];
+      const label = `${name} — ${weight} kg — US$${price}`;
+      await expect(offers.nth(i)).toContainText(label);
+      const url = new URL(
+        (await offers
+          .nth(i)
+          .getByRole('link', { name: 'Inquire on WhatsApp:', exact: false })
+          .getAttribute('href'))!,
+      );
+      expect(url.hostname).toBe('wa.me');
+      expect(url.pathname).toBe('/96170988141');
+      expect(url.searchParams.get('text')).toContain(label);
+      const data = await page.locator('script[type="application/ld+json"]').allTextContents();
+      const product = data
+        .map((text) => JSON.parse(text))
+        .find((item) => item['@type'] === 'Product');
+      expect(product.offers[i].price).toBe(price);
+      expect(product.offers[i].priceCurrency).toBe('USD');
+      await offers.nth(i).getByRole('link', { name: 'Inquire about this pack' }).click();
+      await expect(page.locator('#product')).toHaveValue(slug);
+      await expect(page.locator('#pack')).toHaveValue(id);
+      const direct = page.locator('.direct-contact a').filter({ hasText: 'WhatsApp' });
+      expect(new URL((await direct.getAttribute('href'))!).searchParams.get('text')).toContain(
+        label,
+      );
+      expect(
+        decodeURIComponent(
+          (await page
+            .locator('.direct-contact a')
+            .filter({ hasText: 'Email' })
+            .getAttribute('href'))!,
+        ),
+      ).toContain(label);
+      await page.locator('#product').selectOption('vermicompost');
+      await expect(page.locator('#pack')).toHaveValue('');
+      expect(new URL((await direct.getAttribute('href'))!).searchParams.get('text')).toContain(
+        'Vermicompost',
+      );
+      expect(new URL((await direct.getAttribute('href'))!).searchParams.get('text')).not.toContain(
+        'US$',
+      );
+      await page.goto(`/products/${slug}`);
+    }
+  }
+  await page.goto('/products/vermicompost');
+  await expect(page.locator('.product-detail')).toContainText('Inquiry-only');
+  await expect(page.locator('.product-detail')).not.toContainText('US$');
+  await page.goto('/request-quote?product=bsfl-frass&pack=live-10kg');
+  await expect(page.locator('#pack')).toHaveValue('');
+});
+
+test('keyboard navigation exposes focus and mobile menu', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.goto('/');
+  await expect(page.locator('.whatsapp')).toHaveCSS('position', 'static');
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL('/#main');
+  await page.getByRole('button', { name: 'Menu' }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('navigation')).toBeVisible();
+  await page.keyboard.press('Tab');
+  await expect(
+    page.getByRole('navigation').getByRole('link', { name: 'Our products' }),
+  ).toBeFocused();
 });
