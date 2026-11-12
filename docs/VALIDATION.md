@@ -72,3 +72,11 @@ The owner explicitly authorized deployment and selected GitHub. The source repos
 - The final static build passed `scripts/check-github-pages.mjs`: all ten pages at 320/390/768/1440px, image decoding, no overflow, axe A/AA checks, pack-specific navigation, live-larvae/frass WhatsApp message details, disabled submission and no browser runtime errors.
 - Lint with zero warnings, formatting, route type generation/TypeScript, seven unit tests and the normal production build passed. All 12 original browser tests passed against the normal production server after the source changes.
 - The GitHub Pages export excludes the server API, local environment files and SMTP configuration. The original server source remains intact. The GitHub copy remains noindex until the official-domain/indexing launch step; no DNS changes are included.
+
+## Published GitHub Pages result
+
+GitHub Pages reports `built`, HTTPS enforced, source `gh-pages` at `/`, public URL https://ferasmonther.github.io/elmas-website/. Deployment commit: e0aebd188a4033fb62424a3b96fa8db6d107aa1f from source 50ec514. The [GitHub Pages deployment workflow](https://github.com/ferasmonther/elmas-website/actions/runs/43293147312) completed successfully. Main remains at 73c4c91c9c5be503ddcf6db6cb1bfe6cd97673b5.
+
+Live HTTPS requests verified all ten public pages, the approved packaging image, the larvae photo and official SVG. Visible response content contains the correct US$5/US$9 frass offers and US$10 live-larvae offer. The live Chromium run could not proceed because this environment’s intercepted TLS certificate is not trusted by Chromium (`ERR_CERT_AUTHORITY_INVALID`); TLS verification was not disabled. The full static browser suite passed locally, and live HTTPS checks used the inherited proxy/CA trust with verification enabled.
+
+No DNS/custom-domain changes or external messages were made. The GitHub copy keeps noindex until the official-domain launch decision; direct email/WhatsApp inquiry links are available and online submission remains disabled.
