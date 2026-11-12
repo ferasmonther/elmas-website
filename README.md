@@ -22,7 +22,7 @@ The official supplied SVG is preserved byte-for-byte in `assets/originals` and `
 
 ## Owner editing
 
-- Confirmed pack IDs, weights, USD prices and live format: each product’s `packs` in `src/content/site.ts`. Pack cards, quote options, WhatsApp messages and Product/Offer JSON-LD derive from these fields. If changing an offer, also update descriptive copy, FAQ answers and SEO descriptions in the same file and page metadata where prices are mentioned.
+- Confirmed pack IDs, weights, USD prices and live format: each product’s `packs` in `src/content/site.ts`. Pack cards, quote options, WhatsApp messages and Product/Offer JSON-LD derive from these fields. `mockupViewBox` selects the matching package in the owner-approved concept image; see `ASSET_USAGE.md`. If changing an offer, also update descriptive copy, FAQ answers and SEO descriptions in the same file and page metadata where prices are mentioned.
 - Product names, descriptions, audiences, uses, buyer questions, FAQ answers and cautious application notes: `src/content/site.ts`. Add products using its typed model; detail routes and product selects derive from this list. Never add unverified performance, composition, formats or approvals.
 - Page-specific company copy: `src/app/page.tsx`, `about/page.tsx`, `sustainability/page.tsx`. English content is separated from reusable components, ready to extract into locale files later.
 - Photo mapping, factual alt text and captions: `images` in `src/content/site.ts`. Preserve originals in `assets/originals` and generate web variants using `node scripts/optimize-images.mjs original.png field` (or another documented image key). Review every photo before assigning a product identity. Material photographs are not proof of composition or results.

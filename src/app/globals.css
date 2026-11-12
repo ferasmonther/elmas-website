@@ -1476,3 +1476,32 @@ footer img {
     margin: 0 20px 20px auto;
   }
 }
+
+.pack-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 20px;
+}
+.package-mockup {
+  margin: 0 0 16px;
+  padding: 16px;
+  background: #f1e5d2;
+  border: 1px solid var(--line);
+}
+.package-mockup svg {
+  display: block;
+  width: 100%;
+  height: 230px;
+}
+.package-mockup figcaption {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 10px;
+  text-align: center;
+}
+.packaging-note {
+  margin-top: 12px;
+}
+.pack-option .actions {
+  align-items: start;
+}

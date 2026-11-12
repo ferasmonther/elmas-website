@@ -1,4 +1,10 @@
-export type Pack = { id: string; weightKg: number; priceUsd: number; format?: 'Live' };
+export type Pack = {
+  id: string;
+  weightKg: number;
+  priceUsd: number;
+  format?: 'Live';
+  mockupViewBox: string;
+};
 export const deliveryNote =
   'Confirm delivery arrangements and any additional charges with Elma’s before committing to an order. Opening WhatsApp prepares an inquiry; it does not place or pay for an order.';
 export function packLabel(product: Pick<Product, 'name'>, pack: Pack) {
@@ -29,7 +35,15 @@ export const products: Product[] = [
     slug: 'bsfl-protein',
     name: 'BSFL Larvae',
     primary: true,
-    packs: [{ id: 'live-10kg', format: 'Live', weightKg: 10, priceUsd: 10 }],
+    packs: [
+      {
+        id: 'live-10kg',
+        format: 'Live',
+        weightKg: 10,
+        priceUsd: 10,
+        mockupViewBox: '1000 250 730 515',
+      },
+    ],
     category: 'Chicken & fish feed',
     summary: 'Live Black Soldier Fly larvae for chicken and fish feeding applications.',
     description:
@@ -75,8 +89,8 @@ export const products: Product[] = [
     slug: 'bsfl-frass',
     name: 'BSFL Frass',
     packs: [
-      { id: 'frass-5kg', weightKg: 5, priceUsd: 5 },
-      { id: 'frass-10kg', weightKg: 10, priceUsd: 9 },
+      { id: 'frass-5kg', weightKg: 5, priceUsd: 5, mockupViewBox: '20 190 445 570' },
+      { id: 'frass-10kg', weightKg: 10, priceUsd: 9, mockupViewBox: '475 85 520 675' },
     ],
     category: 'Organic soil input',
     summary: 'A BSFL production byproduct for soil management. 5 kg: US$5; 10 kg: US$9.',

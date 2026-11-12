@@ -61,3 +61,7 @@ Live larvae remain the main product: 10 kg for US$10. Frass has separate 5 kg / 
 All ten pages have refreshed 1440px desktop and 390px mobile screenshots. Additional screenshots: [vermicompost](screenshots/vermicompost-desktop.png), [approach](screenshots/sustainability-desktop.png), [selected-pack quote](screenshots/quote-mobile.png), [privacy](screenshots/privacy-desktop.png). Run `node scripts/review-offers.mjs` against a running local production server to refresh them (system Chromium, or `CHROMIUM_PATH`). No new Lighthouse measurement was taken; prior scores above are historical only.
 
 On phones the persistent WhatsApp shortcut is placed after the footer in normal page flow so it cannot obscure form text or photos. Product-specific WhatsApp actions remain next to the offers.
+
+## Approved packaging artwork
+
+The catalogue and larvae/frass detail pages now pair each confirmed offer with its owner-approved packaging mockup. Editable product/weight/price text appears directly beneath the matching artwork. Cards visibly identify the illustrations as mockups and state that final packaging is to be confirmed. Original agricultural context and larvae-production photos remain in place, and the homepage still leads with the actual larvae production image. Product structured data continues to use the existing product/context image rather than depicting a mockup as an authentic product photo.

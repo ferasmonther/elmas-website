@@ -57,3 +57,9 @@ Based on review branch commit febdb25c25e247346c9ea85cdcddbd2be5fe1360. The new 
 No external messages, SMTP configuration, deployment, DNS changes, purchases or external account changes were performed. Real email delivery and WhatsApp account availability remain unverified. Owner input is still needed for verified frass/vermicompost close-ups, other specifications and formats, permitted applications and privacy/legal arrangements. Delivery arrangements and additional charges must be confirmed per inquiry.
 
 Final screenshot review found the floating WhatsApp shortcut could cover phone form text. It now appears in normal page flow at widths up to 760px; the production build, lint/format checks and the 320px/390px page suites plus keyboard regression were rerun after this adjustment. The final screenshots reflect this fix.
+
+## Owner-approved package mockups
+
+Added the approved generated packaging artwork for frass 5 kg / US$5, frass 10 kg / US$9 and live larvae 10 kg / US$10 to catalogue and detail offer cards. Prices remain editable text directly beneath each image, with unchanged product/pack inquiry links. Each image is explicitly labeled as a mockup; the actual company photos and homepage priority remain unchanged.
+
+Lint with zero warnings, formatting, typecheck, seven unit tests and production build passed. All **12 browser checks** passed, including all public pages at 320/390/768/1440px and a new test for all three package images, correct prices below their figures, successful asset delivery and the photographic homepage hero. A final SVG clipping adjustment isolates each individual package from its neighbors; the build and package regression were checked again afterward. Desktop/mobile review screenshots were refreshed.

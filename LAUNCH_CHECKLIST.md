@@ -21,3 +21,6 @@ The website has not been deployed. These are release prerequisites, not complete
 - [x] Implement owner-confirmed live larvae 10 kg / US$10 and frass 5 kg / US$5, 10 kg / US$9. Vermicompost remains inquiry-only.
 - [x] Validate pack-specific WhatsApp inquiry links, quote selection and matching USD structured data without sending messages.
 - [ ] Confirm delivery arrangements and any additional charges with each customer before an order commitment. No delivery fees, taxes, stock levels, timelines or payment terms are invented.
+
+- [x] Add owner-approved labeled 5 kg frass, 10 kg frass and 10 kg live-larvae packaging mockups with correct prices beneath each.
+- [ ] Confirm actual packaging before replacing the visible mockup designation with an actual-packaging claim.

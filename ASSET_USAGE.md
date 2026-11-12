@@ -1,5 +1,7 @@
 # Asset inventory and usage
 
+Approved generated packaging artwork is documented below; it is separate from the authentic company-photo inventory.
+
 The official `Elmas_master_clean.svg` is preserved byte-for-byte in `assets/originals` and used in the header and footer as `public/assets/logo/elmas-logo.svg`. Its geometry and green color are unchanged. The PNG fallback supplied in websitepix.zip is preserved, but the site uses SVG.
 
 All ten photographs in `websitepix.zip` were inspected visually. All originals remain in `assets/originals`; all have optimized 1920px WebP variants in `public/assets/photos`. Twelve images were initially visible in chat; this downloadable ZIP contains ten. Only the accessible original files are used. No stock or generated imagery is used.
@@ -28,3 +30,9 @@ Product images and small mobile thumbnails now preserve landscape proportions in
 ## Confirmed-offer review — 12 November 2026
 
 All ten optimized photographs were visually inspected again. Existing images and original files are unchanged. The larvae photograph still leads the homepage; the primary mobile card now uses one column to keep the photo and offer readable. Outdoor frass/vermicompost images remain explicitly captioned as agricultural context. The soft, dark adult-fly photograph remains supporting imagery only. Updated desktop/mobile screenshots cover all ten public pages in `docs/screenshots`; no generated product photographs were added.
+
+## Owner-approved packaging mockups
+
+The owner approved the generated packaging concepts in this conversation: BSFL frass 5 kg, BSFL frass 10 kg, and live BSFL larvae 10 kg. The exact approved image is preserved at `public/assets/packaging/approved-packaging-concepts.png`. It is a concept illustration, not a company/product photograph and not confirmation of final packaging. The displayed container type is illustrative.
+
+Catalogue and product-detail offer cards show individual portions of that unchanged image through SVG viewports configured by `mockupViewBox` in the typed pack data. Each package has its correct editable text price underneath, its own WhatsApp inquiry action and a visible mockup caption. No image pixels, originals or official header/footer logo assets were altered. Authentic larvae photography still leads the homepage; packaging art is omitted there to retain its compact layout.

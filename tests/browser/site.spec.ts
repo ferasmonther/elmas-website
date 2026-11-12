@@ -229,3 +229,33 @@ test('keyboard navigation exposes focus and mobile menu', async ({ page }) => {
     page.getByRole('navigation').getByRole('link', { name: 'Our products' }),
   ).toBeFocused();
 });
+
+test('approved package mockups have their correct price beneath them', async ({
+  page,
+  request,
+}) => {
+  expect((await request.get('/assets/packaging/approved-packaging-concepts.png')).status()).toBe(
+    200,
+  );
+  await page.goto('/products');
+  await expect(page.locator('.package-mockup')).toHaveCount(3);
+  for (const [slug, labels] of [
+    ['bsfl-protein', ['Live BSFL Larvae — 10 kg — US$10']],
+    ['bsfl-frass', ['BSFL Frass — 5 kg — US$5', 'BSFL Frass — 10 kg — US$9']],
+  ] as const) {
+    await page.goto(`/products/${slug}`);
+    const options = page.locator('.product-detail .pack-option');
+    for (let i = 0; i < labels.length; i++) {
+      const option = options.nth(i);
+      await expect(option.locator('strong')).toHaveText(labels[i]);
+      await expect(option.locator('svg[role="img"]')).toBeVisible();
+      await expect(option.locator('figcaption')).toHaveText('Packaging mockup');
+      const art = await option.locator('figure').boundingBox();
+      const price = await option.locator('strong').boundingBox();
+      expect(price!.y).toBeGreaterThanOrEqual(art!.y + art!.height);
+    }
+  }
+  await page.goto('/');
+  await expect(page.locator('.hero img')).toHaveAttribute('alt', /larvae/);
+  await expect(page.locator('.package-mockup')).toHaveCount(0);
+});
