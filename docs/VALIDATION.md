@@ -63,3 +63,12 @@ Final screenshot review found the floating WhatsApp shortcut could cover phone f
 Added the approved generated packaging artwork for frass 5 kg / US$5, frass 10 kg / US$9 and live larvae 10 kg / US$10 to catalogue and detail offer cards. Prices remain editable text directly beneath each image, with unchanged product/pack inquiry links. Each image is explicitly labeled as a mockup; the actual company photos and homepage priority remain unchanged.
 
 Lint with zero warnings, formatting, typecheck, seven unit tests and production build passed. All **12 browser checks** passed, including all public pages at 320/390/768/1440px and a new test for all three package images, correct prices below their figures, successful asset delivery and the photographic homepage hero. A final SVG clipping adjustment isolates each individual package from its neighbors; the build and package regression were checked again afterward. Desktop/mobile review screenshots were refreshed.
+
+## GitHub Pages deployment preparation
+
+The owner explicitly authorized deployment and selected GitHub. The source repository was confirmed accessible with admin permissions; Pages was not previously configured. The deployment uses a separate `gh-pages` branch, preserving `main` and keeping editable source on `elmas-website-review`.
+
+- Added a reproducible isolated static export, base-path-safe asset references and client-side quote query selection inside Suspense. The first static test caught a hydration mismatch from forcing the quote route static; allowing the Suspense boundary to handle browser query selection corrected it.
+- The final static build passed `scripts/check-github-pages.mjs`: all ten pages at 320/390/768/1440px, image decoding, no overflow, axe A/AA checks, pack-specific navigation, live-larvae/frass WhatsApp message details, disabled submission and no browser runtime errors.
+- Lint with zero warnings, formatting, route type generation/TypeScript, seven unit tests and the normal production build passed. All 12 original browser tests passed against the normal production server after the source changes.
+- The GitHub Pages export excludes the server API, local environment files and SMTP configuration. The original server source remains intact. The GitHub copy remains noindex until the official-domain/indexing launch step; no DNS changes are included.

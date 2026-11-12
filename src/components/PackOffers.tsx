@@ -1,3 +1,4 @@
+import { assetUrl } from '@/lib/assets';
 import Link from 'next/link';
 import { deliveryNote, packLabel, quoteHref, type Product } from '@/content/site';
 import { whatsappUrl } from '@/lib/config';
@@ -36,7 +37,7 @@ export function PackOffers({
                     </defs>
                     <image
                       clipPath={`url(#${clipId})`}
-                      href="/assets/packaging/approved-packaging-concepts.png"
+                      href={assetUrl('/assets/packaging/approved-packaging-concepts.png')}
                       width="1752"
                       height="897"
                     />

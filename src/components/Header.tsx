@@ -1,4 +1,5 @@
 'use client';
+import { assetUrl } from '@/lib/assets';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -11,7 +12,13 @@ export function Header() {
     <header className="header">
       <div className="wrap header-inner">
         <Link href="/" aria-label="Elma’s home" onClick={() => setOpen(false)}>
-          <Image src="/assets/logo/elmas-logo.svg" alt="Elma’s" width={151} height={43} priority />
+          <Image
+            src={assetUrl('/assets/logo/elmas-logo.svg')}
+            alt="Elma’s"
+            width={151}
+            height={43}
+            priority
+          />
         </Link>
         <button
           className="menu"

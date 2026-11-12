@@ -1,6 +1,6 @@
 # Launch checklist
 
-The website has not been deployed. These are release prerequisites, not completed claims.
+The owner authorized the GitHub Pages static deployment. These remaining prerequisites concern the official domain and future server-based forms; they are not completed claims.
 
 - [x] Import the accessible websitepix.zip photographs, preserve originals, generate optimized variants and replace photo placeholders.
 - [x] Configure user-confirmed business email ferasmonther@elmasbio.com and WhatsApp +961 70 988 141.
@@ -24,3 +24,5 @@ The website has not been deployed. These are release prerequisites, not complete
 
 - [x] Add owner-approved labeled 5 kg frass, 10 kg frass and 10 kg live-larvae packaging mockups with correct prices beneath each.
 - [ ] Confirm actual packaging before replacing the visible mockup designation with an actual-packaging claim.
+
+- [x] Owner authorized GitHub Pages deployment; retain main and official-domain DNS unchanged.

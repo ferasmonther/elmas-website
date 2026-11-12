@@ -1,6 +1,7 @@
 import { Intro } from '@/components/Shared';
-import { InquiryForm } from '@/components/InquiryForm';
-import { deliveryNote, packLabel, products } from '@/content/site';
+import { Suspense } from 'react';
+import { QuoteInquiry } from '@/components/QuoteInquiry';
+import { deliveryNote } from '@/content/site';
 import { emailReady, whatsappUrl, publicEmail } from '@/lib/config';
 import { seo } from '@/lib/seo';
 export const dynamic = 'force-dynamic';
@@ -9,16 +10,7 @@ export const metadata = seo(
   'Request a tailored quotation for live BSFL larvae for chickens and fish, priced BSFL frass packs or inquiry-only vermicompost. Tell Elma’s about your requirements.',
   '/request-quote',
 );
-export default async function Quote({
-  searchParams,
-}: {
-  searchParams: Promise<{ product?: string; pack?: string }>;
-}) {
-  const query = await searchParams;
-  const p = products.find((p) => p.slug === query.product);
-  const pack = p?.packs.find((pack) => pack.id === query.pack);
-  const selection = p && pack ? packLabel(p, pack) : p?.name;
-  const wa = whatsappUrl(selection);
+export default function Quote() {
   const email = publicEmail();
   return (
     <>
@@ -42,18 +34,9 @@ export default async function Quote({
           </p>
           <p className="note">{deliveryNote}</p>
         </aside>
-        <InquiryForm
-          kind="quote"
-          product={p?.slug}
-          pack={pack?.id}
-          ready={emailReady()}
-          emailHref={
-            email
-              ? `mailto:${email}?subject=${encodeURIComponent(`Quote request: ${selection || 'Elma’s products'}`)}`
-              : undefined
-          }
-          whatsappHref={wa}
-        />
+        <Suspense fallback={<p>Loading product selection…</p>}>
+          <QuoteInquiry ready={emailReady()} email={email} whatsappHref={whatsappUrl()} />
+        </Suspense>
       </section>
     </>
   );

@@ -1,3 +1,4 @@
+import { assetUrl } from '@/lib/assets';
 import Image from 'next/image';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -28,7 +29,7 @@ export function Media({
       <div className="media-frame">
         {present ? (
           <Image
-            src={`/assets/photos/${item.file}`}
+            src={assetUrl(`/assets/photos/${item.file}`)}
             alt={item.alt}
             fill
             sizes={sizes}

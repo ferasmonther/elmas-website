@@ -40,9 +40,13 @@ Missing SMTP configuration disables submission and clearly states nothing was se
 
 The server validates field lengths, email, consent, product and positive quantities, rejects cross-origin submissions, caps request bodies, uses a honeypot and rate limits requests. It sends plain text only, to a configured fixed recipient, using a fixed sender with the visitor as reply-to. It does not log submission contents. The in-memory limiter is suitable for a single process; it resets on restart. Before scaling to multiple replicas or serverless, use a shared limiter or hosting edge rate limits. Configure `TRUSTED_CLIENT_IP_HEADER` only when the hosting proxy overwrites that exact header; otherwise the app conservatively shares one five-attempt/15-minute bucket across all clients. Do not blindly trust client-supplied forwarded headers.
 
-## Deployment preparation
+## GitHub Pages
 
-Use a Node-capable Next.js host (not a static export; forms require a server). No deployment has been performed. The confirmed HTTPS origin is `https://elmasbio.com` (`SITE_URL` in `.env.example`). Set it in the hosting environment and rebuild to enable canonical URLs, sitemap entries and indexing; without it the site intentionally uses noindex and robots disallow. Public content and asset presence are evaluated during build, so rebuild after changing content or adding photographs. SMTP/contact pages evaluate runtime configuration on each request. Configure outbound SMTP access and credentials at the chosen host, validate the real mailbox, and complete `LAUNCH_CHECKLIST.md` before publishing. Do not change live DNS without approval.
+The owner authorized a static GitHub Pages deployment. See [GITHUB_PAGES.md](docs/GITHUB_PAGES.md) for the public address, static-host limitations and rebuild instructions. The server-capable Next.js source remains available.
+
+## Node hosting preparation
+
+Use a Node-capable Next.js host (not a static export; forms require a server). The original server-capable app has not been deployed to a Node host; the GitHub Pages export is documented above. The confirmed HTTPS origin is `https://elmasbio.com` (`SITE_URL` in `.env.example`). Set it in the hosting environment and rebuild to enable canonical URLs, sitemap entries and indexing; without it the site intentionally uses noindex and robots disallow. Public content and asset presence are evaluated during build, so rebuild after changing content or adding photographs. SMTP/contact pages evaluate runtime configuration on each request. Configure outbound SMTP access and credentials at the chosen host, validate the real mailbox, and complete `LAUNCH_CHECKLIST.md` before publishing. Do not change live DNS without approval.
 
 ## Product priority
 

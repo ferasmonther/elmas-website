@@ -8,3 +8,6 @@ test-results/
 
 # Local design review screenshots
 review/
+
+# Isolated static deployment build
+work/

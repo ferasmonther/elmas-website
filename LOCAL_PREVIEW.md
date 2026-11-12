@@ -25,3 +25,7 @@ For a production-style local check, run `npm run build` followed by `npm start` 
 Download `elmas-website-review` through GitHub → Code → Download ZIP, then extract it. Runtime dependencies are unchanged. For an existing installed copy, replacing `src` and restarting `npm run dev` applies the website changes; download the full branch to receive updated tests, documentation and screenshots too.
 
 Check live larvae (10 kg / US$10), both frass packs (5 kg / US$5 and 10 kg / US$9), and inquiry-only vermicompost. Pack-specific quote links preserve the selected product and pack; the form’s direct-contact links update when either selection changes. Inspect WhatsApp’s prepared message without sending it. Delivery arrangements and additional charges must be confirmed before committing to an order.
+
+## GitHub Pages version
+
+The published static version and rebuild instructions are in [docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md). For local source review on Windows, continue using `npm ci` and `npm run dev` as above.

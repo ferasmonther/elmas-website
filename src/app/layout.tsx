@@ -1,3 +1,4 @@
+import { assetUrl } from '@/lib/assets';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -40,7 +41,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer>
           <div className="wrap footer-grid">
             <div>
-              <Image src="/assets/logo/elmas-logo.svg" alt="Elma’s" width={168} height={46} />
+              <Image
+                src={assetUrl('/assets/logo/elmas-logo.svg')}
+                alt="Elma’s"
+                width={168}
+                height={46}
+              />
               <p>Turning Waste Into Value</p>
               <small>
                 BSFL larvae. Poultry & aquaculture.
