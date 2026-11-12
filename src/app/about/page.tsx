@@ -23,8 +23,8 @@ export default function About() {
             for organic resources.
           </h2>
           <p>
-            Our mission is to provide sustainable, high-quality Black Soldier Fly larvae as a
-            practical protein source for animal feed, while supporting organic resource recovery.
+            Our mission is to produce Black Soldier Fly larvae for chicken and fish feeding
+            applications while supporting organic resource recovery.
           </p>
           <p>
             Alongside our core BSFL larvae product, we offer distinct soil input product lines: BSFL

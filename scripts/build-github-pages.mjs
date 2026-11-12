@@ -41,6 +41,7 @@ const env = {
   GITHUB_PAGES: 'true',
   NEXT_PUBLIC_BASE_PATH: '/elmas-website',
   SITE_URL: '',
+  DEPLOYMENT_URL: 'https://ferasmonther.github.io/elmas-website',
 };
 // Email configuration is intentionally deferred and cannot run on this static host.
 for (const key of ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASSWORD', 'MAIL_FROM', 'MAIL_TO'])

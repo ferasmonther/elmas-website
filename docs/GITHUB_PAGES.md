@@ -39,3 +39,5 @@ node scripts/check-github-pages.mjs
 The browser check visits all ten pages at 320/390/768/1440px, decodes photos, checks overflow and axe accessibility, tests pack-specific navigation and WhatsApp messages, and verifies that submission stays disabled. It never sends external messages.
 
 Publish the contents of `out` (including `.nojekyll`) to the existing `gh-pages` branch, then verify GitHub Pages build status and the actual HTTPS site. A push to the review source branch alone does not update the deployed files. Keep all source, dependencies, local settings and secrets out of the deployment branch.
+
+The export sets `DEPLOYMENT_URL` to the actual GitHub Pages address for correct social-preview URLs and photos. `SITE_URL` remains empty in that export to preserve noindex until the official-domain launch step. This separates sharing metadata from the decision to index the site.

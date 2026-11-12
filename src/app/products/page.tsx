@@ -14,11 +14,6 @@ export default function Products() {
       </Intro>
       <section className="wrap catalog">
         <ProductCards focusPrimary />
-        <p className="note">
-          Live larvae: 10 kg for US$10. BSFL frass: 5 kg for US$5 or 10 kg for US$9. Vermicompost is
-          inquiry-only. Confirm availability, delivery arrangements and any additional charges
-          before committing to an order.
-        </p>
       </section>
       <CTA />
     </>

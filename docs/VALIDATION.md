@@ -86,3 +86,7 @@ No DNS/custom-domain changes or external messages were made. The GitHub copy kee
 Removed all visible homepage pricing and price-bearing homepage metadata. Offer captions and quote pack options now use only `5kg — $5`, `10kg — $9` and `10kg — $10`; prepared inquiries retain complete product, format, weight and USD price details. Removed visible packaging-mockup captions and the explanatory packaging note as requested by the owner.
 
 Static production export, zero-warning lint, formatting, TypeScript and seven unit tests passed. The updated static browser suite passed all ten pages at 320/390/768/1440px, including explicit no-homepage-prices and simplified-frass-label checks, accessibility/overflow, pack navigation and accurate WhatsApp messages with no runtime errors. Desktop/mobile screenshots were refreshed and visually inspected.
+
+## Full consistency audit
+
+See [CONSISTENCY_REVIEW.md](CONSISTENCY_REVIEW.md) for the page-by-page findings, content/photo corrections and verification. The final static browser audit passed all ten pages at 320/390/768/1440px, all 16 internal navigation/quote links, contact destinations, social-preview URLs/photos, price-placement guards, keyboard/mobile navigation and no runtime errors. An additional direct browser check verified the 10kg frass / $9 selection in both email and WhatsApp links and confirmed that switching to vermicompost clears the old price.

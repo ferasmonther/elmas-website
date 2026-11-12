@@ -528,10 +528,10 @@ footer {
   color: var(--muted);
 }
 .whatsapp {
-  position: fixed;
-  z-index: 30;
-  bottom: 20px;
-  right: 22px;
+  position: static;
+  display: block;
+  width: fit-content;
+  margin: 0 22px 20px auto;
   background: var(--green);
   color: white;
   padding: 12px 20px;

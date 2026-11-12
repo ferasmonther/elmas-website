@@ -15,8 +15,8 @@ export default function Quote() {
   return (
     <>
       <Intro tag="REQUEST A QUOTE" title="What do your animals or crops need?">
-        Share your requirements. We’ll discuss availability, specifications and a quotation for your
-        application.
+        Choose a product and pack, then send your inquiry by WhatsApp or email. We’ll discuss
+        suitability, availability and delivery with you.
       </Intro>
       <section className="wrap form-layout section">
         <aside>

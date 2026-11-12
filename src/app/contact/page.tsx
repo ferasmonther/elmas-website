@@ -6,7 +6,7 @@ import { seo } from '@/lib/seo';
 export const dynamic = 'force-dynamic';
 export const metadata = seo(
   'Contact',
-  'Contact Elma’s in Lebanon to discuss live BSFL larvae for chickens and fish, BSFL frass and vermicompost and agricultural product inquiries.',
+  'Contact Elma’s in Lebanon about live BSFL larvae for chickens and fish, BSFL frass or vermicompost. Send your inquiry by email or WhatsApp.',
   '/contact',
 );
 export default function Contact() {
@@ -22,7 +22,10 @@ export default function Contact() {
         <aside>
           <div className="eyebrow">FIND US</div>
           <h2>Rooted in Lebanon.</h2>
-          <p>For product-specific requirements, our quote form helps us understand your needs.</p>
+          <p>
+            For a product inquiry, select your product and pack on the quote page, then contact us
+            by email or WhatsApp.
+          </p>
           <Link className="text-link" href="/request-quote">
             Request a Quote →
           </Link>

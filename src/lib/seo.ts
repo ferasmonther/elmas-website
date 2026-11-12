@@ -8,7 +8,7 @@ export function seo(
   path: string,
   image: ImageKey = 'larvae',
 ): Metadata {
-  const origin = siteUrl();
+  const origin = siteUrl() || process.env.DEPLOYMENT_URL;
   const socialImage = origin
     ? [
         {

@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: { default: 'Elma’s | Turning Waste Into Value', template: '%s | Elma’s' },
   description:
     'Black Soldier Fly larvae for chicken and fish feed applications, produced in Lebanon. Discover Elma’s core larvae offering and complementary soil inputs.',
-  ...(siteUrl() ? { metadataBase: new URL(siteUrl()!) } : {}),
+  ...(siteUrl() || process.env.DEPLOYMENT_URL
+    ? { metadataBase: new URL(siteUrl() || process.env.DEPLOYMENT_URL!) }
+    : {}),
   robots: siteUrl() ? { index: true, follow: true } : { index: false, follow: false },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {

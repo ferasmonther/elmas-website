@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { products } from '@/content/site';
+import { images, products } from '@/content/site';
 import { PackOffers } from '@/components/PackOffers';
 import { Media } from '@/components/Media';
 import { CTA } from '@/components/Shared';
@@ -64,7 +64,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
             '@type': 'Product',
             name: p.primary ? 'Live BSFL Larvae' : p.name,
             description: p.seoDescription,
-            image: `${origin}/assets/photos/${p.image === 'larvae' ? 'larvae' : p.image}.webp`,
+            ...(p.primary ? { image: `${origin}/assets/photos/${images[p.image].file}` } : {}),
             url: `${origin}/products/${p.slug}`,
             brand: { '@type': 'Brand', name: 'Elma’s' },
             ...(p.packs.length

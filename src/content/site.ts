@@ -8,7 +8,7 @@ export type Pack = {
 export const deliveryNote =
   'Confirm delivery arrangements and any additional charges with Elma’s before committing to an order. Opening WhatsApp prepares an inquiry; it does not place or pay for an order.';
 export function packLabel(product: Pick<Product, 'name'>, pack: Pack) {
-  return `${pack.format ? pack.format + ' ' : ''}${product.name} — ${pack.weightKg} kg — US$${pack.priceUsd}`;
+  return `${pack.format ? pack.format + ' ' : ''}${product.name}, ${packPrice(pack)} USD`;
 }
 export function packPrice(pack: Pack) {
   return `${pack.weightKg}kg — $${pack.priceUsd}`;
@@ -64,10 +64,10 @@ export const products: Product[] = [
     note: 'Larvae are not a complete feed. Suitability depends on the species, life stage, overall diet and applicable requirements. No universal inclusion rate or performance outcome is implied.',
     image: 'larvae',
     seoDescription:
-      'Black Soldier Fly larvae from Elma’s in Lebanon for chicken and fish feed applications. Live 10 kg packs at US$10. Discuss suitability, availability and specifications.',
+      'Live Black Soldier Fly larvae from Elma’s in Lebanon for chicken and fish feeding applications. Explore pack options and discuss suitability and specifications.',
     inquiryDetails: [
       'Chicken or fish species, life stage and intended feeding approach',
-      'Number of live 10 kg packs and order frequency',
+      'Number of live larvae packs and order frequency',
       'Delivery location and any technical documentation you need',
     ],
     faq: [
@@ -79,7 +79,7 @@ export const products: Product[] = [
       {
         question: 'What live larvae pack is offered?',
         answer:
-          'Live BSFL larvae are offered in 10 kg packs at US$10 per pack. Confirm availability, delivery arrangements and any additional charges before committing to an order. Other formats are not confirmed.',
+          'We offer live BSFL larvae. See the pack option above for the current weight and price. Confirm availability, delivery arrangements and any additional charges before committing to an order. Other formats are not confirmed.',
       },
     ],
     specifications: [
@@ -108,7 +108,7 @@ export const products: Product[] = [
     note: 'Composition, treatment, application rates and suitability must be confirmed for your crop and soil. Frass and vermicompost are different products.',
     image: 'application',
     seoDescription:
-      'BSFL frass from Elma’s in Lebanon: 5 kg packs at US$5 and 10 kg packs at US$9. Request verified composition, treatment details and application guidance.',
+      'BSFL frass from Elma’s in Lebanon for agricultural soil management. Explore pack options and request verified composition, treatment details and application guidance.',
     inquiryDetails: [
       'Crop, growing environment and soil information if available',
       'Area to be treated and approximate quantity required',

@@ -163,12 +163,12 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
     await expect(offers).toHaveCount(packs.length);
     for (let i = 0; i < packs.length; i++) {
       const [id, weight, price, name] = packs[i];
-      const label = `${name} — ${weight} kg — US$${price}`;
+      const label = `${name}, ${weight}kg — $${price} USD`;
       await expect(offers.nth(i).locator('strong')).toHaveText(`${weight}kg — $${price}`);
       const url = new URL(
         (await offers
           .nth(i)
-          .getByRole('link', { name: 'Inquire on WhatsApp:', exact: false })
+          .getByRole('link', { name: 'Ask on WhatsApp about', exact: false })
           .getAttribute('href'))!,
       );
       expect(url.hostname).toBe('wa.me');

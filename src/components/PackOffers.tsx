@@ -52,9 +52,9 @@ export function PackOffers({
                     href={wa}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Inquire on WhatsApp: ${label}`}
+                    aria-label={`Ask on WhatsApp about ${product.name}, ${packPrice(pack)}`}
                   >
-                    Inquire on WhatsApp →
+                    Ask on WhatsApp →
                   </a>
                 )}
                 {!compact && (
