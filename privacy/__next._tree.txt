@@ -1,4 +1,4 @@
-:HL["/elmas-website/_next/static/css/ff4b6a7c2a839534.css","style"]
+:HL["/elmas-website/_next/static/css/320a7acf068bb9cd.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"privacy","h":96,"c":"$Q2"}]]
-0:{"b":"7AcULeJFs9vX15wv42Onj","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"nLM99v7kgK9e2LZprSe2A","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
