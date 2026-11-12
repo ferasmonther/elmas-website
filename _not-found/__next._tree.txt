@@ -1,4 +1,4 @@
 :HL["/elmas-website/_next/static/css/ff4b6a7c2a839534.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"oKuIrpNn_i54q1en1GPAn","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"7AcULeJFs9vX15wv42Onj","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
