@@ -10,6 +10,9 @@ export const deliveryNote =
 export function packLabel(product: Pick<Product, 'name'>, pack: Pack) {
   return `${pack.format ? pack.format + ' ' : ''}${product.name} — ${pack.weightKg} kg — US$${pack.priceUsd}`;
 }
+export function packPrice(pack: Pack) {
+  return `${pack.weightKg}kg — $${pack.priceUsd}`;
+}
 export function quoteHref(product: Product, pack?: Pack) {
   return `/request-quote?product=${product.slug}${pack ? `&pack=${pack.id}` : ''}`;
 }
@@ -93,7 +96,7 @@ export const products: Product[] = [
       { id: 'frass-10kg', weightKg: 10, priceUsd: 9, mockupViewBox: '475 85 520 675' },
     ],
     category: 'Organic soil input',
-    summary: 'A BSFL production byproduct for soil management. 5 kg: US$5; 10 kg: US$9.',
+    summary: 'A BSFL production byproduct for agricultural soil management.',
     description:
       'Frass is a byproduct of Black Soldier Fly larvae production. It can include insect excreta, shed material and residual substrate. It is a distinct agricultural soil input, with properties that depend on the production and treatment process.',
     buyers: ['Crop farmers', 'Greenhouses and nurseries', 'Agricultural distributors'],

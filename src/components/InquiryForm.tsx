@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { packLabel, products } from '@/content/site';
+import { packLabel, packPrice, products } from '@/content/site';
 export function InquiryForm({
   kind,
   product = '',
@@ -158,7 +158,7 @@ export function InquiryForm({
                 </option>
                 {currentProduct?.packs.map((p) => (
                   <option key={p.id} value={p.id}>
-                    {packLabel(currentProduct, p)}
+                    {packPrice(p)}
                   </option>
                 ))}
               </select>

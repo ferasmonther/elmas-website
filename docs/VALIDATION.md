@@ -80,3 +80,9 @@ GitHub Pages reports `built`, HTTPS enforced, source `gh-pages` at `/`, public U
 Live HTTPS requests verified all ten public pages, the approved packaging image, the larvae photo and official SVG. Visible response content contains the correct US$5/US$9 frass offers and US$10 live-larvae offer. The live Chromium run could not proceed because this environment’s intercepted TLS certificate is not trusted by Chromium (`ERR_CERT_AUTHORITY_INVALID`); TLS verification was not disabled. The full static browser suite passed locally, and live HTTPS checks used the inherited proxy/CA trust with verification enabled.
 
 No DNS/custom-domain changes or external messages were made. The GitHub copy keeps noindex until the official-domain launch decision; direct email/WhatsApp inquiry links are available and online submission remains disabled.
+
+## Homepage and offer-label cleanup
+
+Removed all visible homepage pricing and price-bearing homepage metadata. Offer captions and quote pack options now use only `5kg — $5`, `10kg — $9` and `10kg — $10`; prepared inquiries retain complete product, format, weight and USD price details. Removed visible packaging-mockup captions and the explanatory packaging note as requested by the owner.
+
+Static production export, zero-warning lint, formatting, TypeScript and seven unit tests passed. The updated static browser suite passed all ten pages at 320/390/768/1440px, including explicit no-homepage-prices and simplified-frass-label checks, accessibility/overflow, pack navigation and accurate WhatsApp messages with no runtime errors. Desktop/mobile screenshots were refreshed and visually inspected.

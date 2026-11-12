@@ -36,3 +36,7 @@ All ten optimized photographs were visually inspected again. Existing images and
 The owner approved the generated packaging concepts in this conversation: BSFL frass 5 kg, BSFL frass 10 kg, and live BSFL larvae 10 kg. The exact approved image is preserved at `public/assets/packaging/approved-packaging-concepts.png`. It is a concept illustration, not a company/product photograph and not confirmation of final packaging. The displayed container type is illustrative.
 
 Catalogue and product-detail offer cards show individual portions of that unchanged image through SVG viewports configured by `mockupViewBox` in the typed pack data. Each package has its correct editable text price underneath, its own WhatsApp inquiry action and a visible mockup caption. No image pixels, originals or official header/footer logo assets were altered. Authentic larvae photography still leads the homepage; packaging art is omitted there to retain its compact layout.
+
+## Owner-requested display cleanup
+
+The owner requested removal of the visible packaging-mockup captions and explanatory note. Those labels are removed from the catalogue and detail pages; the same approved illustration pixels remain unchanged. Accessibility descriptions identify the artwork as a packaging illustration. Offer text beneath each package is now only weight and price (`5kg — $5`, `10kg — $9`, `10kg — $10`). The homepage has no pricing or offer cards; it retains authentic larvae photography and links to product details.

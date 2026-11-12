@@ -1,6 +1,6 @@
 import { assetUrl } from '@/lib/assets';
 import Link from 'next/link';
-import { deliveryNote, packLabel, quoteHref, type Product } from '@/content/site';
+import { deliveryNote, packLabel, packPrice, quoteHref, type Product } from '@/content/site';
 import { whatsappUrl } from '@/lib/config';
 
 export function PackOffers({
@@ -28,7 +28,7 @@ export function PackOffers({
                   <svg
                     viewBox={pack.mockupViewBox}
                     role="img"
-                    aria-label={`Approved packaging mockup: ${pack.format ? pack.format + ' ' : ''}${product.name}, ${pack.weightKg} kg`}
+                    aria-label={`Packaging illustration: ${pack.format ? pack.format + ' ' : ''}${product.name}, ${pack.weightKg} kg`}
                   >
                     <defs>
                       <clipPath id={clipId}>
@@ -42,10 +42,9 @@ export function PackOffers({
                       height="897"
                     />
                   </svg>
-                  <figcaption>Packaging mockup</figcaption>
                 </figure>
               )}
-              <strong>{label}</strong>
+              <strong>{packPrice(pack)}</strong>
               <div className="actions">
                 {wa && (
                   <a
@@ -68,11 +67,6 @@ export function PackOffers({
           );
         })}
       </div>
-      {showPackaging && (
-        <p className="note packaging-note">
-          Illustrative packaging mockups. Final packaging to be confirmed.
-        </p>
-      )}
       {!compact && <p className="note">{deliveryNote}</p>}
     </div>
   );

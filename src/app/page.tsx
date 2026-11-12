@@ -5,7 +5,7 @@ import { seo } from '@/lib/seo';
 
 export const metadata = seo(
   'BSFL Larvae for Chicken & Fish Feed in Lebanon',
-  'Live BSFL larvae for chicken and fish feed applications in Lebanon: 10 kg for US$10. Also explore priced BSFL frass packs and inquiry-only vermicompost.',
+  'Live BSFL larvae for chicken and fish feed applications in Lebanon, with BSFL frass and vermicompost as complementary soil inputs.',
   '/',
 );
 
@@ -24,7 +24,7 @@ export default function Home() {
           </h1>
           <p>
             Live Black Soldier Fly larvae, produced in Lebanon for poultry and aquaculture feed
-            applications. 10 kg pack · US$10.
+            applications.
           </p>
           <div className="actions">
             <Link className="button light" href="/products/bsfl-protein">

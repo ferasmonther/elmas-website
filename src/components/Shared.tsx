@@ -36,9 +36,7 @@ export function ProductCards({
                 <Link href={`/products/${p.slug}`}>{p.name}</Link>
               </h3>
               <p>{p.summary}</p>
-              {(!compact || p.primary || !p.packs.length) && (
-                <PackOffers product={p} compact showPackaging={!compact} />
-              )}
+              {!compact && <PackOffers product={p} compact showPackaging={!compact} />}
               {compact && !focusPrimary && p.slug !== 'bsfl-protein' && (
                 <small className="photo-context">Agricultural context photo</small>
               )}
@@ -56,7 +54,7 @@ export function ProductCards({
           </article>
         ))}
       </div>
-      <p className="note offer-terms">{deliveryNote}</p>
+      {!compact && <p className="note offer-terms">{deliveryNote}</p>}
     </>
   );
 }

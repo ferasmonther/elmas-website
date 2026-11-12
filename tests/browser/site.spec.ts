@@ -164,7 +164,7 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
     for (let i = 0; i < packs.length; i++) {
       const [id, weight, price, name] = packs[i];
       const label = `${name} — ${weight} kg — US$${price}`;
-      await expect(offers.nth(i)).toContainText(label);
+      await expect(offers.nth(i).locator('strong')).toHaveText(`${weight}kg — $${price}`);
       const url = new URL(
         (await offers
           .nth(i)
@@ -240,8 +240,8 @@ test('approved package mockups have their correct price beneath them', async ({
   await page.goto('/products');
   await expect(page.locator('.package-mockup')).toHaveCount(3);
   for (const [slug, labels] of [
-    ['bsfl-protein', ['Live BSFL Larvae — 10 kg — US$10']],
-    ['bsfl-frass', ['BSFL Frass — 5 kg — US$5', 'BSFL Frass — 10 kg — US$9']],
+    ['bsfl-protein', ['10kg — $10']],
+    ['bsfl-frass', ['5kg — $5', '10kg — $9']],
   ] as const) {
     await page.goto(`/products/${slug}`);
     const options = page.locator('.product-detail .pack-option');
@@ -249,7 +249,7 @@ test('approved package mockups have their correct price beneath them', async ({
       const option = options.nth(i);
       await expect(option.locator('strong')).toHaveText(labels[i]);
       await expect(option.locator('svg[role="img"]')).toBeVisible();
-      await expect(option.locator('figcaption')).toHaveText('Packaging mockup');
+      await expect(option.locator('figcaption')).toHaveCount(0);
       const art = await option.locator('figure').boundingBox();
       const price = await option.locator('strong').boundingBox();
       expect(price!.y).toBeGreaterThanOrEqual(art!.y + art!.height);
@@ -258,4 +258,6 @@ test('approved package mockups have their correct price beneath them', async ({
   await page.goto('/');
   await expect(page.locator('.hero img')).toHaveAttribute('alt', /larvae/);
   await expect(page.locator('.package-mockup')).toHaveCount(0);
+  await expect(page.locator('main')).not.toContainText(/US\$|\$\d/);
+  await expect(page.locator('main')).not.toContainText(/packaging mockup/i);
 });

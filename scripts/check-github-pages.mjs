@@ -41,6 +41,14 @@ for (const width of [320, 390, 768, 1440]) {
         .violations,
     ).toEqual([]);
   }
+  await page.goto(origin + '/');
+  await expect(page.locator('main')).not.toContainText(/US\$|\$\d/);
+  await page.goto(origin + '/products/bsfl-frass/');
+  await expect(page.locator('.product-detail .pack-option strong')).toHaveText([
+    '5kg — $5',
+    '10kg — $9',
+  ]);
+  await expect(page.locator('main')).not.toContainText(/packaging mockup/i);
   console.log(`Static Pages: all ten pages passed at ${width}px`);
 }
 await page.goto(origin + '/products/bsfl-frass/');

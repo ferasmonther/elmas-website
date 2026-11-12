@@ -65,3 +65,7 @@ On phones the persistent WhatsApp shortcut is placed after the footer in normal 
 ## Approved packaging artwork
 
 The catalogue and larvae/frass detail pages now pair each confirmed offer with its owner-approved packaging mockup. Editable product/weight/price text appears directly beneath the matching artwork. Cards visibly identify the illustrations as mockups and state that final packaging is to be confirmed. Original agricultural context and larvae-production photos remain in place, and the homepage still leads with the actual larvae production image. Product structured data continues to use the existing product/context image rather than depicting a mockup as an authentic product photo.
+
+## Simplified pricing presentation
+
+Per the owner’s latest instructions, the homepage no longer contains prices in its hero, product summaries, offer cards or metadata. Catalogue/detail offer labels and quote pack options use only weight and price. Product identity and the live larvae format remain in the surrounding product context and in prepared WhatsApp inquiries. Visible packaging-mockup captions and the explanatory packaging note were removed. Refreshed screenshots reflect this presentation.
