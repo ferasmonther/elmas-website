@@ -1,0 +1,40 @@
+1:"$Sreact.fragment"
+2:"static/chunks/825-1a8f209f3ada760f.js"
+3:"static/chunks/604-0b00778ac249c8d1.js"
+4:"static/chunks/app/layout-d9e82a753fe27067.js"
+5:I[8902,["825","$2","604","$3","177","$4"],"Header"]
+6:I[9630,[],""]
+7:"static/chunks/app/error-740e81f4f7c8eaac.js"
+8:I[6009,["39","$7"],"default"]
+9:I[1380,[],""]
+a:"static/chunks/app/privacy/page-7ea714c6eccfbbf7.js"
+b:I[5587,["825","$2","604","$3","877","$a"],""]
+c:I[5604,["825","$2","604","$3","877","$a"],"Image"]
+19:"ViewportBoundary"
+1a:I[887,[],"$19"]
+1b:"MetadataBoundary"
+1c:I[887,[],"$1b"]
+1d:"$Sreact.suspense"
+1e:I[214,[],"IconMark"]
+:HL["/elmas-website/_next/static/css/ff4b6a7c2a839534.css","style"]
+e:X
+11:X
+11:C
+12:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","section",null,{"className":"intro wrap","children":[["$","div",null,{"className":"eyebrow","children":"PRIVACY"}],["$","h1",null,{"children":"Your inquiry. Your information."}],["$","p",null,{"className":"lead","children":"This policy describes the intended handling of contact and quotation requests on the Elma’s website."}]]}],["$","article",null,{"className":"wrap prose","children":[["$","p",null,{"className":"notice","children":"Draft for business review before publication. Elma’s must confirm its privacy contact, service providers and retention period before enabling forms."}],["$","h2",null,{"children":"Information you provide"}],["$","p",null,{"children":"Forms collect your name, email, company or farm, phone number, message and consent. Quote requests also collect the product, selected pack when provided, quantity, unit and delivery location. Please avoid including sensitive personal information."}],["$","h2",null,{"children":"Why we use it"}],["$","p",null,{"children":"Elma’s uses this information to assess and respond to your inquiry and prepare a quotation where requested. Submitting an inquiry does not subscribe you to marketing."}],["$","h2",null,{"children":"Delivery and access"}],["$","p",null,{"children":"When configured, form inquiries are delivered through Elma’s email service to its business mailbox. The website does not maintain an inquiry database. Hosting and email providers may process technical information and messages to provide their services. Direct email links open your own email application; you choose whether to send the message."}],["$","h2",null,{"children":"Security and retention"}],["$","p",null,{"children":"Submission endpoints validate and limit requests. Temporary rate-limit identifiers are hashed and expire after 15 minutes within the running server. Business mailbox retention, access controls and a deletion schedule must be confirmed by Elma’s before launch. Do not send confidential material through these forms."}],"$L13","$L14","$L15","$L16"]}]],null,"$L17"]}],"p":"$@18","v":null,"s":"$e"}}]]
+f:[["children",{"s":"privacy","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@10","v":"$11","s":"$e"},"c":"$Q12"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/elmas-website/_next/static/css/ff4b6a7c2a839534.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","a",null,{"className":"skip","href":"#main","children":"Skip to content"}],["$","$L5",null,{}],"$undefined",["$","main",null,{"id":"main","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$8","errorStyles":[],"errorScripts":null,"template":["$","$L9",null,{}],"notFound":[["$","section",null,{"className":"wrap intro","children":[["$","div",null,{"className":"eyebrow","children":"404 · PAGE NOT FOUND"}],["$","h1",null,{"children":["Let’s get back",["$","br",null,{}],"to good ground."]}],["$","p",null,{"children":"This page isn’t available."}],["$","$Lb",null,{"className":"button","href":"/products","children":"Explore our products →"}]]}],[]]}]}],["$","footer",null,{"children":[["$","div",null,{"className":"wrap footer-grid","children":[["$","div",null,{"children":[["$","$Lc",null,{"src":"/elmas-website/assets/logo/elmas-logo.svg","alt":"Elma’s","width":168,"height":46}],["$","p",null,{"children":"Turning Waste Into Value"}],["$","small",null,{"children":["BSFL larvae. Poultry & aquaculture.",["$","br",null,{}],"Rooted in Lebanon."]}]]}],["$","div",null,{"children":[["$","h2",null,{"children":"Explore"}],["$","$Lb",null,{"href":"/products","children":"Our products"}],["$","$Lb",null,{"href":"/about","children":"About Elma’s"}],["$","$Lb",null,{"href":"/sustainability","children":"Our approach"}]]}],["$","div",null,{"children":[["$","h2",null,{"children":"Let’s connect"}],["$","$Lb",null,{"href":"/request-quote","children":"Request a Quote →"}],["$","$Lb",null,{"href":"/contact","children":"Contact us"}],["$","a",null,{"href":"mailto:ferasmonther@elmasbio.com","aria-label":"Email Elma’s at ferasmonther@elmasbio.com","children":"Email us →"}],["$","span",null,{"children":"Lebanon"}]]}]]}],["$","div",null,{"className":"wrap footer-bottom","children":[["$","span",null,{"children":["© ",2026," Elma’s"]}],["$","$Lb",null,{"href":"/privacy","children":"Privacy policy"}],["$","span",null,{"children":"Made for a more circular agriculture."}]]}]]}],["$","a",null,{"className":"whatsapp","href":"https://wa.me/96170988141?text=Hello%20Elma%E2%80%99s%2C%20I%20would%20like%20to%20inquire%20about%20your%20products.","target":"_blank","rel":"noopener noreferrer","children":["WhatsApp ",["$","span",null,{"aria-hidden":true,"children":"→"}]]}]]}]}]]}],"p":"$@d","v":null,"s":"$e"},"c":"$Qf"},"h":{"r":["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1c",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1d",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Privacy policy | Elma’s"}],["$","meta","1",{"name":"description","content":"How inquiry information is used on the Elma’s website."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","meta","3",{"property":"og:title","content":"Privacy policy | Elma’s"}],["$","meta","4",{"property":"og:description","content":"How inquiry information is used on the Elma’s website."}],["$","meta","5",{"property":"og:site_name","content":"Elma’s"}],["$","meta","6",{"property":"og:locale","content":"en_US"}],["$","meta","7",{"property":"og:type","content":"website"}],["$","meta","8",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","9",{"name":"twitter:title","content":"Privacy policy | Elma’s"}],["$","meta","10",{"name":"twitter:description","content":"How inquiry information is used on the Elma’s website."}],["$","link","11",{"rel":"icon","href":"/elmas-website/favicon.ico?92982a9c2156fc4a","type":"image/x-icon","sizes":"256x256"}],["$","link","12",{"rel":"icon","href":"/elmas-website/icon.png?88c6cbe9260a23d5","type":"image/png","sizes":"256x256"}],["$","$L1e","13",{}]]}]}],null]}],null]}],"p":"$@1f","v":null,"s":"$e"}},"a":"$@20","u":"$@21","b":"oKuIrpNn_i54q1en1GPAn"}
+22:I[887,[],"OutletBoundary"]
+13:["$","h2",null,{"children":"External services and cookies"}]
+14:["$","p",null,{"children":"WhatsApp links open a third-party service whose own terms and privacy policy apply. No analytics, advertising or tracking cookies are added by this application. The hosting provider may process request logs."}]
+15:["$","h2",null,{"children":"Your questions and choices"}]
+16:["$","p",null,{"children":["For questions about access, correction or deletion of inquiry information, contact Elma’s"," ",["$","a",null,{"href":"mailto:ferasmonther@elmasbio.com","children":["at ","ferasmonther@elmasbio.com"]}],". Business review of the final privacy arrangements remains required before launch."]}]
+17:["$","$L22",null,{"children":["$","$1d",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]
+e:300
+23:null
+21:true
+e:C
+20:0
+10:"$undefined"
+d:"$undefined"
+1f:"$undefined"
+18:"$undefined"

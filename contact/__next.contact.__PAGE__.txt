@@ -1,0 +1,37 @@
+1:"$Sreact.fragment"
+2:"static/chunks/825-1a8f209f3ada760f.js"
+3:"static/chunks/604-0b00778ac249c8d1.js"
+4:"static/chunks/app/layout-d9e82a753fe27067.js"
+5:I[8902,["825","$2","604","$3","177","$4"],"Header"]
+6:I[9630,[],""]
+7:"static/chunks/app/error-740e81f4f7c8eaac.js"
+8:I[6009,["39","$7"],"default"]
+9:I[1380,[],""]
+a:"static/chunks/737-91715397267e3da5.js"
+b:"static/chunks/app/contact/page-92fdcce6fc6529a0.js"
+c:I[5587,["825","$2","604","$3","737","$a","977","$b"],""]
+d:I[5604,["825","$2","604","$3","737","$a","977","$b"],"Image"]
+14:I[3737,["825","$2","604","$3","737","$a","977","$b"],"InquiryForm"]
+15:I[887,[],"OutletBoundary"]
+16:"$Sreact.suspense"
+19:"ViewportBoundary"
+1a:I[887,[],"$19"]
+1b:"MetadataBoundary"
+1c:I[887,[],"$1b"]
+1d:I[214,[],"IconMark"]
+:HL["/elmas-website/_next/static/css/ff4b6a7c2a839534.css","style"]
+f:X
+12:X
+12:C
+13:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","section",null,{"className":"intro wrap","children":[["$","div",null,{"className":"eyebrow","children":"CONTACT"}],["$","h1",null,{"children":"Good things start with a conversation."}],["$","p",null,{"className":"lead","children":"Questions about our products, availability or an agricultural application? Tell us what you have in mind."}]]}],["$","section",null,{"className":"wrap form-layout section","children":[["$","aside",null,{"children":[["$","div",null,{"className":"eyebrow","children":"FIND US"}],["$","h2",null,{"children":"Rooted in Lebanon."}],["$","p",null,{"children":"For product-specific requirements, our quote form helps us understand your needs."}],["$","$Lc",null,{"className":"text-link","href":"/request-quote","children":"Request a Quote →"}],["$","hr",null,{}],["$","p",null,{"children":["$","a",null,{"href":"mailto:ferasmonther@elmasbio.com","children":"ferasmonther@elmasbio.com"}]}],["$","p",null,{"children":["$","a",null,{"className":"text-link","href":"https://wa.me/96170988141?text=Hello%20Elma%E2%80%99s%2C%20I%20would%20like%20to%20inquire%20about%20your%20products.","target":"_blank","rel":"noopener noreferrer","children":"Chat on WhatsApp →"}]}],false]}],["$","$L14",null,{"kind":"contact","ready":false,"emailHref":"mailto:ferasmonther@elmasbio.com?subject=Inquiry%20for%20Elma%E2%80%99s","whatsappHref":"https://wa.me/96170988141?text=Hello%20Elma%E2%80%99s%2C%20I%20would%20like%20to%20inquire%20about%20your%20products."}]]}]],null,["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]]}],"p":"$@18","v":null,"s":"$f"}}]]
+10:[["children",{"s":"contact","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@11","v":"$12","s":"$f"},"c":"$Q13"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/elmas-website/_next/static/css/ff4b6a7c2a839534.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","a",null,{"className":"skip","href":"#main","children":"Skip to content"}],["$","$L5",null,{}],"$undefined",["$","main",null,{"id":"main","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$8","errorStyles":[],"errorScripts":null,"template":["$","$L9",null,{}],"notFound":[["$","section",null,{"className":"wrap intro","children":[["$","div",null,{"className":"eyebrow","children":"404 · PAGE NOT FOUND"}],["$","h1",null,{"children":["Let’s get back",["$","br",null,{}],"to good ground."]}],["$","p",null,{"children":"This page isn’t available."}],["$","$Lc",null,{"className":"button","href":"/products","children":"Explore our products →"}]]}],[]]}]}],["$","footer",null,{"children":[["$","div",null,{"className":"wrap footer-grid","children":[["$","div",null,{"children":[["$","$Ld",null,{"src":"/elmas-website/assets/logo/elmas-logo.svg","alt":"Elma’s","width":168,"height":46}],["$","p",null,{"children":"Turning Waste Into Value"}],["$","small",null,{"children":["BSFL larvae. Poultry & aquaculture.",["$","br",null,{}],"Rooted in Lebanon."]}]]}],["$","div",null,{"children":[["$","h2",null,{"children":"Explore"}],["$","$Lc",null,{"href":"/products","children":"Our products"}],["$","$Lc",null,{"href":"/about","children":"About Elma’s"}],["$","$Lc",null,{"href":"/sustainability","children":"Our approach"}]]}],["$","div",null,{"children":[["$","h2",null,{"children":"Let’s connect"}],["$","$Lc",null,{"href":"/request-quote","children":"Request a Quote →"}],["$","$Lc",null,{"href":"/contact","children":"Contact us"}],["$","a",null,{"href":"mailto:ferasmonther@elmasbio.com","aria-label":"Email Elma’s at ferasmonther@elmasbio.com","children":"Email us →"}],["$","span",null,{"children":"Lebanon"}]]}]]}],["$","div",null,{"className":"wrap footer-bottom","children":[["$","span",null,{"children":["© ",2026," Elma’s"]}],["$","$Lc",null,{"href":"/privacy","children":"Privacy policy"}],["$","span",null,{"children":"Made for a more circular agriculture."}]]}]]}],["$","a",null,{"className":"whatsapp","href":"https://wa.me/96170988141?text=Hello%20Elma%E2%80%99s%2C%20I%20would%20like%20to%20inquire%20about%20your%20products.","target":"_blank","rel":"noopener noreferrer","children":["WhatsApp ",["$","span",null,{"aria-hidden":true,"children":"→"}]]}]]}]}]]}],"p":"$@e","v":null,"s":"$f"},"c":"$Q10"},"h":{"r":["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1c",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Contact | Elma’s"}],["$","meta","1",{"name":"description","content":"Contact Elma’s in Lebanon to discuss live BSFL larvae for chickens and fish, BSFL frass and vermicompost and agricultural product inquiries."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","meta","3",{"property":"og:title","content":"Contact | Elma’s"}],["$","meta","4",{"property":"og:description","content":"Contact Elma’s in Lebanon to discuss live BSFL larvae for chickens and fish, BSFL frass and vermicompost and agricultural product inquiries."}],["$","meta","5",{"property":"og:site_name","content":"Elma’s"}],["$","meta","6",{"property":"og:locale","content":"en_US"}],["$","meta","7",{"property":"og:type","content":"website"}],["$","meta","8",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","9",{"name":"twitter:title","content":"Contact | Elma’s"}],["$","meta","10",{"name":"twitter:description","content":"Contact Elma’s in Lebanon to discuss live BSFL larvae for chickens and fish, BSFL frass and vermicompost and agricultural product inquiries."}],["$","link","11",{"rel":"icon","href":"/elmas-website/favicon.ico?92982a9c2156fc4a","type":"image/x-icon","sizes":"256x256"}],["$","link","12",{"rel":"icon","href":"/elmas-website/icon.png?88c6cbe9260a23d5","type":"image/png","sizes":"256x256"}],["$","$L1d","13",{}]]}]}],null]}],null]}],"p":"$@1e","v":null,"s":"$f"}},"a":"$@1f","u":"$@20","b":"oKuIrpNn_i54q1en1GPAn"}
+17:null
+f:300
+20:true
+f:C
+1f:0
+11:"$undefined"
+e:"$undefined"
+1e:"$undefined"
+18:"$undefined"

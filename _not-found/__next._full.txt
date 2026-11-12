@@ -1,0 +1,29 @@
+1:"$Sreact.fragment"
+2:"static/chunks/825-1a8f209f3ada760f.js"
+3:"static/chunks/604-0b00778ac249c8d1.js"
+4:"static/chunks/app/layout-d9e82a753fe27067.js"
+5:I[8902,["825","$2","604","$3","177","$4"],"Header"]
+6:I[9630,[],""]
+7:"static/chunks/app/error-740e81f4f7c8eaac.js"
+8:I[6009,["39","$7"],"default"]
+9:I[1380,[],""]
+a:"static/chunks/app/page-7ea714c6eccfbbf7.js"
+b:I[5587,["825","$2","604","$3","974","$a"],""]
+c:I[5604,["825","$2","604","$3","974","$a"],"Image"]
+10:I[887,[],"OutletBoundary"]
+11:"$Sreact.suspense"
+13:"ViewportBoundary"
+14:I[887,[],"$13"]
+16:"MetadataBoundary"
+17:I[887,[],"$16"]
+19:I[5718,[],"default",1]
+:HL["/elmas-website/_next/static/css/ff4b6a7c2a839534.css","style"]
+e:X
+f:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","section",null,{"className":"wrap intro","children":[["$","div",null,{"className":"eyebrow","children":"404 · PAGE NOT FOUND"}],["$","h1",null,{"children":["Let’s get back",["$","br",null,{}],"to good ground."]}],["$","p",null,{"children":"This page isn’t available."}],["$","$Lb",null,{"className":"button","href":"/products","children":"Explore our products →"}]]}],null,["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"p":false,"v":null}}]]
+d:[["children",{"s":"_not-found","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$e"},"c":"$Qf"}]]
+0:{"P":null,"c":["","_not-found",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/elmas-website/_next/static/css/ff4b6a7c2a839534.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","a",null,{"className":"skip","href":"#main","children":"Skip to content"}],["$","$L5",null,{}],"$undefined",["$","main",null,{"id":"main","children":["$","$L6",null,{"parallelRouterKey":"children","error":"$8","errorStyles":[],"errorScripts":null,"template":["$","$L9",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","section",null,{"className":"wrap intro","children":[["$","div",null,{"className":"eyebrow","children":"404 · PAGE NOT FOUND"}],["$","h1",null,{"children":["Let’s get back",["$","br",null,{}],"to good ground."]}],["$","p",null,{"children":"This page isn’t available."}],["$","$Lb",null,{"className":"button","href":"/products","children":"Explore our products →"}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"children":[["$","div",null,{"className":"wrap footer-grid","children":[["$","div",null,{"children":[["$","$Lc",null,{"src":"/elmas-website/assets/logo/elmas-logo.svg","alt":"Elma’s","width":168,"height":46}],["$","p",null,{"children":"Turning Waste Into Value"}],["$","small",null,{"children":["BSFL larvae. Poultry & aquaculture.",["$","br",null,{}],"Rooted in Lebanon."]}]]}],["$","div",null,{"children":[["$","h2",null,{"children":"Explore"}],["$","$Lb",null,{"href":"/products","children":"Our products"}],["$","$Lb",null,{"href":"/about","children":"About Elma’s"}],["$","$Lb",null,{"href":"/sustainability","children":"Our approach"}]]}],["$","div",null,{"children":[["$","h2",null,{"children":"Let’s connect"}],["$","$Lb",null,{"href":"/request-quote","children":"Request a Quote →"}],["$","$Lb",null,{"href":"/contact","children":"Contact us"}],["$","a",null,{"href":"mailto:ferasmonther@elmasbio.com","aria-label":"Email Elma’s at ferasmonther@elmasbio.com","children":"Email us →"}],["$","span",null,{"children":"Lebanon"}]]}]]}],["$","div",null,{"className":"wrap footer-bottom","children":[["$","span",null,{"children":["© ",2026," Elma’s"]}],["$","$Lb",null,{"href":"/privacy","children":"Privacy policy"}],["$","span",null,{"children":"Made for a more circular agriculture."}]]}]]}],["$","a",null,{"className":"whatsapp","href":"https://wa.me/96170988141?text=Hello%20Elma%E2%80%99s%2C%20I%20would%20like%20to%20inquire%20about%20your%20products.","target":"_blank","rel":"noopener noreferrer","children":["WhatsApp ",["$","span",null,{"aria-hidden":true,"children":"→"}]]}]]}]}]]}],"p":false,"v":null},"c":"$Qd"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L14",null,{"children":"$L15"}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$11",null,{"name":"Next.Metadata","children":"$L18"}]}],null]}],null]}],"p":false,"v":null}},"m":"$undefined","G":["$19",[]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"oKuIrpNn_i54q1en1GPAn"}
+e:C
+15:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1a:I[214,[],"IconMark"]
+12:null
+18:[["$","title","0",{"children":"Elma’s | Turning Waste Into Value"}],["$","meta","1",{"name":"description","content":"Black Soldier Fly larvae for chicken and fish feed applications, produced in Lebanon. Discover Elma’s core larvae offering and complementary soil inputs."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","link","3",{"rel":"icon","href":"/elmas-website/favicon.ico?92982a9c2156fc4a","type":"image/x-icon","sizes":"256x256"}],["$","link","4",{"rel":"icon","href":"/elmas-website/icon.png?88c6cbe9260a23d5","type":"image/png","sizes":"256x256"}],["$","$L1a","5",{}]]
