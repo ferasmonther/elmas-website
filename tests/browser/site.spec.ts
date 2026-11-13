@@ -58,7 +58,7 @@ test('product-specific quote and honest disabled delivery state', async ({ page 
   ).toBeVisible();
 });
 test('server validates, protects origins and never fakes email delivery', async ({ request }) => {
-  const headers = { origin: 'https://elmasbio.com' };
+  const headers = { origin: 'https://www.elmasbio.com' };
   const valid = {
     kind: 'contact',
     name: 'Test Person',
@@ -93,14 +93,14 @@ test('unknown product returns 404 and confirmed domain appears in SEO', async ({
 }) => {
   expect((await page.goto('/products/unknown'))?.status()).toBe(404);
   const robots = await request.get('/robots.txt');
-  expect(await robots.text()).toContain('Sitemap: https://elmasbio.com/sitemap.xml');
+  expect(await robots.text()).toContain('Sitemap: https://www.elmasbio.com/sitemap.xml');
   await page.goto('/products/bsfl-frass');
   await expect(page.locator('link[rel=canonical]')).toHaveAttribute(
     'href',
-    'https://elmasbio.com/products/bsfl-frass',
+    'https://www.elmasbio.com/products/bsfl-frass',
   );
   const sitemap = await request.get('/sitemap.xml');
-  expect(await sitemap.text()).toContain('https://elmasbio.com/products/bsfl-frass');
+  expect(await sitemap.text()).toContain('https://www.elmasbio.com/products/bsfl-frass');
 });
 
 test('confirmed business contacts and product-specific WhatsApp links', async ({ page }) => {
@@ -260,4 +260,39 @@ test('approved package mockups have their correct price beneath them', async ({
   await expect(page.locator('.package-mockup')).toHaveCount(0);
   await expect(page.locator('main')).not.toContainText(/US\$|\$\d/);
   await expect(page.locator('main')).not.toContainText(/packaging mockup/i);
+});
+
+test('production indexing, canonical sitemap and headers agree on every public page', async ({
+  page,
+  request,
+}) => {
+  const origin = 'https://www.elmasbio.com';
+  const expected = paths.map((path) => origin + path);
+  for (const path of paths) {
+    const response = await page.goto(path);
+    expect(response?.status()).toBe(200);
+    expect(response?.headers()['x-robots-tag'] || '').not.toMatch(/noindex|nofollow|none/i);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow');
+    await expect
+      .poll(async () => {
+        const href = await page.locator('link[rel="canonical"]').getAttribute('href');
+        return href ? new URL(href).href : '';
+      })
+      .toBe(new URL(origin + path).href);
+  }
+  const robots = await request.get('/robots.txt');
+  const rules = await robots.text();
+  expect(rules).toContain('Allow: /');
+  expect(rules).not.toMatch(/^Disallow: \/\s*$/m);
+  expect(rules).toContain(`Sitemap: ${origin}/sitemap.xml`);
+  const sitemap = await request.get('/sitemap.xml');
+  const urls = [...(await sitemap.text()).matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
+  expect(urls.sort()).toEqual(expected.sort());
+  expect(new Set(urls).size).toBe(urls.length);
+  expect((await page.goto('/products/not-a-product'))?.status()).toBe(404);
+  expect(
+    await page
+      .locator('meta[name="robots"]')
+      .evaluateAll((tags) => tags.map((tag) => tag.getAttribute('content')).join(',')),
+  ).toContain('noindex');
 });

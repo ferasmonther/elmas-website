@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next';
-import { siteUrl } from '@/lib/config';
+import { isIndexableDeployment, siteUrl } from '@/lib/config';
 import { products } from '@/content/site';
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = siteUrl();
+  const base = isIndexableDeployment() ? siteUrl() : undefined;
   if (!base) return [];
   return [
     '/',

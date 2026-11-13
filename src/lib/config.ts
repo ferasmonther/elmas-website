@@ -1,6 +1,16 @@
 import { contact } from '../content/contact';
 
+export const productionSiteUrl = 'https://www.elmasbio.com';
+
+// Next.js preview builds also use NODE_ENV=production. Require an explicit
+// deployment target, with Vercel's target taking precedence over local settings.
+export function isIndexableDeployment() {
+  const target = process.env.VERCEL_ENV || process.env.SITE_ENV;
+  return process.env.NODE_ENV === 'production' && target === 'production';
+}
+
 export function siteUrl() {
+  if (isIndexableDeployment()) return productionSiteUrl;
   const value = process.env.SITE_URL;
   if (!value) return undefined;
   try {

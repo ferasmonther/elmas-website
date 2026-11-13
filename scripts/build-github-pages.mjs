@@ -39,6 +39,8 @@ for (const route of ['robots.ts', 'sitemap.ts']) {
 const env = {
   ...process.env,
   GITHUB_PAGES: 'true',
+  SITE_ENV: 'preview',
+  VERCEL_ENV: 'preview',
   NEXT_PUBLIC_BASE_PATH: '/elmas-website',
   SITE_URL: '',
   DEPLOYMENT_URL: 'https://ferasmonther.github.io/elmas-website',

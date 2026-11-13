@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { StructuredData } from '@/components/StructuredData';
-import { siteUrl, whatsappUrl, publicEmail } from '@/lib/config';
+import { isIndexableDeployment, siteUrl, whatsappUrl, publicEmail } from '@/lib/config';
 import './globals.css';
 export const metadata: Metadata = {
   title: { default: 'Elma’s | Turning Waste Into Value', template: '%s | Elma’s' },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   ...(siteUrl() || process.env.DEPLOYMENT_URL
     ? { metadataBase: new URL(siteUrl() || process.env.DEPLOYMENT_URL!) }
     : {}),
-  robots: siteUrl() ? { index: true, follow: true } : { index: false, follow: false },
+  robots: isIndexableDeployment() ? { index: true, follow: true } : { index: false, follow: false },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const wa = whatsappUrl(),
