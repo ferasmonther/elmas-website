@@ -117,7 +117,7 @@ test('confirmed business contacts and product-specific WhatsApp links', async ({
   const url = new URL((await specific.getAttribute('href'))!);
   expect(url.hostname).toBe('wa.me');
   expect(url.pathname).toBe('/96170988141');
-  expect(url.searchParams.get('text')).toContain('BSFL Frass');
+  expect(url.searchParams.get('text')).toContain('BioGold Frass');
   await expect(page.getByRole('link', { name: 'WhatsApp', exact: false }).last()).toHaveAttribute(
     'target',
     '_blank',
@@ -149,8 +149,8 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
     [
       'bsfl-frass',
       [
-        ['frass-5kg', 5, 5, 'BSFL Frass'],
-        ['frass-10kg', 10, 9, 'BSFL Frass'],
+        ['frass-5kg', 5, 5, 'BioGold Frass'],
+        ['frass-10kg', 10, 9, 'BioGold Frass'],
       ],
     ],
   ] as const) {
@@ -194,7 +194,7 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
       await page.locator('#product').selectOption('vermicompost');
       await expect(page.locator('#pack')).toHaveValue('');
       expect(new URL((await direct.getAttribute('href'))!).searchParams.get('text')).toContain(
-        'Vermicompost',
+        'TerraRich Vermicompost',
       );
       expect(new URL((await direct.getAttribute('href'))!).searchParams.get('text')).not.toContain(
         'US$',

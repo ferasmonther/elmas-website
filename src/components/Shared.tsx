@@ -64,7 +64,7 @@ export function Process() {
       {[
         ['Organic resources', 'Suitable organic materials enter a purposeful cycle.'],
         ['Biological conversion', 'Larvae and earthworm processes create distinct resources.'],
-        ['Valuable outputs', 'BSFL larvae, BSFL frass and vermicompost.'],
+        ['Valuable outputs', 'BSFL larvae, BioGold Frass and TerraRich Vermicompost.'],
         ['Farm applications', 'Feed formulation and considered soil management.'],
       ].map(([title, text], i) => (
         <li key={title}>

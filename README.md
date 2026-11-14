@@ -50,4 +50,4 @@ Use a Node-capable Next.js host (not a static export; forms require a server). T
 
 ## Product priority
 
-BSFL larvae for chicken and fish feed are the core offering. The first product has `primary: true` in `src/content/site.ts`; the homepage and catalogue emphasize it. Frass and vermicompost are complementary soil inputs. The larvae URL stays `/products/bsfl-protein` for compatibility with existing links. Live larvae are confirmed: 10 kg for US$10. Frass packs are 5 kg for US$5 and 10 kg for US$9. Vermicompost remains inquiry-only; other formats and specifications remain unpublished.
+BSFL larvae for chicken and fish feed are the core offering. The first product has `primary: true` in `src/content/site.ts`; the catalogue emphasizes it. The homepage introduces the company, mission and approach. BioGold Frass and TerraRich Vermicompost are complementary soil inputs. The larvae URL stays `/products/bsfl-protein` for compatibility with existing links. Live larvae are confirmed: 10 kg for US$10. BioGold Frass packs are 5 kg for US$5 and 10 kg for US$9. TerraRich Vermicompost remains inquiry-only; other formats and specifications remain unpublished.

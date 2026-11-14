@@ -27,8 +27,9 @@ export default function About() {
             applications while supporting organic resource recovery.
           </p>
           <p>
-            Alongside our core BSFL larvae product, we offer distinct soil input product lines: BSFL
-            frass and vermicompost. Each has its own production process and potential applications.
+            Alongside our core BSFL larvae product, we offer distinct soil input product lines:
+            BioGold Frass and TerraRich Vermicompost. Each has its own production process and
+            potential applications.
           </p>
         </div>
       </section>

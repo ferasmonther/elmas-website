@@ -6,7 +6,7 @@ import { seo } from '@/lib/seo';
 export const dynamic = 'force-dynamic';
 export const metadata = seo(
   'Contact',
-  'Contact Elma’s in Lebanon about live BSFL larvae for chickens and fish, BSFL frass or vermicompost. Send your inquiry by email or WhatsApp.',
+  'Contact Elma’s in Lebanon about live BSFL larvae for chickens and fish, BioGold Frass or TerraRich Vermicompost. Send your inquiry by email or WhatsApp.',
   '/contact',
 );
 export default function Contact() {

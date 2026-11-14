@@ -62,7 +62,7 @@ test('contact and canonical URLs require valid configuration', () => {
     assert.equal(whatsappUrl(), undefined);
     assert.equal(siteUrl(), undefined);
     process.env.WHATSAPP_NUMBER = '96112345678';
-    assert.match(whatsappUrl('BSFL Frass')!, /BSFL%20Frass/);
+    assert.match(whatsappUrl('BioGold Frass')!, /BioGold%20Frass/);
     process.env.SITE_URL = 'javascript:bad';
     assert.equal(siteUrl(), undefined);
     process.env.SITE_URL = 'https://example.com/test';

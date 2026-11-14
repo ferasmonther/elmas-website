@@ -12,7 +12,8 @@ export function PackOffers({
   compact?: boolean;
   showPackaging?: boolean;
 }) {
-  if (!product.packs.length) return <p className="note">Inquiry-only · Ask about vermicompost.</p>;
+  if (!product.packs.length)
+    return <p className="note">Inquiry-only · Ask about {product.name}.</p>;
   return (
     <div className={`pack-offers${compact ? ' pack-offers--compact' : ''}`}>
       <div className="pack-options">

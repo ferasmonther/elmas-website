@@ -90,7 +90,7 @@ export const products: Product[] = [
   },
   {
     slug: 'bsfl-frass',
-    name: 'BSFL Frass',
+    name: 'BioGold Frass',
     packs: [
       { id: 'frass-5kg', weightKg: 5, priceUsd: 5, mockupViewBox: '20 190 445 570' },
       { id: 'frass-10kg', weightKg: 10, priceUsd: 9, mockupViewBox: '475 85 520 675' },
@@ -98,17 +98,17 @@ export const products: Product[] = [
     category: 'Organic soil input',
     summary: 'A BSFL production byproduct for agricultural soil management.',
     description:
-      'Frass is a byproduct of Black Soldier Fly larvae production. It can include insect excreta, shed material and residual substrate. It is a distinct agricultural soil input, with properties that depend on the production and treatment process.',
+      'BioGold Frass is a byproduct of Black Soldier Fly larvae production. It can include insect excreta, shed material and residual substrate. It is a distinct agricultural soil input, with properties that depend on the production and treatment process.',
     buyers: ['Crop farmers', 'Greenhouses and nurseries', 'Agricultural distributors'],
     applications: [
       'Discuss use within an existing soil management plan.',
       'Explore applications for cultivated land and horticulture.',
       'Request verified composition and application guidance before use.',
     ],
-    note: 'Composition, treatment, application rates and suitability must be confirmed for your crop and soil. Frass and vermicompost are different products.',
+    note: 'Composition, treatment, application rates and suitability must be confirmed for your crop and soil. BioGold Frass and TerraRich Vermicompost are different products.',
     image: 'application',
     seoDescription:
-      'BSFL frass from Elma’s in Lebanon for agricultural soil management. Explore pack options and request verified composition, treatment details and application guidance.',
+      'BioGold Frass from Elma’s in Lebanon for agricultural soil management. Explore pack options and request verified composition, treatment details and application guidance.',
     inquiryDetails: [
       'Crop, growing environment and soil information if available',
       'Area to be treated and approximate quantity required',
@@ -116,12 +116,12 @@ export const products: Product[] = [
     ],
     faq: [
       {
-        question: 'Is frass the same as vermicompost?',
+        question: 'Is BioGold Frass the same as TerraRich Vermicompost?',
         answer:
           'No. Frass is a byproduct of Black Soldier Fly larvae production; vermicompost is produced through earthworm and microbial activity. Their properties depend on their respective inputs and processes.',
       },
       {
-        question: 'How much frass should I apply?',
+        question: 'How much BioGold Frass should I apply?',
         answer:
           'A suitable rate depends on verified product composition, treatment, soil conditions and the crop. Request current documentation and discuss your soil management plan before applying it.',
       },
@@ -134,12 +134,12 @@ export const products: Product[] = [
   },
   {
     slug: 'vermicompost',
-    name: 'Vermicompost',
+    name: 'TerraRich Vermicompost',
     packs: [],
     category: 'Organic soil amendment',
     summary: 'An earthworm-processed organic amendment for horticulture and soil management.',
     description:
-      'Vermicompost is an organic soil amendment produced through the activity of earthworms and microorganisms. It is distinct from BSFL frass and may be considered as part of a wider horticultural or soil management programme.',
+      'TerraRich Vermicompost is an organic soil amendment produced through the activity of earthworms and microorganisms. It is distinct from BioGold Frass and may be considered as part of a wider horticultural or soil management programme.',
     buyers: ['Nurseries and greenhouses', 'Crop farmers', 'Landscaping operators'],
     applications: [
       'Explore incorporation into horticultural soil management.',
@@ -149,7 +149,7 @@ export const products: Product[] = [
     note: 'Composition and dosage are not published until verified. Choose application practices based on your soil, crop and professional advice.',
     image: 'field',
     seoDescription:
-      'Explore vermicompost from Elma’s in Lebanon for nurseries, greenhouses and soil management. Ask about suitability, availability and verified specifications.',
+      'Explore TerraRich Vermicompost from Elma’s in Lebanon for nurseries, greenhouses and soil management. Ask about suitability, availability and verified specifications.',
     inquiryDetails: [
       'Plants or crops, growing media and intended use',
       'Approximate quantity, growing area and preferred supply timing',
@@ -157,9 +157,9 @@ export const products: Product[] = [
     ],
     faq: [
       {
-        question: 'Where might vermicompost be used?',
+        question: 'Where might TerraRich Vermicompost be used?',
         answer:
-          'Vermicompost may be considered within nursery, greenhouse, landscaping and crop soil management. Suitability depends on the product, existing growing media and plant requirements.',
+          'TerraRich Vermicompost may be considered within nursery, greenhouse, landscaping and crop soil management. Suitability depends on the product, existing growing media and plant requirements.',
       },
       {
         question: 'Are composition and application rates available?',

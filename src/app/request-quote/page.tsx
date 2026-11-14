@@ -7,7 +7,7 @@ import { seo } from '@/lib/seo';
 export const dynamic = 'force-dynamic';
 export const metadata = seo(
   'Request a Quote',
-  'Request a tailored quotation for live BSFL larvae for chickens and fish, priced BSFL frass packs or inquiry-only vermicompost. Tell Elma’s about your requirements.',
+  'Request a tailored quotation for live BSFL larvae for chickens and fish, priced BioGold Frass packs or inquiry-only TerraRich Vermicompost. Tell Elma’s about your requirements.',
   '/request-quote',
 );
 export default function Quote() {
