@@ -9,7 +9,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: { default: 'Elma’s | Turning Waste Into Value', template: '%s | Elma’s' },
   description:
-    'Black Soldier Fly larvae for chicken and fish feed applications, produced in Lebanon. Discover Elma’s core larvae offering and complementary soil inputs.',
+    'Elma’s is a Lebanon-based agritech company turning organic resources into value through circular agriculture.',
   ...(siteUrl() || process.env.DEPLOYMENT_URL
     ? { metadataBase: new URL(siteUrl() || process.env.DEPLOYMENT_URL!) }
     : {}),
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               />
               <p>Turning Waste Into Value</p>
               <small>
-                BSFL larvae. Poultry & aquaculture.
+                Organic resources. Circular agriculture.
                 <br />
                 Rooted in Lebanon.
               </small>

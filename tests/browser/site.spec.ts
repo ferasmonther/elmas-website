@@ -124,27 +124,23 @@ test('confirmed business contacts and product-specific WhatsApp links', async ({
   );
 });
 
-test('homepage prioritizes larvae and routes feed inquiries to the main product', async ({
+test('homepage introduces the company and keeps product details on product pages', async ({
   page,
 }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('BSFL larvae');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('chickens & fish');
-  await expect(page.locator('.hero img')).toHaveAttribute('alt', /larvae/);
-  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /larvae.webp/);
-  await expect(
-    page.locator('.product-card--primary').getByRole('heading', { name: 'BSFL Larvae' }),
-  ).toBeVisible();
-  await page
-    .locator('.hero')
-    .getByRole('link', { name: 'Explore BSFL Larvae', exact: false })
-    .click();
-  await expect(page).toHaveURL('/products/bsfl-protein');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('BSFL Larvae');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Turning waste');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('into value.');
+  await expect(page.locator('main')).toContainText('Lebanon-based agritech company');
+  await expect(page.locator('main')).toContainText('OUR MISSION & APPROACH');
+  await expect(page.locator('main')).not.toContainText(/BSFL|larvae|frass|US\$|\$\d/i);
+  await expect(page.locator('.product-card, .pack-option')).toHaveCount(0);
+  await expect(page.locator('.hero img')).toHaveAttribute('alt', /organic material/);
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /field.webp/);
+  await page.locator('.hero').getByRole('link', { name: 'Meet Elma’s' }).click();
+  await expect(page).toHaveURL('/about');
   await page.goto('/');
-  await page.locator('.hero').getByRole('link', { name: 'Request a Quote' }).click();
-  await expect(page.locator('#product')).toHaveValue('bsfl-protein');
-  await expect(page.locator('#product option:checked')).toHaveText('BSFL Larvae');
+  await page.locator('.hero').getByRole('link', { name: 'Explore our products' }).click();
+  await expect(page).toHaveURL('/products');
 });
 
 test('confirmed packs prepare accurate inquiries and preserve selection', async ({ page }) => {
@@ -256,7 +252,7 @@ test('approved package mockups have their correct price beneath them', async ({
     }
   }
   await page.goto('/');
-  await expect(page.locator('.hero img')).toHaveAttribute('alt', /larvae/);
+  await expect(page.locator('.hero img')).toHaveAttribute('alt', /organic material/);
   await expect(page.locator('.package-mockup')).toHaveCount(0);
   await expect(page.locator('main')).not.toContainText(/US\$|\$\d/);
   await expect(page.locator('main')).not.toContainText(/packaging mockup/i);

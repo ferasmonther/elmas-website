@@ -1,78 +1,60 @@
 import Link from 'next/link';
 import { Media } from '@/components/Media';
-import { ProductCards } from '@/components/Shared';
 import { seo } from '@/lib/seo';
 
 export const metadata = seo(
-  'BSFL Larvae for Chicken & Fish Feed in Lebanon',
-  'Live BSFL larvae for chicken and fish feed applications in Lebanon, with BSFL frass and vermicompost as complementary soil inputs.',
+  'Turning Waste Into Value in Lebanon',
+  'Elma’s is a Lebanon-based agritech company working to recover organic resources and support local agriculture through a circular approach.',
   '/',
+  'field',
 );
 
 export default function Home() {
   return (
     <div className="homepage">
       <section className="hero">
-        <Media image="larvae" priority className="hero-media" sizes="100vw" fit="cover" />
+        <Media image="field" priority className="hero-media" sizes="100vw" fit="cover" />
         <div className="hero-shade" />
         <div className="wrap hero-content">
-          <div className="eyebrow">TURNING WASTE INTO VALUE · LEBANON</div>
+          <div className="eyebrow">ELMA’S · ROOTED IN LEBANON</div>
           <h1>
-            BSFL larvae
+            Turning waste
             <br />
-            for <em>chickens &amp; fish.</em>
+            into <em>value.</em>
           </h1>
           <p>
-            Live Black Soldier Fly larvae, produced in Lebanon for poultry and aquaculture feed
-            applications.
+            We’re a Lebanon-based agritech company giving organic resources a useful next chapter
+            and supporting local agriculture.
           </p>
           <div className="actions">
-            <Link className="button light" href="/products/bsfl-protein">
-              Explore BSFL Larvae <span aria-hidden>→</span>
+            <Link className="button light" href="/about">
+              Meet Elma’s <span aria-hidden>→</span>
             </Link>
-            <Link
-              className="button outline"
-              href="/request-quote?product=bsfl-protein&pack=live-10kg"
-            >
-              Request a Quote
+            <Link className="button outline" href="/products">
+              Explore our products <span aria-hidden>→</span>
             </Link>
           </div>
         </div>
-      </section>
-
-      <section className="home-products wrap">
-        <div className="section-heading">
-          <div>
-            <div className="eyebrow">OUR PRODUCTS</div>
-            <h2>Larvae at the heart of what we do.</h2>
-          </div>
-          <Link className="text-link" href="/products">
-            View all products <span aria-hidden>→</span>
-          </Link>
-        </div>
-        <ProductCards compact focusPrimary />
       </section>
 
       <section className="home-about">
         <div className="wrap home-about-inner">
           <div>
-            <div className="eyebrow">MEET ELMA’S</div>
-            <h2>Rooted in Lebanon.</h2>
+            <div className="eyebrow">OUR MISSION &amp; APPROACH</div>
+            <h2>A useful future for organic resources.</h2>
             <p>
-              Our focus is BSFL larvae for chicken and fish feed. Frass and vermicompost are
-              complementary soil inputs within our circular approach.
+              Our mission is to recover value from organic materials and create useful agricultural
+              inputs. We combine biological processes, careful production and hands-on learning to
+              keep resources in use, close to home.
             </p>
             <div className="home-about-links">
-              <Link className="text-link" href="/about">
-                About Elma’s <span aria-hidden>→</span>
-              </Link>
               <Link className="text-link" href="/sustainability">
                 Our circular approach <span aria-hidden>→</span>
               </Link>
             </div>
           </div>
-          <Link href="/request-quote" className="button">
-            Request a Quote <span aria-hidden>→</span>
+          <Link href="/contact" className="button">
+            Get in touch <span aria-hidden>→</span>
           </Link>
         </div>
       </section>
