@@ -6,14 +6,14 @@ export const metadata = seo(
   'Turning Waste Into Value in Lebanon',
   'Elma’s is a Lebanon-based agritech company working to recover organic resources and support local agriculture through a circular approach.',
   '/',
-  'field',
+  'renewal',
 );
 
 export default function Home() {
   return (
     <div className="homepage">
       <section className="hero">
-        <Media image="field" priority className="hero-media" sizes="100vw" fit="cover" />
+        <Media image="renewal" priority className="hero-media" sizes="100vw" fit="cover" />
         <div className="hero-shade" />
         <div className="wrap hero-content">
           <div className="eyebrow">ELMA’S · ROOTED IN LEBANON</div>

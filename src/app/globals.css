@@ -1439,7 +1439,7 @@ footer img {
     font-size: clamp(38px, 10vw, 48px);
   }
   .homepage .hero-media img {
-    object-position: 55% 50% !important;
+    object-position: 75% 50% !important;
   }
 }
 

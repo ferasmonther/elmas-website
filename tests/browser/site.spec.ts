@@ -134,8 +134,11 @@ test('homepage introduces the company and keeps product details on product pages
   await expect(page.locator('main')).toContainText('OUR MISSION & APPROACH');
   await expect(page.locator('main')).not.toContainText(/BSFL|larvae|frass|US\$|\$\d/i);
   await expect(page.locator('.product-card, .pack-option')).toHaveCount(0);
-  await expect(page.locator('.hero img')).toHaveAttribute('alt', /organic material/);
-  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /field.webp/);
+  await expect(page.locator('.hero img')).toHaveAttribute('alt', /sculptural green ribbon/);
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    'content',
+    /renewal.webp/,
+  );
   await page.locator('.hero').getByRole('link', { name: 'Meet Elma’s' }).click();
   await expect(page).toHaveURL('/about');
   await page.goto('/');
@@ -252,7 +255,7 @@ test('approved package mockups have their correct price beneath them', async ({
     }
   }
   await page.goto('/');
-  await expect(page.locator('.hero img')).toHaveAttribute('alt', /organic material/);
+  await expect(page.locator('.hero img')).toHaveAttribute('alt', /sculptural green ribbon/);
   await expect(page.locator('.package-mockup')).toHaveCount(0);
   await expect(page.locator('main')).not.toContainText(/US\$|\$\d/);
   await expect(page.locator('main')).not.toContainText(/packaging mockup/i);

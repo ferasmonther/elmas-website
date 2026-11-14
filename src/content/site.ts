@@ -181,6 +181,12 @@ export const navigation = [
   { href: '/contact', label: 'Contact' },
 ];
 export const images = {
+  renewal: {
+    file: 'renewal.webp',
+    alt: 'A sculptural green ribbon forming a loop and unfolding into sunlit leaves',
+    caption: 'Conceptual artwork representing renewal and circular resource use.',
+    position: '50% 50%',
+  },
   larvae: {
     file: 'larvae.webp',
     alt: 'A gloved team member handling larvae in blue production trays',

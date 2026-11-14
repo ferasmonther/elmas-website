@@ -40,3 +40,8 @@ Catalogue and product-detail offer cards show individual portions of that unchan
 ## Owner-requested display cleanup
 
 The owner requested removal of the visible packaging-mockup captions and explanatory note. Those labels are removed from the catalogue and detail pages; the same approved illustration pixels remain unchanged. Accessibility descriptions identify the artwork as a packaging illustration. Offer text beneath each package is now only weight and price (`5kg — $5`, `10kg — $9`, `10kg — $10`). The homepage has no pricing or offer cards; it retains authentic larvae photography and links to product details.
+
+
+## Approved company homepage artwork
+
+The homepage now uses the owner-approved conceptual green ribbon and leaf loop, representing renewal and circular resource use. The generated original is retained at `assets/originals/elmas-renewal-hero.png`; the optimized website asset is `public/assets/photos/renewal.webp`. This is conceptual artwork, not a photograph of Elma’s facility or products. The homepage social preview uses the same asset. The mobile crop is positioned toward the loop, with the existing dark overlay for text readability. Supplied photographs, packaging artwork and the official logo remain unchanged. Earlier homepage photo notes above describe previous revisions.
