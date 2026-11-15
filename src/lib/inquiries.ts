@@ -11,7 +11,7 @@ export const inquirySchema = z
     product: z.enum(['', 'bsfl-protein', 'bsfl-frass', 'vermicompost']).default(''),
     pack: text(0, 60).default(''),
     quantity: text(0, 30).default(''),
-    unit: z.enum(['', 'kg', 'tonnes', 'other']).default(''),
+    unit: z.enum(['', 'kg', 'tonnes']).default(''),
     location: text(0, 200).default(''),
     message: text(10, 4000),
     consent: z.literal(true),

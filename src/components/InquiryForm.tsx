@@ -175,7 +175,6 @@ export function InquiryForm({
                   <option value="">Select unit</option>
                   <option value="kg">kg</option>
                   <option value="tonnes">tonnes</option>
-                  <option value="other">Other (specify below)</option>
                 </select>
               </div>
             </div>
