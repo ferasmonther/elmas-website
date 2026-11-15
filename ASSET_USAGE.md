@@ -45,3 +45,8 @@ The owner requested removal of the visible packaging-mockup captions and explana
 ## Approved company homepage artwork
 
 The homepage now uses the owner-approved conceptual green ribbon and leaf loop, representing renewal and circular resource use. The generated original is retained at `assets/originals/elmas-renewal-hero.png`; the optimized website asset is `public/assets/photos/renewal.webp`. This is conceptual artwork, not a photograph of Elma’s facility or products. The homepage social preview uses the same asset. The mobile crop is positioned toward the loop, with the existing dark overlay for text readability. Supplied photographs, packaging artwork and the official logo remain unchanged. Earlier homepage photo notes above describe previous revisions.
+
+
+## Approved TerraRich Vermicompost image
+
+TerraRich Vermicompost now uses the owner-approved generated image of dark, crumbly vermicompost falling from a green-gloved hand. The original is retained at `assets/originals/terrarich-vermicompost.png`; the optimized website asset is `public/assets/photos/vermicompost.webp`. Its dedicated image key updates the catalogue, product detail page and product social preview together. The caption identifies it as illustrative; it is not a photograph of an actual TerraRich batch. The supplied `field.webp` photo remains preserved for other agricultural context sections. BioGold Frass imagery and the company homepage artwork remain unchanged.

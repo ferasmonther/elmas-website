@@ -147,7 +147,7 @@ export const products: Product[] = [
       'Request current availability and guidance for your intended use.',
     ],
     note: 'Composition and dosage are not published until verified. Choose application practices based on your soil, crop and professional advice.',
-    image: 'field',
+    image: 'vermicompost',
     seoDescription:
       'Explore TerraRich Vermicompost from Elma’s in Lebanon for nurseries, greenhouses and soil management. Ask about suitability, availability and verified specifications.',
     inquiryDetails: [
@@ -181,6 +181,12 @@ export const navigation = [
   { href: '/contact', label: 'Contact' },
 ];
 export const images = {
+  vermicompost: {
+    file: 'vermicompost.webp',
+    alt: 'Dark, crumbly vermicompost falling from a green-gloved hand against soft greenery',
+    caption: 'Illustrative vermicompost image.',
+    position: '65% 50%',
+  },
   renewal: {
     file: 'renewal.webp',
     alt: 'A sculptural green ribbon forming a loop and unfolding into sunlit leaves',
