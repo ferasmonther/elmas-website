@@ -318,3 +318,13 @@ test('production indexing, canonical sitemap and headers agree on every public p
       .evaluateAll((tags) => tags.map((tag) => tag.getAttribute('content')).join(',')),
   ).toContain('noindex');
 });
+
+test('main Products page leads with BSFL photo then product packages', async ({ page }) => {
+  await page.goto('/products');
+  await expect(page.locator('.catalog-photo img')).toHaveAttribute('alt', /handling larvae/);
+  await expect(page.locator('.catalog .product-card img')).toHaveCount(0);
+  await expect(page.locator('.catalog .package-mockup')).toHaveCount(4);
+  const photo = await page.locator('.catalog-photo').boundingBox();
+  const packages = await page.locator('.catalog').boundingBox();
+  expect(packages!.y).toBeGreaterThanOrEqual(photo!.y + photo!.height);
+});

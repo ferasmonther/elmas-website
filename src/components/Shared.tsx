@@ -5,7 +5,8 @@ import { PackOffers } from './PackOffers';
 export function ProductCards({
   compact = false,
   focusPrimary = false,
-}: { compact?: boolean; focusPrimary?: boolean } = {}) {
+  showPhotos = true,
+}: { compact?: boolean; focusPrimary?: boolean; showPhotos?: boolean } = {}) {
   return (
     <>
       <div className={`product-grid${focusPrimary ? ' product-grid--primary' : ''}`}>
@@ -14,7 +15,7 @@ export function ProductCards({
             className={`product-card${p.primary ? ' product-card--primary' : ''}`}
             key={p.slug}
           >
-            {(!compact || p.primary) && (
+            {showPhotos && (!compact || p.primary) && (
               <Link href={`/products/${p.slug}`} aria-label={`Explore ${p.name}`}>
                 <Media
                   image={p.image}
