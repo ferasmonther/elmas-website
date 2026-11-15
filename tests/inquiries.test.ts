@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { inquirySchema, RateLimiter } from '../src/lib/inquiries';
-import { whatsappUrl, siteUrl } from '../src/lib/config';
+import { whatsappUrl, siteUrl, inquiryEmail } from '../src/lib/config';
 const valid = {
   kind: 'quote',
   name: 'Test Farmer',
@@ -88,4 +88,20 @@ test('confirmed offers and pack validation stay consistent', () => {
     inquirySchema.safeParse({ ...valid, product: 'vermicompost', pack: 'frass-5kg' }).success,
     false,
   );
+});
+
+test('default inquiry destination uses the confirmed mailbox', () => {
+  const original = { CONTACT_EMAIL: process.env.CONTACT_EMAIL, MAIL_TO: process.env.MAIL_TO };
+  try {
+    delete process.env.CONTACT_EMAIL;
+    delete process.env.MAIL_TO;
+    assert.equal(inquiryEmail(), 'ferasmonther@elmasbio.com');
+    process.env.MAIL_TO = 'invalid';
+    assert.equal(inquiryEmail(), undefined);
+  } finally {
+    for (const key of ['CONTACT_EMAIL', 'MAIL_TO'] as const) {
+      if (original[key] === undefined) delete process.env[key];
+      else process.env[key] = original[key];
+    }
+  }
 });

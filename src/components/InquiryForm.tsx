@@ -7,14 +7,12 @@ export function InquiryForm({
   product = '',
   pack = '',
   ready,
-  emailHref,
   whatsappHref,
 }: {
   kind: 'contact' | 'quote';
   product?: string;
   pack?: string;
   ready: boolean;
-  emailHref?: string;
   whatsappHref?: string;
 }) {
   const [selectedProduct, setSelectedProduct] = useState(product);
@@ -29,10 +27,6 @@ export function InquiryForm({
       'text',
       `Hello Elma’s, I would like to inquire about ${selection || 'your products'}.`,
     );
-  const directEmail = emailHref
-    ? emailHref.split('?')[0] +
-      `?subject=${encodeURIComponent(`Quote request: ${selection || 'Elma’s products'}`)}`
-    : undefined;
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
@@ -101,12 +95,8 @@ export function InquiryForm({
     <form className="inquiry-form" onSubmit={submit}>
       {!ready && (
         <div className="notice" role="status">
-          Online form submission is not available yet. Please send your inquiry directly by email or
-          WhatsApp.
+          Online form submission is not available yet. Please send your inquiry through WhatsApp.
           <div className="direct-contact">
-            {emailHref && (
-              <a href={kind === 'quote' ? directEmail : emailHref}>Email your inquiry →</a>
-            )}
             {whatsappHref && (
               <a href={directWa?.toString()} target="_blank" rel="noopener noreferrer">
                 WhatsApp your inquiry →

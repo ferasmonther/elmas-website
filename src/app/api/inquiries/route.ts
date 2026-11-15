@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import { createHash } from 'node:crypto';
 import { packLabel, products } from '@/content/site';
 import { inquirySchema, limiter } from '@/lib/inquiries';
-import { emailReady, siteUrl } from '@/lib/config';
+import { emailReady, inquiryEmail, siteUrl } from '@/lib/config';
 export const runtime = 'nodejs';
 const reply = (message: string, status: number, extra = {}) =>
   NextResponse.json({ message, ...extra }, { status, headers: { 'Cache-Control': 'no-store' } });
@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
     });
     const info = await transport.sendMail({
       from: process.env.MAIL_FROM,
-      to: process.env.MAIL_TO,
+      to: inquiryEmail(),
       replyTo: data.email,
       subject: `Elma’s ${data.kind === 'quote' ? 'quotation request' : 'contact inquiry'}${data.product ? ` — ${data.product}` : ''}`,
       text: Object.entries({

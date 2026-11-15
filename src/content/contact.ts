@@ -1,6 +1,5 @@
-// Confirmed public business contacts. Environment variables can override these.
+// Confirmed public WhatsApp contact. Environment variables can override this.
 // An explicit empty environment variable hides that contact option.
 export const contact = {
-  email: 'info@elmasbio.com',
   whatsappNumber: '96170988141',
 };

@@ -3,15 +3,7 @@ import { useSearchParams } from 'next/navigation';
 import { products } from '@/content/site';
 import { InquiryForm } from './InquiryForm';
 
-export function QuoteInquiry({
-  ready,
-  email,
-  whatsappHref,
-}: {
-  ready: boolean;
-  email?: string;
-  whatsappHref?: string;
-}) {
+export function QuoteInquiry({ ready, whatsappHref }: { ready: boolean; whatsappHref?: string }) {
   const query = useSearchParams();
   const product = products.find((p) => p.slug === query.get('product'));
   const pack = product?.packs.find((p) => p.id === query.get('pack'));
@@ -22,7 +14,6 @@ export function QuoteInquiry({
       product={product?.slug}
       pack={pack?.id}
       ready={ready}
-      emailHref={email ? `mailto:${email}` : undefined}
       whatsappHref={whatsappHref}
     />
   );

@@ -1,6 +1,5 @@
 import { Intro } from '@/components/Shared';
 import { seo } from '@/lib/seo';
-import { publicEmail } from '@/lib/config';
 export const metadata = seo(
   'Privacy policy',
   'How inquiry information is used on the Elma’s website.',
@@ -53,12 +52,8 @@ export default function Privacy() {
         <h2>Your questions and choices</h2>
         <p>
           For questions about access, correction or deletion of inquiry information, contact Elma’s{' '}
-          {publicEmail() ? (
-            <a href={`mailto:${publicEmail()}`}>at {publicEmail()}</a>
-          ) : (
-            'using the contact page'
-          )}
-          . Business review of the final privacy arrangements remains outstanding.
+          using the contact page. Business review of the final privacy arrangements remains
+          outstanding.
         </p>
       </article>
     </>

@@ -19,6 +19,10 @@ for (const width of [320, 390, 768, 1440]) {
       const res = await page.goto(path);
       expect(res?.status()).toBe(200);
       await expect(page.locator('h1')).toHaveCount(1);
+      await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
+      await expect(page.locator('body')).not.toContainText(
+        /ferasmonther@elmasbio\.com|info@elmasbio\.com/,
+      );
       await expect(page.getByText('Image file awaiting import')).toHaveCount(0);
       await page.locator('img').evaluateAll(async (images) => {
         await Promise.all(
@@ -105,9 +109,8 @@ test('unknown product returns 404 and confirmed domain appears in SEO', async ({
 
 test('confirmed business contacts and product-specific WhatsApp links', async ({ page }) => {
   await page.goto('/contact');
-  await expect(
-    page.getByRole('main').getByRole('link', { name: 'info@elmasbio.com' }),
-  ).toHaveAttribute('href', 'mailto:info@elmasbio.com');
+  await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
+  await expect(page.locator('body')).not.toContainText('ferasmonther@elmasbio.com');
   const general = page.getByRole('main').getByRole('link', { name: 'Chat on WhatsApp' });
   expect(new URL((await general.getAttribute('href'))!).pathname).toBe('/96170988141');
   await page.goto('/products/bsfl-frass');
@@ -187,14 +190,7 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
       expect(new URL((await direct.getAttribute('href'))!).searchParams.get('text')).toContain(
         label,
       );
-      expect(
-        decodeURIComponent(
-          (await page
-            .locator('.direct-contact a')
-            .filter({ hasText: 'Email' })
-            .getAttribute('href'))!,
-        ),
-      ).toContain(label);
+      await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
       await page
         .locator('#product')
         .selectOption(slug === 'vermicompost' ? 'bsfl-frass' : 'vermicompost');

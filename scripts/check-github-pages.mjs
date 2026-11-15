@@ -68,8 +68,7 @@ for (const width of [320, 390, 768, 1440]) {
       .evaluateAll((links) => links.map((a) => a.href))) {
       if (href.startsWith(origin)) internalLinks.add(href.split('#')[0]);
       if (href.startsWith('https://wa.me/')) expect(new URL(href).pathname).toBe('/96170988141');
-      if (href.startsWith('mailto:'))
-        expect(href.split('?')[0]).toBe('mailto:info@elmasbio.com');
+      expect(href.startsWith('mailto:')).toBe(false);
     }
     if (width === 390 || width === 1440) {
       const names = {

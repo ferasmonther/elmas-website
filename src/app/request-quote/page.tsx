@@ -2,7 +2,7 @@ import { Intro } from '@/components/Shared';
 import { Suspense } from 'react';
 import { QuoteInquiry } from '@/components/QuoteInquiry';
 import { deliveryNote } from '@/content/site';
-import { emailReady, whatsappUrl, publicEmail } from '@/lib/config';
+import { emailReady, whatsappUrl } from '@/lib/config';
 import { seo } from '@/lib/seo';
 export const dynamic = 'force-dynamic';
 export const metadata = seo(
@@ -11,12 +11,11 @@ export const metadata = seo(
   '/request-quote',
 );
 export default function Quote() {
-  const email = publicEmail();
   return (
     <>
       <Intro tag="REQUEST A QUOTE" title="What do your animals or crops need?">
-        Choose a product and pack, then send your inquiry by WhatsApp or email. We’ll discuss
-        suitability, availability and delivery with you.
+        Choose a product and pack, then send your inquiry through the form or WhatsApp. We’ll
+        discuss suitability, availability and delivery with you.
       </Intro>
       <section className="wrap form-layout section">
         <aside>
@@ -35,7 +34,7 @@ export default function Quote() {
           <p className="note">{deliveryNote}</p>
         </aside>
         <Suspense fallback={<p>Loading product selection…</p>}>
-          <QuoteInquiry ready={emailReady()} email={email} whatsappHref={whatsappUrl()} />
+          <QuoteInquiry ready={emailReady()} whatsappHref={whatsappUrl()} />
         </Suspense>
       </section>
     </>

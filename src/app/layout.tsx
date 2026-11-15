@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { StructuredData } from '@/components/StructuredData';
-import { isIndexableDeployment, siteUrl, whatsappUrl, publicEmail } from '@/lib/config';
+import { isIndexableDeployment, siteUrl, whatsappUrl } from '@/lib/config';
 import './globals.css';
 export const metadata: Metadata = {
   title: { default: 'Elma’s | Turning Waste Into Value', template: '%s | Elma’s' },
@@ -16,8 +16,7 @@ export const metadata: Metadata = {
   robots: isIndexableDeployment() ? { index: true, follow: true } : { index: false, follow: false },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const wa = whatsappUrl(),
-    email = publicEmail();
+  const wa = whatsappUrl();
   return (
     <html lang="en">
       <body>
@@ -34,7 +33,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               slogan: 'Turning Waste Into Value',
               url: siteUrl(),
               logo: siteUrl() + '/assets/logo/elmas-logo.svg',
-              ...(email ? { email } : {}),
               address: { '@type': 'PostalAddress', addressCountry: 'LB' },
             }}
           />
@@ -66,11 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <h2>Let’s connect</h2>
               <Link href="/request-quote">Request a Quote →</Link>
               <Link href="/contact">Contact us</Link>
-              {email && (
-                <a href={`mailto:${email}`} aria-label={`Email Elma’s at ${email}`}>
-                  Email us →
-                </a>
-              )}
+
               <span>Lebanon</span>
             </div>
           </div>

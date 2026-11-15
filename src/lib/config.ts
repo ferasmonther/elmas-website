@@ -28,11 +28,13 @@ export function whatsappUrl(product?: string) {
   return `https://wa.me/${n}?text=${encodeURIComponent(`Hello Elma’s, I would like to inquire about ${product || 'your products'}.`)}`;
 }
 export function emailReady() {
-  return ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASSWORD', 'MAIL_FROM', 'MAIL_TO'].every((k) =>
-    Boolean(process.env[k]),
+  return (
+    ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASSWORD', 'MAIL_FROM'].every((k) =>
+      Boolean(process.env[k]),
+    ) && Boolean(inquiryEmail())
   );
 }
-export function publicEmail() {
-  const email = process.env.CONTACT_EMAIL ?? contact.email;
+export function inquiryEmail() {
+  const email = process.env.MAIL_TO ?? 'ferasmonther@elmasbio.com';
   return email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : undefined;
 }
