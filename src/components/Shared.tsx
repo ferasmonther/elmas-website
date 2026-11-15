@@ -19,7 +19,6 @@ export function ProductCards({
                 <Media
                   image={p.image}
                   fit="contain"
-                  caption={!compact}
                   sizes={
                     compact
                       ? '(max-width: 760px) 124px, (max-width: 1440px) 30vw, 416px'

@@ -14,7 +14,7 @@ export default function About() {
         fish feed applications, alongside complementary organic soil inputs.
       </Intro>
       <section className="wrap about-split section">
-        <Media image="facility" priority caption />
+        <Media image="facility" priority />
         <div>
           <div className="eyebrow">OUR MISSION</div>
           <h2>
@@ -59,7 +59,7 @@ export default function About() {
         </div>
       </section>
       <section className="wrap section">
-        <Media image="field" className="wide-image" caption />
+        <Media image="field" className="wide-image" />
       </section>
       <CTA />
     </>

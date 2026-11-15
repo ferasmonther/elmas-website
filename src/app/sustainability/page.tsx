@@ -14,7 +14,7 @@ export default function Sustainability() {
         explore how resources can return to agriculture.
       </Intro>
       <section className="wrap">
-        <Media image="field" priority className="wide-image" caption />
+        <Media image="field" priority className="wide-image" />
       </section>
       <section className="wrap section">
         <div className="eyebrow">THE RESOURCE CYCLE</div>
@@ -30,7 +30,7 @@ export default function Sustainability() {
         </p>
       </section>
       <section className="wrap about-split section">
-        <Media image="breeding" caption />
+        <Media image="breeding" />
         <div>
           <div className="eyebrow">BIOLOGICAL PROCESSES</div>
           <h2>Working with living systems.</h2>

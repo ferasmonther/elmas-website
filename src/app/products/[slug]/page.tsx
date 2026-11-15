@@ -108,7 +108,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
             )}
           </div>
         </div>
-        <Media image={p.image} priority caption fit="contain" />
+        <Media image={p.image} priority fit="contain" />
       </section>
       <section className="section tinted">
         <div className="wrap detail-grid">

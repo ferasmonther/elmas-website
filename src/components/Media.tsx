@@ -8,7 +8,6 @@ type MediaProps = {
   image: ImageKey;
   className?: string;
   priority?: boolean;
-  caption?: boolean;
   fit?: 'cover' | 'contain';
   sizes?: string;
 };
@@ -17,7 +16,6 @@ export function Media({
   image,
   className = '',
   priority = false,
-  caption = false,
   fit = 'contain',
   sizes = '(max-width: 760px) calc(100vw - 40px), (max-width: 1440px) 50vw, 648px',
 }: MediaProps) {
@@ -45,7 +43,6 @@ export function Media({
           </div>
         )}
       </div>
-      {caption && present && <figcaption>{item.caption}</figcaption>}
     </figure>
   );
 }
