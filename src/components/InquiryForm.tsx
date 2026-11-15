@@ -17,6 +17,35 @@ export function InquiryForm({
 }) {
   const [selectedProduct, setSelectedProduct] = useState(product);
   const [selectedPack, setSelectedPack] = useState(pack);
+  const [deliveryLocation, setDeliveryLocation] = useState('');
+  const [locating, setLocating] = useState(false);
+  const [locationStatus, setLocationStatus] = useState('');
+  function useCurrentLocation() {
+    if (!navigator.geolocation) {
+      setLocationStatus(
+        'Location is unavailable in this browser. Enter your delivery address below.',
+      );
+      return;
+    }
+    setLocating(true);
+    setLocationStatus('Finding your current location…');
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        setDeliveryLocation(`${coords.latitude.toFixed(6)}, ${coords.longitude.toFixed(6)}`);
+        setLocationStatus('Current location added. You can edit it if delivery is elsewhere.');
+        setLocating(false);
+      },
+      (error) => {
+        setLocationStatus(
+          error.code === 1
+            ? 'Location permission was not granted. Allow location access or enter your delivery address below.'
+            : 'Could not find your location. Try again or enter your delivery address below.',
+        );
+        setLocating(false);
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 },
+    );
+  }
   const currentProduct = products.find((p) => p.slug === selectedProduct);
   const currentPack = currentProduct?.packs.find((p) => p.id === selectedPack);
   const selection =
@@ -50,6 +79,8 @@ export function InquiryForm({
       if (res.ok) {
         setSent(true);
         form.reset();
+        setDeliveryLocation('');
+        setLocationStatus('');
       }
     } catch {
       setStatus('Connection failed. Your message has not been confirmed. Please try again.');
@@ -71,8 +102,10 @@ export function InquiryForm({
           required={required}
           maxLength={name === 'email' ? 254 : name === 'location' ? 2000 : 200}
           placeholder={
-            name === 'location' ? 'Enter a delivery address or paste a Google Maps link' : undefined
+            name === 'location' ? 'Use current location or enter a delivery address' : undefined
           }
+          value={name === 'location' ? deliveryLocation : undefined}
+          onChange={name === 'location' ? (e) => setDeliveryLocation(e.target.value) : undefined}
           minLength={name === 'name' ? 2 : undefined}
           autoComplete={
             {
@@ -181,7 +214,20 @@ export function InquiryForm({
                 </select>
               </div>
             </div>
-            {field('location', 'Delivery address or Google Maps link')}
+            <div className="field full">
+              <button
+                className="button"
+                type="button"
+                onClick={useCurrentLocation}
+                disabled={locating || sent}
+              >
+                {locating ? 'Finding location…' : 'Use my current location'}
+              </button>
+              <p className="note" role="status" aria-live="polite">
+                {locationStatus}
+              </p>
+            </div>
+            {field('location', 'Delivery location')}
           </>
         )}
         <div className="field full">
@@ -214,7 +260,7 @@ export function InquiryForm({
           <Link href="/privacy">privacy policy</Link>.
         </span>
       </label>
-      <button className="button" disabled={!ready || busy || sent} type="submit">
+      <button className="button" disabled={!ready || busy || sent || locating} type="submit">
         {busy
           ? 'Submitting…'
           : sent

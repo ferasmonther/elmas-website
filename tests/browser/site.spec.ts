@@ -333,3 +333,36 @@ test('main Products page leads with BSFL photo then product packages', async ({ 
   const packages = await page.locator('.catalog').boundingBox();
   expect(packages!.y).toBeGreaterThanOrEqual(photo!.y + photo!.height);
 });
+
+test('quote delivery location fills automatically after browser permission', async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(['geolocation']);
+  await context.setGeolocation({ latitude: 33.8547, longitude: 35.8623 });
+  await page.goto('/request-quote');
+  await expect(page.locator('#location')).toHaveValue('');
+  await page.getByRole('button', { name: 'Use my current location' }).click();
+  await expect(page.locator('#location')).toHaveValue('33.854700, 35.862300');
+  await page.locator('#location').fill('A different delivery address');
+  await expect(page.locator('#location')).toHaveValue('A different delivery address');
+});
+
+test('denied location access preserves the entered delivery address', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'geolocation', {
+      value: {
+        getCurrentPosition: (_success: unknown, failure: (error: { code: number }) => void) =>
+          failure({ code: 1 }),
+      },
+    });
+  });
+  await page.goto('/request-quote');
+  await page.locator('#location').fill('Existing delivery address');
+  await page.getByRole('button', { name: 'Use my current location' }).click();
+  await expect(
+    page.getByText('Location permission was not granted.', { exact: false }),
+  ).toBeVisible();
+  await expect(page.locator('#location')).toHaveValue('Existing delivery address');
+  await expect(page.getByRole('button', { name: 'Use my current location' })).toBeEnabled();
+});

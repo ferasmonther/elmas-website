@@ -13,16 +13,13 @@ export default function Privacy() {
         website.
       </Intro>
       <article className="wrap prose">
-        <p className="notice">
-          Business review is pending. Online submission remains disabled while Elma’s confirms its
-          privacy contact, service providers and retention arrangements.
-        </p>
         <h2>Information you provide</h2>
         <p>
-          Online forms are currently disabled. Information entered in these fields is not sent to
-          Elma’s by this website. Product and pack selections are used to prepare direct email and
-          WhatsApp inquiry links. You choose whether to send the message through those services.
-          Please avoid including sensitive personal information.
+          Contact forms collect your name, email address and message. Quote requests also collect
+          your company, phone number, product selection, quantity and delivery location. If you
+          choose “Use my current location” and grant browser permission, your coordinates fill the
+          delivery location field and are sent with your quote request when you submit it. You can
+          enter an address instead. Your location is not tracked in the background.
         </p>
         <h2>Why we use it</h2>
         <p>
@@ -31,17 +28,16 @@ export default function Privacy() {
         </p>
         <h2>Delivery and access</h2>
         <p>
-          Direct email links open your email application, and WhatsApp links open WhatsApp. Messages
-          you send are handled by those services and Elma’s business contacts. This website does not
-          maintain an inquiry database. Hosting and communication providers may process technical
-          information and messages to provide their services.
+          Submitted inquiries are emailed to Elma’s. This website does not maintain an inquiry
+          database. WhatsApp links open a third-party service when you choose to use them. Hosting
+          and communication providers process technical information and messages to provide these
+          services.
         </p>
         <h2>Security and retention</h2>
         <p>
-          The GitHub Pages version does not run an online submission service. Elma’s still needs to
-          confirm business mailbox retention, access controls and deletion arrangements. Do not
-          include confidential material in an inquiry. Privacy arrangements must be reviewed before
-          any future online submission service is enabled.
+          Elma’s still needs to confirm its mailbox retention and deletion arrangements. Avoid
+          including confidential material in your inquiry. Contact us with questions about your
+          submitted information.
         </p>
         <h2>External services and cookies</h2>
         <p>
