@@ -9,3 +9,10 @@ In the mailbox/account settings, find the outgoing SMTP hostname, TLS port (465 
 Once configured and authorized to send a test inquiry, verify receipt and reply routing in the business mailbox. Forms remain disabled until required settings are present. No email has been sent, and domain ownership, mailbox access and provider availability are not established merely by storing these configuration values.
 
 Publishing the website and DNS changes require separate authorization. Preserve existing email DNS records when website hosting is later configured.
+
+
+## Confirmed working mail-app settings
+
+The owner’s Outlook settings show `netsol-smtp-oxcs.hostingplatform.com`, port `465`, SSL/TLS. Use those values for SMTP_HOST and SMTP_PORT, with the full mailbox address as SMTP_USER and a provider-authorized MAIL_FROM. Set the password privately in Vercel. Save variables for both Production and Preview before redeploying.
+
+For a failed submission, open the deployed Vercel project’s runtime logs and filter for `/api/inquiries`. The server logs allowlisted error codes, SMTP status and protocol stage only; it does not log the raw SMTP response, credentials or inquiry body. `EAUTH` / `535` indicates authentication was rejected; `ENOTFOUND` indicates hostname lookup failure; `ETIMEDOUT` indicates a timeout. These diagnostics identify the next check without exposing secrets to visitors.

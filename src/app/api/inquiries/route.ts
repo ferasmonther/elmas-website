@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { createHash } from 'node:crypto';
 import { packLabel, products } from '@/content/site';
+import { smtpErrorDetails } from '@/lib/smtp-errors';
 import { inquirySchema, limiter } from '@/lib/inquiries';
 import { emailReady, inquiryEmail, siteUrl } from '@/lib/config';
 export const runtime = 'nodejs';
@@ -92,8 +93,8 @@ export async function POST(req: NextRequest) {
       'Thank you. Your inquiry has been submitted to Elma’s. We’ll respond using the details you provided.',
       200,
     );
-  } catch {
-    console.error('Inquiry email service failed; no submission data logged.');
+  } catch (error) {
+    console.error('Inquiry email service failed', smtpErrorDetails(error));
     return reply(
       'We couldn’t submit your message. Please try again later or use our other contact options.',
       502,
