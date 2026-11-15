@@ -106,10 +106,10 @@ export function InquiryForm({
         </div>
       )}
       <div className="form-grid">
-        {field('name', 'Full name')}
-        {field('company', 'Company / farm', 'text', kind === 'quote')}
+        {field('name', kind === 'quote' ? 'Full name' : 'Name')}
+        {kind === 'quote' && field('company', 'Company / farm')}
         {field('email', 'Email', 'email')}
-        {field('phone', 'Phone', 'tel', kind === 'quote')}
+        {kind === 'quote' && field('phone', 'Phone', 'tel')}
         {kind === 'quote' && (
           <>
             <div className="field">
@@ -184,7 +184,7 @@ export function InquiryForm({
         )}
         <div className="field full">
           <label htmlFor="message">
-            {kind === 'quote' ? 'Tell us about your application' : 'How can we help?'}
+            {kind === 'quote' ? 'Tell us about your application' : 'Message'}
           </label>
           <textarea
             id="message"

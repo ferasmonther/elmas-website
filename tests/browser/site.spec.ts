@@ -112,6 +112,12 @@ test('unknown product returns 404 and confirmed domain appears in SEO', async ({
 
 test('confirmed business contacts and product-specific WhatsApp links', async ({ page }) => {
   await page.goto('/contact');
+  await expect(page.getByLabel('Name', { exact: true })).toBeVisible();
+  await expect(page.getByLabel('Email', { exact: true })).toBeVisible();
+  await expect(page.getByLabel('Message', { exact: true })).toBeVisible();
+  await expect(page.locator('#company, #phone, #product, #quantity, #unit, #location')).toHaveCount(
+    0,
+  );
   await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
   await expect(page.locator('body')).not.toContainText('ferasmonther@elmasbio.com');
   const general = page.getByRole('main').getByRole('link', { name: 'Chat on WhatsApp' });
