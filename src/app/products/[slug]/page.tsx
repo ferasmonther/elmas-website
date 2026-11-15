@@ -96,7 +96,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
           <h1>{p.name}</h1>
           <p className="lead">{p.summary}</p>
           <p>{p.description}</p>
-          <PackOffers product={p} />
+          {!p.primary && <PackOffers product={p} />}
           <div className="actions">
             <Link className="button" href={`/request-quote?product=${p.slug}`}>
               Request a Quote →
@@ -110,6 +110,13 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
         </div>
         <Media image={p.image} priority fit="contain" />
       </section>
+      {p.primary && (
+        <section className="wrap section product-packaging" aria-labelledby="packaging-heading">
+          <div className="eyebrow">PACK OPTIONS</div>
+          <h2 id="packaging-heading">Live larvae packs.</h2>
+          <PackOffers product={p} />
+        </section>
+      )}
       <section className="section tinted">
         <div className="wrap detail-grid">
           <div>

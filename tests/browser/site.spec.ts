@@ -159,7 +159,7 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
     ],
   ] as const) {
     await page.goto(`/products/${slug}`);
-    const offers = page.locator('.product-detail .pack-option');
+    const offers = page.locator('.pack-offers .pack-option');
     await expect(offers).toHaveCount(packs.length);
     for (let i = 0; i < packs.length; i++) {
       const [id, weight, price, name] = packs[i];
@@ -232,6 +232,16 @@ test('keyboard navigation exposes focus and mobile menu', async ({ page }) => {
   ).toBeFocused();
 });
 
+test('BSFL production photo leads the page before package offers', async ({ page }) => {
+  await page.goto('/products/bsfl-protein');
+  await expect(page.locator('.product-detail img')).toHaveAttribute('src', /larvae/);
+  await expect(page.locator('.product-detail .package-mockup')).toHaveCount(0);
+  await expect(page.locator('.product-packaging .package-mockup')).toHaveCount(1);
+  const photo = await page.locator('.product-detail .media').boundingBox();
+  const packages = await page.locator('.product-packaging').boundingBox();
+  expect(packages!.y).toBeGreaterThanOrEqual(photo!.y + photo!.height);
+});
+
 test('approved package mockups have their correct price beneath them', async ({
   page,
   request,
@@ -247,7 +257,7 @@ test('approved package mockups have their correct price beneath them', async ({
     ['vermicompost', ['10kg — $9']],
   ] as const) {
     await page.goto(`/products/${slug}`);
-    const options = page.locator('.product-detail .pack-option');
+    const options = page.locator('.pack-offers .pack-option');
     for (let i = 0; i < labels.length; i++) {
       const option = options.nth(i);
       await expect(option.locator('strong')).toHaveText(labels[i]);
@@ -265,7 +275,7 @@ test('approved package mockups have their correct price beneath them', async ({
       exact: true,
     }),
   ).toBeVisible();
-  await expect(page.locator('.product-detail .pack-option')).toHaveCount(1);
+  await expect(page.locator('.pack-offers .pack-option')).toHaveCount(1);
   await expect(page.locator('.product-detail')).not.toContainText('Inquiry-only');
   await page.goto('/');
   await expect(page.locator('.hero img')).toHaveAttribute('alt', /sculptural green ribbon/);
