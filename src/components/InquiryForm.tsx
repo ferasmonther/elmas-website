@@ -143,7 +143,7 @@ export function InquiryForm({
       )}
       <div className="form-grid">
         {field('name', kind === 'quote' ? 'Full name' : 'Name')}
-        {kind === 'quote' && field('company', 'Company / farm')}
+        {kind === 'quote' && field('company', 'Company / farm', 'text', false)}
         {field('email', 'Email', 'email')}
         {kind === 'quote' && field('phone', 'Phone', 'tel')}
         {kind === 'quote' && (

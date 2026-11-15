@@ -25,7 +25,7 @@ export const inquirySchema = z
         message: 'Choose a pack belonging to this product.',
       });
     if (v.kind === 'quote') {
-      for (const key of ['company', 'phone', 'product', 'quantity', 'unit', 'location'] as const) {
+      for (const key of ['phone', 'product', 'quantity', 'unit', 'location'] as const) {
         if (!v[key])
           c.addIssue({ code: 'custom', path: [key], message: 'Please complete this field.' });
       }

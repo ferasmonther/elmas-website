@@ -193,3 +193,12 @@ test('quote delivery addresses open Google Maps directions and shared pins are p
     'https://www.google.com',
   );
 });
+
+test('quote requests accept an omitted or empty company and omit it from the email', () => {
+  const { company, ...withoutCompany } = valid;
+  for (const input of [withoutCompany, { ...valid, company: '' }]) {
+    const parsed = inquirySchema.parse(input);
+    assert.equal(parsed.company, '');
+    assert.doesNotMatch(buildInquiryEmail(parsed).text, /Company \/ farm:/);
+  }
+});
