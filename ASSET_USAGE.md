@@ -50,3 +50,8 @@ The homepage now uses the owner-approved conceptual green ribbon and leaf loop, 
 ## Approved TerraRich Vermicompost image
 
 TerraRich Vermicompost now uses the owner-approved generated image of dark, crumbly vermicompost falling from a green-gloved hand. The original is retained at `assets/originals/terrarich-vermicompost.png`; the optimized website asset is `public/assets/photos/vermicompost.webp`. Its dedicated image key updates the catalogue, product detail page and product social preview together. The caption identifies it as illustrative; it is not a photograph of an actual TerraRich batch. The supplied `field.webp` photo remains preserved for other agricultural context sections. BioGold Frass imagery and the company homepage artwork remain unchanged.
+
+
+## Approved branded packaging revision
+
+The owner approved `public/assets/packaging/branded-packaging-concepts.png`, adding BioGold Frass branding to both confirmed frass packs and a TerraRich Vermicompost concept without an unconfirmed weight or price. The live larvae crate remains 10 kg. SVG viewports isolate each matching package and exclude the sheet heading, price captions and footer; offer prices remain editable page text. TerraRich packaging is shown with its inquiry-only note in the catalogue and product detail page. The prior approved concept sheet remains preserved.

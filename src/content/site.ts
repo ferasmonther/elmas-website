@@ -22,6 +22,7 @@ export type Product = {
   category: string;
   primary?: boolean;
   packs: Pack[];
+  packagingViewBox?: string;
   summary: string;
   description: string;
   buyers: string[];
@@ -44,7 +45,7 @@ export const products: Product[] = [
         format: 'Live',
         weightKg: 10,
         priceUsd: 10,
-        mockupViewBox: '1000 250 730 515',
+        mockupViewBox: '1270 215 620 455',
       },
     ],
     category: 'Chicken & fish feed',
@@ -92,8 +93,8 @@ export const products: Product[] = [
     slug: 'bsfl-frass',
     name: 'BioGold Frass',
     packs: [
-      { id: 'frass-5kg', weightKg: 5, priceUsd: 5, mockupViewBox: '20 190 445 570' },
-      { id: 'frass-10kg', weightKg: 10, priceUsd: 9, mockupViewBox: '475 85 520 675' },
+      { id: 'frass-5kg', weightKg: 5, priceUsd: 5, mockupViewBox: '40 175 350 495' },
+      { id: 'frass-10kg', weightKg: 10, priceUsd: 9, mockupViewBox: '395 80 450 590' },
     ],
     category: 'Organic soil input',
     summary: 'A BSFL production byproduct for agricultural soil management.',
@@ -135,6 +136,7 @@ export const products: Product[] = [
   {
     slug: 'vermicompost',
     name: 'TerraRich Vermicompost',
+    packagingViewBox: '850 155 415 515',
     packs: [],
     category: 'Organic soil amendment',
     summary: 'An earthworm-processed organic amendment for horticulture and soil management.',

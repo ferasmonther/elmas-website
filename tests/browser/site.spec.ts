@@ -233,11 +233,11 @@ test('approved package mockups have their correct price beneath them', async ({
   page,
   request,
 }) => {
-  expect((await request.get('/assets/packaging/approved-packaging-concepts.png')).status()).toBe(
+  expect((await request.get('/assets/packaging/branded-packaging-concepts.png')).status()).toBe(
     200,
   );
   await page.goto('/products');
-  await expect(page.locator('.package-mockup')).toHaveCount(3);
+  await expect(page.locator('.package-mockup')).toHaveCount(4);
   for (const [slug, labels] of [
     ['bsfl-protein', ['10kg — $10']],
     ['bsfl-frass', ['5kg — $5', '10kg — $9']],
@@ -254,6 +254,12 @@ test('approved package mockups have their correct price beneath them', async ({
       expect(price!.y).toBeGreaterThanOrEqual(art!.y + art!.height);
     }
   }
+  await page.goto('/products/vermicompost');
+  await expect(
+    page.getByRole('img', { name: 'Packaging illustration: TerraRich Vermicompost', exact: true }),
+  ).toBeVisible();
+  await expect(page.locator('.product-detail .pack-option')).toHaveCount(0);
+  await expect(page.locator('.product-detail')).toContainText('Inquiry-only');
   await page.goto('/');
   await expect(page.locator('.hero img')).toHaveAttribute('alt', /sculptural green ribbon/);
   await expect(page.locator('.package-mockup')).toHaveCount(0);
