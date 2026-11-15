@@ -76,6 +76,10 @@ test('contact and canonical URLs require valid configuration', () => {
 });
 
 test('confirmed offers and pack validation stay consistent', () => {
+  assert.equal(
+    inquirySchema.parse({ ...valid, product: 'vermicompost', pack: 'vermicompost-10kg' }).pack,
+    'vermicompost-10kg',
+  );
   assert.equal(inquirySchema.parse({ ...valid, pack: 'frass-5kg' }).pack, 'frass-5kg');
   for (const pack of ['live-10kg', 'invented']) {
     assert.equal(inquirySchema.safeParse({ ...valid, pack }).success, false);

@@ -136,8 +136,9 @@ export const products: Product[] = [
   {
     slug: 'vermicompost',
     name: 'TerraRich Vermicompost',
-    packagingViewBox: '850 155 415 515',
-    packs: [],
+    packs: [
+      { id: 'vermicompost-10kg', weightKg: 10, priceUsd: 9, mockupViewBox: '850 155 415 515' },
+    ],
     category: 'Organic soil amendment',
     summary: 'An earthworm-processed organic amendment for horticulture and soil management.',
     description:

@@ -106,8 +106,8 @@ test('unknown product returns 404 and confirmed domain appears in SEO', async ({
 test('confirmed business contacts and product-specific WhatsApp links', async ({ page }) => {
   await page.goto('/contact');
   await expect(
-    page.getByRole('main').getByRole('link', { name: 'ferasmonther@elmasbio.com' }),
-  ).toHaveAttribute('href', 'mailto:ferasmonther@elmasbio.com');
+    page.getByRole('main').getByRole('link', { name: 'info@elmasbio.com' }),
+  ).toHaveAttribute('href', 'mailto:info@elmasbio.com');
   const general = page.getByRole('main').getByRole('link', { name: 'Chat on WhatsApp' });
   expect(new URL((await general.getAttribute('href'))!).pathname).toBe('/96170988141');
   await page.goto('/products/bsfl-frass');
@@ -149,6 +149,7 @@ test('homepage introduces the company and keeps product details on product pages
 test('confirmed packs prepare accurate inquiries and preserve selection', async ({ page }) => {
   for (const [slug, packs] of [
     ['bsfl-protein', [['live-10kg', 10, 10, 'Live BSFL Larvae']]],
+    ['vermicompost', [['vermicompost-10kg', 10, 9, 'TerraRich Vermicompost']]],
     [
       'bsfl-frass',
       [
@@ -194,10 +195,12 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
             .getAttribute('href'))!,
         ),
       ).toContain(label);
-      await page.locator('#product').selectOption('vermicompost');
+      await page
+        .locator('#product')
+        .selectOption(slug === 'vermicompost' ? 'bsfl-frass' : 'vermicompost');
       await expect(page.locator('#pack')).toHaveValue('');
       expect(new URL((await direct.getAttribute('href'))!).searchParams.get('text')).toContain(
-        'TerraRich Vermicompost',
+        slug === 'vermicompost' ? 'BioGold Frass' : 'TerraRich Vermicompost',
       );
       expect(new URL((await direct.getAttribute('href'))!).searchParams.get('text')).not.toContain(
         'US$',
@@ -206,7 +209,7 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
     }
   }
   await page.goto('/products/vermicompost');
-  await expect(page.locator('.product-detail')).toContainText('Inquiry-only');
+  await expect(page.locator('.product-detail')).not.toContainText('Inquiry-only');
   await expect(page.locator('.product-detail')).not.toContainText('US$');
   await page.goto('/request-quote?product=bsfl-frass&pack=live-10kg');
   await expect(page.locator('#pack')).toHaveValue('');
@@ -241,6 +244,7 @@ test('approved package mockups have their correct price beneath them', async ({
   for (const [slug, labels] of [
     ['bsfl-protein', ['10kg — $10']],
     ['bsfl-frass', ['5kg — $5', '10kg — $9']],
+    ['vermicompost', ['10kg — $9']],
   ] as const) {
     await page.goto(`/products/${slug}`);
     const options = page.locator('.product-detail .pack-option');
@@ -256,10 +260,13 @@ test('approved package mockups have their correct price beneath them', async ({
   }
   await page.goto('/products/vermicompost');
   await expect(
-    page.getByRole('img', { name: 'Packaging illustration: TerraRich Vermicompost', exact: true }),
+    page.getByRole('img', {
+      name: 'Packaging illustration: TerraRich Vermicompost, 10 kg',
+      exact: true,
+    }),
   ).toBeVisible();
-  await expect(page.locator('.product-detail .pack-option')).toHaveCount(0);
-  await expect(page.locator('.product-detail')).toContainText('Inquiry-only');
+  await expect(page.locator('.product-detail .pack-option')).toHaveCount(1);
+  await expect(page.locator('.product-detail')).not.toContainText('Inquiry-only');
   await page.goto('/');
   await expect(page.locator('.hero img')).toHaveAttribute('alt', /sculptural green ribbon/);
   await expect(page.locator('.package-mockup')).toHaveCount(0);
