@@ -3,17 +3,14 @@ import nodemailer from 'nodemailer';
 import { createHash } from 'node:crypto';
 import { packLabel, products } from '@/content/site';
 import { smtpErrorDetails } from '@/lib/smtp-errors';
-import { inquirySchema, limiter } from '@/lib/inquiries';
-import { emailReady, inquiryEmail, siteUrl } from '@/lib/config';
+import { inquirySchema, isSameOriginRequest, limiter } from '@/lib/inquiries';
+import { emailReady, inquiryEmail } from '@/lib/config';
 export const runtime = 'nodejs';
 const reply = (message: string, status: number, extra = {}) =>
   NextResponse.json({ message, ...extra }, { status, headers: { 'Cache-Control': 'no-store' } });
 export async function POST(req: NextRequest) {
-  const origin = req.headers.get('origin');
-  const expectedOrigin =
-    (process.env.NODE_ENV === 'production' ? siteUrl() : undefined) ||
-    `${new URL(req.url).protocol}//${req.headers.get('host')}`;
-  if (!origin || origin !== expectedOrigin) return reply('Please submit from this website.', 403);
+  if (!isSameOriginRequest(req.headers.get('origin'), req.url))
+    return reply('Please submit from this website.', 403);
   if (!req.headers.get('content-type')?.includes('application/json'))
     return reply('Unsupported request format.', 415);
   const length = Number(req.headers.get('content-length') || 0);

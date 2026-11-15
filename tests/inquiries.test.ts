@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { inquirySchema, RateLimiter } from '../src/lib/inquiries';
+import { inquirySchema, isSameOriginRequest, RateLimiter } from '../src/lib/inquiries';
 import { whatsappUrl, siteUrl, inquiryEmail } from '../src/lib/config';
 const valid = {
   kind: 'quote',
@@ -104,4 +104,36 @@ test('default inquiry destination uses the confirmed mailbox', () => {
       else process.env[key] = original[key];
     }
   }
+});
+
+test('inquiries accept the actual page origin on custom domains, preview aliases and localhost', () => {
+  for (const origin of [
+    'https://www.elmasbio.com',
+    'https://elmasbio.com',
+    'https://elmas-website-rf6l-git-elmas-website-review-elmas4.vercel.app',
+    'http://localhost:3000',
+  ]) {
+    assert.equal(isSameOriginRequest(origin, `${origin}/api/inquiries`), true);
+  }
+});
+
+test('inquiries reject cross-site origins, lookalike hosts and missing or malformed origins', () => {
+  const target = 'https://www.elmasbio.com/api/inquiries';
+  for (const origin of [
+    null,
+    'null',
+    '',
+    'https://other.example',
+    'https://www.elmasbio.com.attacker.example',
+    'http://www.elmasbio.com',
+    'https://www.elmasbio.com:444',
+    'https://www.elmasbio.com/contact',
+  ]) {
+    assert.equal(isSameOriginRequest(origin, target), false);
+  }
+  assert.equal(
+    isSameOriginRequest('https://www.elmasbio.com', 'https://preview.vercel.app/api/inquiries'),
+    false,
+  );
+  assert.equal(isSameOriginRequest('https://www.elmasbio.com', 'invalid'), false);
 });

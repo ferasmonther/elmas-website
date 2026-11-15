@@ -53,3 +53,14 @@ export class RateLimiter {
   }
 }
 export const limiter = new RateLimiter();
+
+// Browser submissions must match the actual request origin. The canonical SEO
+// domain can differ on previews, aliases and newly promoted deployments.
+export function isSameOriginRequest(origin: string | null, requestUrl: string) {
+  try {
+    const target = new URL(requestUrl);
+    return ['https:', 'http:'].includes(target.protocol) && origin === target.origin;
+  } catch {
+    return false;
+  }
+}

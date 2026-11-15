@@ -61,8 +61,11 @@ test('product-specific quote and honest disabled delivery state', async ({ page 
     page.getByText('Online form submission is not available yet.', { exact: false }),
   ).toBeVisible();
 });
-test('server validates, protects origins and never fakes email delivery', async ({ request }) => {
-  const headers = { origin: 'https://www.elmasbio.com' };
+test('server validates, protects origins and never fakes email delivery', async ({
+  request,
+  baseURL,
+}) => {
+  const headers = { origin: new URL(baseURL!).origin };
   const valid = {
     kind: 'contact',
     name: 'Test Person',
