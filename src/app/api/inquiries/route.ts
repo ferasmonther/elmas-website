@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { createHash } from 'node:crypto';
-import { packLabel, products } from '@/content/site';
 import { smtpErrorDetails } from '@/lib/smtp-errors';
-import { inquirySchema, isSameOriginRequest, limiter } from '@/lib/inquiries';
+import { buildInquiryEmail, inquirySchema, isSameOriginRequest, limiter } from '@/lib/inquiries';
 import { emailReady, inquiryEmail } from '@/lib/config';
 export const runtime = 'nodejs';
 const reply = (message: string, status: number, extra = {}) =>
@@ -72,18 +71,7 @@ export async function POST(req: NextRequest) {
       from: process.env.MAIL_FROM,
       to: inquiryEmail(),
       replyTo: data.email,
-      subject: `Elma’s ${data.kind === 'quote' ? 'quotation request' : 'contact inquiry'}${data.product ? ` — ${data.product}` : ''}`,
-      text: Object.entries({
-        ...data,
-        pack: (() => {
-          const p = products.find((p) => p.slug === data.product);
-          const pack = p?.packs.find((pack) => pack.id === data.pack);
-          return p && pack ? packLabel(p, pack) : '';
-        })(),
-      })
-        .filter(([k]) => k !== 'website')
-        .map(([k, v]) => `${k}: ${v}`)
-        .join('\n\n'),
+      ...buildInquiryEmail(data),
     });
     if (!info.accepted?.length) throw new Error('No recipient accepted');
     return reply(

@@ -1,6 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { inquirySchema, isSameOriginRequest, RateLimiter } from '../src/lib/inquiries';
+import {
+  buildInquiryEmail,
+  inquirySchema,
+  isSameOriginRequest,
+  RateLimiter,
+} from '../src/lib/inquiries';
 import { whatsappUrl, siteUrl, inquiryEmail } from '../src/lib/config';
 const valid = {
   kind: 'quote',
@@ -136,4 +141,38 @@ test('inquiries reject cross-site origins, lookalike hosts and missing or malfor
     false,
   );
   assert.equal(isSameOriginRequest('https://www.elmasbio.com', 'invalid'), false);
+});
+
+test('contact emails include only filled contact fields, without quote fields or internal data', () => {
+  const email = buildInquiryEmail(
+    inquirySchema.parse({
+      kind: 'contact',
+      name: 'Test Farmer',
+      email: 'farmer@example.com',
+      message: 'Please contact me about your company.',
+      consent: true,
+      product: 'bsfl-frass',
+      quantity: '10',
+      unit: 'kg',
+    }),
+  );
+  assert.equal(email.subject, 'Elma’s contact inquiry');
+  assert.equal(
+    email.text,
+    'Full name: Test Farmer\n\nEmail: farmer@example.com\n\nMessage: Please contact me about your company.',
+  );
+  assert.doesNotMatch(
+    email.text,
+    /Product:|Pack:|Quantity:|Delivery location:|Company|Phone:|kind:|consent:|website:/,
+  );
+});
+
+test('quote emails use readable product names and preserve selected packs and quantities', () => {
+  const email = buildInquiryEmail(inquirySchema.parse({ ...valid, pack: 'frass-5kg' }));
+  assert.equal(email.subject, 'Elma’s quotation request — BioGold Frass');
+  assert.match(email.text, /Product: BioGold Frass/);
+  assert.match(email.text, /Pack: BioGold Frass, 5kg — \$5 USD/);
+  assert.match(email.text, /Quantity: 250 kg/);
+  assert.match(email.text, /Delivery location: Lebanon/);
+  assert.doesNotMatch(email.text, /bsfl-frass|kind:|website:|consent:/);
 });

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { products } from '../content/site';
+import { packLabel, products } from '../content/site';
 const text = (min: number, max: number) => z.string().trim().min(min).max(max);
 export const inquirySchema = z
   .object({
@@ -63,4 +63,31 @@ export function isSameOriginRequest(origin: string | null, requestUrl: string) {
   } catch {
     return false;
   }
+}
+
+export function buildInquiryEmail(data: z.infer<typeof inquirySchema>) {
+  const product = data.kind === 'quote' ? products.find((p) => p.slug === data.product) : undefined;
+  const pack = product?.packs.find((p) => p.id === data.pack);
+  const fields: [string, string][] = [
+    ['Full name', data.name],
+    ['Company / farm', data.company],
+    ['Email', data.email],
+    ['Phone', data.phone],
+  ];
+  if (data.kind === 'quote') {
+    fields.push(
+      ['Product', product?.name || ''],
+      ['Pack', product && pack ? packLabel(product, pack) : ''],
+      ['Quantity', `${data.quantity} ${data.unit}`.trim()],
+      ['Delivery location', data.location],
+    );
+  }
+  fields.push(['Message', data.message]);
+  return {
+    subject: `Elma’s ${data.kind === 'quote' ? 'quotation request' : 'contact inquiry'}${product ? ` — ${product.name}` : ''}`,
+    text: fields
+      .filter(([, value]) => value.trim())
+      .map(([label, value]) => `${label}: ${value}`)
+      .join('\n\n'),
+  };
 }
