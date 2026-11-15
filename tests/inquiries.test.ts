@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   buildInquiryEmail,
+  deliveryMapLink,
   inquirySchema,
   isSameOriginRequest,
   RateLimiter,
@@ -175,4 +176,20 @@ test('quote emails use readable product names and preserve selected packs and qu
   assert.match(email.text, /Quantity: 250 kg/);
   assert.match(email.text, /Delivery location: Lebanon/);
   assert.doesNotMatch(email.text, /bsfl-frass|kind:|website:|consent:/);
+});
+
+test('quote delivery addresses open Google Maps directions and shared pins are preserved', () => {
+  const url = new URL(deliveryMapLink('Farm Road, Zahle, Lebanon'));
+  assert.equal(url.origin, 'https://www.google.com');
+  assert.equal(url.pathname, '/maps/dir/');
+  assert.equal(url.searchParams.get('destination'), 'Farm Road, Zahle, Lebanon');
+  const pin = 'https://maps.app.goo.gl/examplePin';
+  const email = buildInquiryEmail(inquirySchema.parse({ ...valid, location: pin }));
+  assert.ok(email.text.includes(`Google Maps: ${pin}`));
+  assert.equal(deliveryMapLink(pin), pin);
+  assert.equal(deliveryMapLink(''), '');
+  assert.equal(
+    new URL(deliveryMapLink('https://unrelated.example')).origin,
+    'https://www.google.com',
+  );
 });

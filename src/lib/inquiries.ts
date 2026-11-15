@@ -12,7 +12,7 @@ export const inquirySchema = z
     pack: text(0, 60).default(''),
     quantity: text(0, 30).default(''),
     unit: z.enum(['', 'kg', 'tonnes']).default(''),
-    location: text(0, 200).default(''),
+    location: text(0, 2000).default(''),
     message: text(10, 4000),
     consent: z.literal(true),
     website: z.string().max(200).default(''),
@@ -80,6 +80,7 @@ export function buildInquiryEmail(data: z.infer<typeof inquirySchema>) {
       ['Pack', product && pack ? packLabel(product, pack) : ''],
       ['Quantity', `${data.quantity} ${data.unit}`.trim()],
       ['Delivery location', data.location],
+      ['Google Maps', deliveryMapLink(data.location)],
     );
   }
   fields.push(['Message', data.message]);
@@ -90,4 +91,24 @@ export function buildInquiryEmail(data: z.infer<typeof inquirySchema>) {
       .map(([label, value]) => `${label}: ${value}`)
       .join('\n\n'),
   };
+}
+
+export function deliveryMapLink(location: string) {
+  const value = location.trim();
+  if (!value) return '';
+  try {
+    const url = new URL(value);
+    const isMapLink =
+      url.hostname === 'maps.app.goo.gl' ||
+      url.hostname === 'maps.google.com' ||
+      (['google.com', 'www.google.com', 'goo.gl'].includes(url.hostname) &&
+        (url.pathname === '/maps' || url.pathname.startsWith('/maps/')));
+    if (['https:', 'http:'].includes(url.protocol) && isMapLink) return url.href;
+  } catch {
+    // A written address becomes a Google Maps directions destination.
+  }
+  const directions = new URL('https://www.google.com/maps/dir/');
+  directions.searchParams.set('api', '1');
+  directions.searchParams.set('destination', value);
+  return directions.href;
 }

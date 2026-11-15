@@ -69,7 +69,10 @@ export function InquiryForm({
           name={name}
           type={type}
           required={required}
-          maxLength={name === 'email' ? 254 : 200}
+          maxLength={name === 'email' ? 254 : name === 'location' ? 2000 : 200}
+          placeholder={
+            name === 'location' ? 'Enter a delivery address or paste a Google Maps link' : undefined
+          }
           minLength={name === 'name' ? 2 : undefined}
           autoComplete={
             {
@@ -178,7 +181,7 @@ export function InquiryForm({
                 </select>
               </div>
             </div>
-            {field('location', 'Delivery location')}
+            {field('location', 'Delivery address or Google Maps link')}
           </>
         )}
         <div className="field full">
