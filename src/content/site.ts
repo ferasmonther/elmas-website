@@ -29,6 +29,8 @@ export type Product = {
   applications: string[];
   note: string;
   image: ImageKey;
+  seoTitle: string;
+  heading: string;
   seoDescription: string;
   inquiryDetails: string[];
   faq: { question: string; answer: string }[];
@@ -64,8 +66,10 @@ export const products: Product[] = [
     ],
     note: 'Larvae are not a complete feed. Suitability depends on the species, life stage, overall diet and applicable requirements. No universal inclusion rate or performance outcome is implied.',
     image: 'larvae',
+    seoTitle: 'Live BSFL Larvae in Lebanon — Poultry & Fish Feed',
+    heading: 'Live BSFL Larvae in Lebanon',
     seoDescription:
-      'Live Black Soldier Fly larvae from Elma’s in Lebanon for chicken and fish feeding applications. Explore pack options and discuss suitability and specifications.',
+      'Explore live BSFL larvae in Lebanon for poultry and fish feeding. View Elma’s pack options and ask about availability and suitability on WhatsApp.',
     inquiryDetails: [
       'Chicken or fish species, life stage and intended feeding approach',
       'Number of live larvae packs and order frequency',
@@ -108,8 +112,10 @@ export const products: Product[] = [
     ],
     note: 'Composition, treatment, application rates and suitability must be confirmed for your crop and soil. BioGold Frass and TerraRich Vermicompost are different products.',
     image: 'application',
+    seoTitle: 'BioGold BSFL Frass in Lebanon — Organic Soil Input',
+    heading: 'BioGold BSFL Frass in Lebanon',
     seoDescription:
-      'BioGold Frass from Elma’s in Lebanon for agricultural soil management. Explore pack options and request verified composition, treatment details and application guidance.',
+      'BioGold BSFL frass from Elma’s in Lebanon: an organic soil input for farms, nurseries and greenhouses. View pack options and inquire on WhatsApp.',
     inquiryDetails: [
       'Crop, growing environment and soil information if available',
       'Area to be treated and approximate quantity required',
@@ -151,8 +157,10 @@ export const products: Product[] = [
     ],
     note: 'Composition and dosage are not published until verified. Choose application practices based on your soil, crop and professional advice.',
     image: 'vermicompost',
+    seoTitle: 'TerraRich Vermicompost in Lebanon — Soil Amendment',
+    heading: 'TerraRich Vermicompost in Lebanon',
     seoDescription:
-      'Explore TerraRich Vermicompost from Elma’s in Lebanon for nurseries, greenhouses and soil management. Ask about suitability, availability and verified specifications.',
+      'Explore TerraRich Vermicompost in Lebanon for nurseries, greenhouses and soil management. View Elma’s pack option and ask about availability on WhatsApp.',
     inquiryDetails: [
       'Plants or crops, growing media and intended use',
       'Approximate quantity, growing area and preferred supply timing',

@@ -16,14 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
   return product
-    ? seo(
-        product.primary
-          ? 'BSFL Larvae for Chicken & Fish Feed in Lebanon'
-          : `${product.name} in Lebanon`,
-        product.seoDescription,
-        `/products/${slug}`,
-        product.image,
-      )
+    ? seo(product.seoTitle, product.seoDescription, `/products/${slug}`, product.image)
     : {};
 }
 
@@ -93,7 +86,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
             <span aria-current="page">{p.name}</span>
           </nav>
           <div className="eyebrow">{p.category}</div>
-          <h1>{p.name}</h1>
+          <h1>{p.heading}</h1>
           <p className="lead">{p.summary}</p>
           <p>{p.description}</p>
           {!p.primary && <PackOffers product={p} />}
