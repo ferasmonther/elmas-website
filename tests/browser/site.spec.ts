@@ -158,7 +158,10 @@ test('homepage introduces the company and keeps product details on product pages
   await expect(page).toHaveURL('/products');
 });
 
-test('confirmed packs prepare accurate inquiries and preserve selection', async ({ page }) => {
+test('confirmed packs prepare accurate inquiries and preserve selection', async ({
+  page,
+  request,
+}) => {
   for (const [slug, packs] of [
     ['bsfl-protein', [['live-10kg', 10, 10, 'Live BSFL Larvae']]],
     ['vermicompost', [['vermicompost-10kg', 10, 9, 'TerraRich Vermicompost']]],
@@ -171,6 +174,26 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
     ],
   ] as const) {
     await page.goto(`/products/${slug}`);
+    const data = await page.locator('script[type="application/ld+json"]').allTextContents();
+    const product = data
+      .map((text) => JSON.parse(text))
+      .find((item) => item['@type'] === 'Product');
+    expect(product.name).toBe(packs[0][3]);
+    expect(product.brand.name).toBe('Elma’s');
+    const imagePath = {
+      'bsfl-protein': '/assets/photos/larvae.webp',
+      'bsfl-frass': '/assets/packaging/biogold-frass.webp',
+      vermicompost: '/assets/packaging/terrarich-vermicompost.webp',
+    }[slug];
+    expect(product.image).toBe(`https://www.elmasbio.com${imagePath}`);
+    const image = await request.get(imagePath);
+    expect(image.status()).toBe(200);
+    expect(image.headers()['content-type']).toMatch(/^image\/webp\b/);
+    expect((await image.body()).toString('ascii', 8, 12)).toBe('WEBP');
+    if (slug === 'bsfl-protein') {
+      expect(product.offers).toHaveLength(1);
+      expect(product.offers[0]).not.toHaveProperty('availability');
+    }
     const offers = page.locator('.pack-offers .pack-option');
     await expect(offers).toHaveCount(packs.length);
     for (let i = 0; i < packs.length; i++) {
@@ -186,10 +209,7 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
       expect(url.hostname).toBe('wa.me');
       expect(url.pathname).toBe('/96170988141');
       expect(url.searchParams.get('text')).toContain(label);
-      const data = await page.locator('script[type="application/ld+json"]').allTextContents();
-      const product = data
-        .map((text) => JSON.parse(text))
-        .find((item) => item['@type'] === 'Product');
+      expect(product.offers[i].name).toBe(`${name} — ${weight} kg`);
       expect(product.offers[i].price).toBe(price);
       expect(product.offers[i].priceCurrency).toBe('USD');
       await offers.nth(i).getByRole('link', { name: 'Inquire about this pack' }).click();

@@ -29,6 +29,7 @@ export type Product = {
   applications: string[];
   note: string;
   image: ImageKey;
+  structuredDataImage: `/assets/${string}`;
   seoTitle: string;
   heading: string;
   seoDescription: string;
@@ -66,6 +67,7 @@ export const products: Product[] = [
     ],
     note: 'Larvae are not a complete feed. Suitability depends on the species, life stage, overall diet and applicable requirements. No universal inclusion rate or performance outcome is implied.',
     image: 'larvae',
+    structuredDataImage: '/assets/photos/larvae.webp',
     seoTitle: 'Live BSFL Larvae in Lebanon — Poultry & Fish Feed',
     heading: 'Live BSFL Larvae in Lebanon',
     seoDescription:
@@ -112,6 +114,7 @@ export const products: Product[] = [
     ],
     note: 'Composition, treatment, application rates and suitability must be confirmed for your crop and soil. BioGold Frass and TerraRich Vermicompost are different products.',
     image: 'application',
+    structuredDataImage: '/assets/packaging/biogold-frass.webp',
     seoTitle: 'BioGold BSFL Frass in Lebanon — Organic Soil Input',
     heading: 'BioGold BSFL Frass in Lebanon',
     seoDescription:
@@ -157,6 +160,7 @@ export const products: Product[] = [
     ],
     note: 'Composition and dosage are not published until verified. Choose application practices based on your soil, crop and professional advice.',
     image: 'vermicompost',
+    structuredDataImage: '/assets/packaging/terrarich-vermicompost.webp',
     seoTitle: 'TerraRich Vermicompost in Lebanon — Soil Amendment',
     heading: 'TerraRich Vermicompost in Lebanon',
     seoDescription:
