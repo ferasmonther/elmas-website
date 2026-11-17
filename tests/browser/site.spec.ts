@@ -180,11 +180,17 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
       .find((item) => item['@type'] === 'Product');
     expect(product.name).toBe(packs[0][3]);
     expect(product.brand.name).toBe('Elma’s');
+    const imagePath = {
+      'bsfl-protein': '/assets/photos/larvae.webp',
+      'bsfl-frass': '/assets/packaging/biogold-frass.webp',
+      vermicompost: '/assets/packaging/terrarich-vermicompost.webp',
+    }[slug];
+    expect(product.image).toBe(`https://www.elmasbio.com${imagePath}`);
+    const image = await request.get(imagePath);
+    expect(image.status()).toBe(200);
+    expect(image.headers()['content-type']).toMatch(/^image\/webp\b/);
+    expect((await image.body()).toString('ascii', 8, 12)).toBe('WEBP');
     if (slug === 'bsfl-protein') {
-      expect(product.image).toBe('https://www.elmasbio.com/assets/photos/larvae.webp');
-      const image = await request.get(new URL(product.image).pathname);
-      expect(image.status()).toBe(200);
-      expect(image.headers()['content-type']).toMatch(/^image\/webp\b/);
       expect(product.offers).toHaveLength(1);
       expect(product.offers[0]).not.toHaveProperty('availability');
     }
