@@ -142,7 +142,14 @@ test('homepage introduces the company and keeps product details on product pages
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Turning waste');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('into value.');
-  await expect(page.locator('main')).toContainText('Lebanon-based agritech company');
+  await expect(page).toHaveTitle('Elma’s | Lebanese Agritech Company');
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    'content',
+    'Elma’s is a Lebanese agritech company that recovers value from organic materials and supports local agriculture through a circular approach.',
+  );
+  await expect(page.locator('main')).toContainText(
+    'Elma’s is a Lebanese agritech company working to keep organic resources in use and support local agriculture.',
+  );
   await expect(page.locator('main')).toContainText('OUR MISSION & APPROACH');
   await expect(page.locator('main')).not.toContainText(/BSFL|larvae|frass|US\$|\$\d/i);
   await expect(page.locator('.product-card, .pack-option')).toHaveCount(0);

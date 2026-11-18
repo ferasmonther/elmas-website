@@ -2,12 +2,20 @@ import Link from 'next/link';
 import { Media } from '@/components/Media';
 import { seo } from '@/lib/seo';
 
-export const metadata = seo(
-  'Turning Waste Into Value in Lebanon',
-  'Elma’s is a Lebanon-based agritech company working to recover organic resources and support local agriculture through a circular approach.',
+const title = 'Elma’s | Lebanese Agritech Company';
+const homeMetadata = seo(
+  title,
+  'Elma’s is a Lebanese agritech company that recovers value from organic materials and supports local agriculture through a circular approach.',
   '/',
   'renewal',
 );
+
+export const metadata = {
+  ...homeMetadata,
+  title: { absolute: title },
+  openGraph: { ...homeMetadata.openGraph, title },
+  twitter: { ...homeMetadata.twitter, title },
+};
 
 export default function Home() {
   return (
@@ -23,8 +31,8 @@ export default function Home() {
             into <em>value.</em>
           </h1>
           <p>
-            We’re a Lebanon-based agritech company giving organic resources a useful next chapter
-            and supporting local agriculture.
+            Elma’s is a Lebanese agritech company working to keep organic resources in use and
+            support local agriculture.
           </p>
           <div className="actions">
             <Link className="button light" href="/about">
