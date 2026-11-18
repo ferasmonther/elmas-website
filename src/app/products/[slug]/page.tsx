@@ -57,7 +57,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
             '@type': 'Product',
             name: p.primary ? 'Live BSFL Larvae' : p.name,
             description: p.seoDescription,
-            ...(p.primary ? { image: `${origin}/assets/photos/${images[p.image].file}` } : {}),
+            image: `${origin}/assets/photos/${images[p.image].file}`,
             url: `${origin}/products/${p.slug}`,
             brand: { '@type': 'Brand', name: 'Elma’s' },
             ...(p.packs.length

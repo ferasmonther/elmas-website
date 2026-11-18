@@ -159,11 +159,12 @@ test('homepage introduces the company and keeps product details on product pages
 });
 
 test('confirmed packs prepare accurate inquiries and preserve selection', async ({ page }) => {
-  for (const [slug, packs] of [
-    ['bsfl-protein', [['live-10kg', 10, 10, 'Live BSFL Larvae']]],
-    ['vermicompost', [['vermicompost-10kg', 10, 9, 'TerraRich Vermicompost']]],
+  for (const [slug, image, packs] of [
+    ['bsfl-protein', 'larvae.webp', [['live-10kg', 10, 10, 'Live BSFL Larvae']]],
+    ['vermicompost', 'vermicompost.webp', [['vermicompost-10kg', 10, 9, 'TerraRich Vermicompost']]],
     [
       'bsfl-frass',
+      'application.webp',
       [
         ['frass-5kg', 5, 5, 'BioGold Frass'],
         ['frass-10kg', 10, 9, 'BioGold Frass'],
@@ -171,6 +172,11 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
     ],
   ] as const) {
     await page.goto(`/products/${slug}`);
+    const data = await page.locator('script[type="application/ld+json"]').allTextContents();
+    const product = data
+      .map((text) => JSON.parse(text))
+      .find((item) => item['@type'] === 'Product');
+    expect(product.image).toBe(`https://www.elmasbio.com/assets/photos/${image}`);
     const offers = page.locator('.pack-offers .pack-option');
     await expect(offers).toHaveCount(packs.length);
     for (let i = 0; i < packs.length; i++) {
@@ -186,10 +192,6 @@ test('confirmed packs prepare accurate inquiries and preserve selection', async 
       expect(url.hostname).toBe('wa.me');
       expect(url.pathname).toBe('/96170988141');
       expect(url.searchParams.get('text')).toContain(label);
-      const data = await page.locator('script[type="application/ld+json"]').allTextContents();
-      const product = data
-        .map((text) => JSON.parse(text))
-        .find((item) => item['@type'] === 'Product');
       expect(product.offers[i].price).toBe(price);
       expect(product.offers[i].priceCurrency).toBe('USD');
       await offers.nth(i).getByRole('link', { name: 'Inquire about this pack' }).click();
