@@ -199,9 +199,18 @@ export function InquiryForm({
                   id="quantity"
                   name="quantity"
                   type="number"
-                  min="0.001"
+                  min="0"
                   step="any"
                   max="1000000000"
+                  onInput={({ currentTarget }) => {
+                    // Keep native stepping anchored at zero while allowing fractional quantities.
+                    const quantity = currentTarget.valueAsNumber;
+                    currentTarget.setCustomValidity(
+                      quantity >= 0 && quantity < 0.001
+                        ? 'Enter a quantity of at least 0.001.'
+                        : '',
+                    );
+                  }}
                   required
                 />
               </div>

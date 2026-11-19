@@ -52,6 +52,20 @@ for (const width of [320, 390, 768, 1440]) {
     await expect(page).toHaveURL('/products');
   });
 }
+test('quote quantity increments from one and accepts fractional quantities', async ({ page }) => {
+  await page.goto('/request-quote');
+  const quantity = page.getByRole('spinbutton', { name: 'Quantity' });
+  await expect(quantity).toHaveValue('');
+  await quantity.press('ArrowUp');
+  await expect(quantity).toHaveValue('1');
+  await quantity.press('ArrowUp');
+  await expect(quantity).toHaveValue('2');
+  await quantity.fill('0');
+  expect(await quantity.evaluate((input: HTMLInputElement) => input.checkValidity())).toBe(false);
+  await quantity.fill('0.001');
+  expect(await quantity.evaluate((input: HTMLInputElement) => input.checkValidity())).toBe(true);
+});
+
 test('product-specific quote and honest disabled delivery state', async ({ page }) => {
   await page.goto('/products/bsfl-frass');
   await page.getByRole('main').getByRole('link', { name: 'Request a Quote' }).first().click();
