@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <h2>Let’s connect</h2>
               <Link href="/request-quote">Request a Quote →</Link>
               <Link href="/contact">Contact us</Link>
-
+              <a href="https://www.instagram.com/elmasbiolebanon/">Instagram</a>
               <span>Lebanon</span>
             </div>
           </div>
